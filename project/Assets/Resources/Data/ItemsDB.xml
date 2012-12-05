@@ -1,0 +1,86 @@
+<items> 
+
+	<!-- PROVIDER objects-->	
+	
+	<item typeName="apple" groupName="PROVIDER" assets="CafeCollection" sprite="apple_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>
+
+	<item typeName="orange" groupName="PROVIDER" assets="CafeCollection" sprite="orange_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>	
+	
+	<item typeName="fruit_cake" groupName="PROVIDER" assets="CafeCollection" sprite="fruit_cake_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>	
+
+	<item typeName="cake_plate1" groupName="PROVIDER" assets="CafeCollection" sprite="cake01_plate001">
+		<!--<actions>
+			<action name="work">
+				<component type="animation" group="CakePlate1Animation" asset="work"/>
+			</action>
+		</actions>			-->
+	</item>			
+	
+	<item typeName="cake_plate2" groupName="PROVIDER" assets="CafeCollection" sprite="cake02_plate001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>			
+
+	<item typeName="croissant" groupName="PROVIDER" assets="CafeCollection" sprite="croissant_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>				
+	
+	<item typeName="cup_big" groupName="PROVIDER" assets="CafeCollection" sprite="cup_big_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>			
+	
+	<item typeName="cup_small" groupName="PROVIDER" assets="CafeCollection" sprite="cup_small_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>	
+	
+	<item typeName="pipes1" groupName="PROVIDER" assets="CafeCollection" sprite="pipe_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>	
+	
+	<item typeName="pipes2" groupName="PROVIDER" assets="CafeCollection" sprite="pipe_stand001 1">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>		
+	
+	<item typeName="plate" groupName="PROVIDER" assets="CafeGeneralStuff" sprite="counter_bottom_glass01">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>			
+	
+	
+	<!-- INTERACTION objects-->
+	
+	<item typeName="table" groupName="INTERACTION" assets="CafeGeneralStuff" sprite="customer_table01">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>			
+	
+	<item typeName="chair" groupName="INTERACTION" assets="CafeGeneralStuff" sprite="chair01">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>		
+	
+	<item typeName="coffee_machine" groupName="INTERACTION" assets="CafeCollection" sprite="coffee_st_empty001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>		
+	 
+	<item typeName="cake1" groupName="INTERACTION" assets="CafeCollection" sprite="cake01_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>			
+	
+	<item typeName="cake2" groupName="INTERACTION" assets="CafeCollection" sprite="cake02_stand001">
+		<collider_rect x="" y="" w="" h=""/>
+	</item>				
+	
+	<item typeName="blender" groupName="INTERACTION" assets="CafeCollection" sprite="blender_empty001" customLogic="BlenderItem">
+		<actions>
+			<action name="work_apple">
+				<component type="animation" group="BlenderAnimation" asset="blender01_work_apple"/>
+			</action>
+			<action name="work_orange">
+				<component type="animation" group="BlenderAnimation" asset="blender01_work_orange"/>
+			</action>	
+		</actions>				
+	</item>	
+</items>
