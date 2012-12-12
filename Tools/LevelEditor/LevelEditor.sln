@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LevelEditor", "LevelEditor\LevelEditor.csproj", "{64B03530-100B-437C-B606-AEA2B448FF16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LevelData", "LevelData\LevelData.csproj", "{6EFC5AB1-F762-46AC-B212-D1A5B0702B1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64B03530-100B-437C-B606-AEA2B448FF16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B03530-100B-437C-B606-AEA2B448FF16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B03530-100B-437C-B606-AEA2B448FF16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B03530-100B-437C-B606-AEA2B448FF16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EFC5AB1-F762-46AC-B212-D1A5B0702B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EFC5AB1-F762-46AC-B212-D1A5B0702B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EFC5AB1-F762-46AC-B212-D1A5B0702B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EFC5AB1-F762-46AC-B212-D1A5B0702B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
