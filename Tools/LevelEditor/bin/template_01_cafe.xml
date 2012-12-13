@@ -29,10 +29,13 @@
         <carpet Value="0" />
         <curtain Value="0" />
         <plants Value="0" />
-        <tables Value="0" />
+        <furniture Value="0" />
         <pillar Value="0" />
         <statue Value="0" />
       </Interior>
+      <Tables>
+        <tables_amount Value="0" />
+      </Tables>
     </LevelItem>
   </Level>
   
