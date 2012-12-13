@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template>
+
+  <Level Time="0">
+    <LevelItem>
+      <Category1>
+        <Type1 Value="0" />
+        <Type2 Value="3" />
+        <Type3 Value="0" />
+      </Category1>
+      <Category2>
+        <Type1 Value="0" />
+        <Type2 Value="3" />
+        <TypeX Value="1" />
+      </Category2>
+      <Category3>
+        <Type3 Value="0" />
+      </Category3>
+    </LevelItem>
+  </Level>
+  
+  <TaskCategory>
+    <TaskCat1 />
+    <TaskCat2 />
+  </TaskCategory>
+  
+  <TaskType>
+    <TaskType1 />
+    <TaskType2 />
+  </TaskType>
+  
+  <SpawnItem>
+    <CustomerType1 Image="Images\SpawnItem\CustomerType1.png" />
+    <CustomerType2 Image="Images\SpawnItem\CustomerType2.png" />
+    <CustomerType3 Image="Images\SpawnItem\CustomerType3.png" />
+    <CustomerType4 Image="Images\SpawnItem\CustomerType4.png" />
+    <CustomerType5 Image="Images\SpawnItem\CustomerType5.png" />
+    <CustomerType6 Image="Images\SpawnItem\CustomerType6.png" />  
+    <CustomerType7 Image="Images\SpawnItem\CustomerType7.png" />
+  </SpawnItem>
+  
+  <SpawnItemAttachment>
+    <Attach2>
+      <Order11 Image="Images\Attachments\Type2\Order11.png" />
+      <Order12 Image="Images\Attachments\Type2\Order12.png" />
+      <Order13 Image="Images\Attachments\Type2\Order13.png" />
+      <Order14 Image="Images\Attachments\Type2\Order14.png" />
+      <Order15 Image="Images\Attachments\Type2\Order15.png" />
+    </Attach2>
+    
+    <Attach1>
+      <Order1 Image="Images\Attachments\Type1\Order1.png" />
+      <Order2 Image="Images\Attachments\Type1\Order2.png" />
+      <Order3 Image="Images\Attachments\Type1\Order3.png" />
+      <Order4 Image="Images\Attachments\Type1\Order4.png" />
+      <Order5 Image="Images\Attachments\Type1\Order5.png" />  
+    </Attach1>    
+      
+    <Attach3>
+      <Order31 Image="Images\Attachments\Type3\Order31.png" />
+      <Order32 Image="Images\Attachments\Type3\Order32.png" />
+      <Order33 Image="Images\Attachments\Type3\Order33.png" />
+      <Order34 Image="Images\Attachments\Type3\Order34.png" />
+      <Order35 Image="Images\Attachments\Type3\Order35.png" />    
+    </Attach3>
+  </SpawnItemAttachment>
+  
+</Template>
