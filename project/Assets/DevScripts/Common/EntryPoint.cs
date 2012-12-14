@@ -7,7 +7,7 @@ public class EntryPoint : MonoBehaviour
 	{
 		SaveManager.instance.load();
 		
-		Logger.init();
+		Logger.init(LogLevel.LOG_WARNING);
 		
 		Platform.instance.init();
 		
@@ -18,7 +18,7 @@ public class EntryPoint : MonoBehaviour
 	{
 		if (GUI.Button(new Rect(0, 0, 200, 100), "Cafe level"))
 		{
-			Application.LoadLevel("TestLevel");
+			Application.LoadLevel("Location");
 		}
 	}
 }

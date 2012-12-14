@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-// static class?..
+// static class or move to GameplayManager?..
 public class RoundStats
 {
 	public RoundStats()

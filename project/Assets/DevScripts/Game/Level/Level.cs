@@ -2,24 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Xml;
 
-public class LevelTask
-{
-	public virtual bool isComplete() {return false;}
-}
-
-public class ScoresTask : LevelTask
-{
-	int requiredScores;
-	// getType
-}
-
-public class PairTask : LevelTask
-{
-	int requiredPairs;
-	//getType
-}
-
-// MonoBehaviour?..
 public class Level : MonoBehaviour
 {	
 	private static Level _instance;
@@ -38,6 +20,8 @@ public class Level : MonoBehaviour
 	
 	public TextAsset graphAsset;
 	
+	ArrayList _customerQueue = new ArrayList();
+	
 	ArrayList _npcArray = new ArrayList();
 	ArrayList _objectsArray = new ArrayList();
 	
@@ -52,7 +36,7 @@ public class Level : MonoBehaviour
 		}
 	}
 	
-	float _spawnInterval;
+	float _spawnInterval = 2;
 	float _lastSpawnTime;
 	
 	void Awake()
@@ -64,22 +48,21 @@ public class Level : MonoBehaviour
 	
 	// move to courutine?
 	public void process(GameMode mode)
-	{				
-		foreach(NPC n in _npcArray)
+	{	
+		if (!_isComplete)
 		{
-			n.think();
-		}
-		
-		float currentTime = Time.time;
-		if ((currentTime - _lastSpawnTime) > _spawnInterval)
-		{
-			spawnNpc();
-			_lastSpawnTime = currentTime;
-		}
-		
-		if (mode == GameMode.COMPANY && checkTasks())
-		{
-			_isComplete = true;
+			float currentTime = Time.time;
+			if ((currentTime - _lastSpawnTime) > _spawnInterval)
+			{
+				//spawnNpc();
+				_lastSpawnTime = currentTime;
+			}
+			
+			if (mode == GameMode.COMPANY && checkTasks())
+			{
+				_isComplete = true;
+				// popup, finish
+			}
 		}
 	}
 	
@@ -111,6 +94,8 @@ public class Level : MonoBehaviour
 	
 	void spawnNpc()
 	{
-		// NPCFactory
+		// _customerQueue.Add(new Customer);
+		// build npc
+		// addComponent<Customer>
 	}
 }

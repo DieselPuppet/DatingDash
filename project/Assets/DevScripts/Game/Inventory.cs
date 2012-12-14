@@ -3,10 +3,8 @@ using System.Collections;
 
 // add multi-orders
 public class Order
-{
-	// public Order(string[] p, NPC o) {}
-	
-	public Order(string p, NPC o)
+{	
+	public Order(string p, Customer o)
 	{
 		_productID = p;
 		_owner = o;
@@ -21,8 +19,8 @@ public class Order
 		}
 	}
 	
-	private NPC _owner;
-	public NPC owner
+	private Customer _owner;
+	public Customer owner
 	{
 		get 
 		{
@@ -30,7 +28,6 @@ public class Order
 		}
 	}
 }
-
 
 public class Inventory : MonoBehaviour
 {
@@ -55,7 +52,7 @@ public class Inventory : MonoBehaviour
 	
 	void updateHud()
 	{
-		if (_stuffArray.Count == 2)
+		/*if (_stuffArray.Count == 2)
 		{
 			sprite1.gameObject.SetActive(true);
 			sprite2.gameObject.SetActive(true);
@@ -78,24 +75,24 @@ public class Inventory : MonoBehaviour
 		{
 			sprite1.gameObject.SetActive(false);
 			sprite2.gameObject.SetActive(false);			
-		}
+		}*/
 	}
 	//
 	
 	private ArrayList _stuffArray = new ArrayList();
 	private ArrayList _ordersArray = new ArrayList();
 	
-	// tmp value
-	int _capacity = 2;
+	int _capacity;
 	
 	void Awake()
 	{
-		sprite1.gameObject.SetActive(false);
-		sprite2.gameObject.SetActive(false);
-		//_capacity = PlayerProfile.inventoryCapacity;
+		//sprite1.gameObject.SetActive(false);
+		//sprite2.gameObject.SetActive(false);
+		
+		// tmp value
+		_capacity = 2;
 	}
 	
-	// need NPC link param?
 	public void addOrder(Order order)
 	{
 		_ordersArray.Add(order);
@@ -150,6 +147,8 @@ public class Inventory : MonoBehaviour
 	
 	public void removeStuff(string stuffId)
 	{
+		// TODO : check exists orders
+		
 		if (_stuffArray.Contains(stuffId))
 		{
 			_stuffArray.Remove(stuffId);

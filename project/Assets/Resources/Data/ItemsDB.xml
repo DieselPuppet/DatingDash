@@ -1,5 +1,9 @@
 <items> 
 
+<!-- TODO -->
+<!-- add levels for gfx-->
+
+	
 	<!-- PROVIDER objects-->	
 	
 	<item typeName="apple" groupName="PROVIDER" assets="CafeCollection" sprite="apple_stand001">

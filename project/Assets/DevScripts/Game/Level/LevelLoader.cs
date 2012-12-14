@@ -35,7 +35,7 @@ public class LevelLoader : MonoBehaviour
 		
 		if (mode == GameMode.COMPANY)
 		{
-			level.pushTask(new LevelTask());
+			//level.pushTask(new LevelTask());
 		}
 		
 		return level;
