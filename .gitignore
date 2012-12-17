@@ -46,8 +46,14 @@ obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 
-*.meta
-
 project/.DS_Store
 
 project/.DS_Store
+
+*.pidb
+
+*.pidb
+
+*.pidb
+
+*.pidb
