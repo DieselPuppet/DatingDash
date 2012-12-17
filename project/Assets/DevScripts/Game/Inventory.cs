@@ -51,7 +51,6 @@ public class Inventory : MonoBehaviour
 	
 	void Awake()
 	{		
-		// tmp value
 		_capacity = 2;
 	}
 	
@@ -60,7 +59,6 @@ public class Inventory : MonoBehaviour
 		_ordersArray.Add(order);
 	}
 	
-	// TODO: add more params for check ind order (owner e.g.)!!!!
 	public void finishOrder(string orderId)
 	{
 		bool finishSuccess = false;
