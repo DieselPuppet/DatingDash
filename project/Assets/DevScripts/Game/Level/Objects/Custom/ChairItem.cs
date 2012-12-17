@@ -17,12 +17,12 @@ public class ChairItem : LevelItem
 	{		
 		if (table != null)
 		{
-			Customer cust = Level.instance.activeCustomer;
-			if (cust !=null)
-			{
-				cust.moveTo(gameObject.transform.position);
-				cust.setState(CustomerState.ORDER);	
-			}
+			//Customer cust = Level.instance.activeCustomer;
+			//if (cust !=null)
+			//{
+			//	cust.moveTo(gameObject.transform.position, isLeft);
+			//	cust.setState(CustomerState.ORDER);	
+			//}
 			
 			table.onChair(isLeft);
 		}

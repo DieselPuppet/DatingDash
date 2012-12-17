@@ -132,25 +132,21 @@ public class PlayerBehaviour : MonoBehaviour
 			moveTo(nextTarget);
 			_targetsStack.RemoveAt(0);
 		}
-		else 
-		{
-			_sprite.Play("work");
-		}
 	}
 	
 	// check for pause
 	public void setBusy(float time=0)
-	{
+	{		
 		if (time != 0)
 		{
-			_currentState = PlayerState.BUSY;
+			setState(PlayerState.BUSY);
 			Invoke("unbuzy", time);
 		}
 	}
 	
 	void unbuzy()
 	{
-		_currentState = PlayerState.DEFAULT;
+		setState(PlayerState.DEFAULT);
 		
 		if (_targetsStack.Count > 0)
 		{
@@ -177,7 +173,13 @@ public class PlayerBehaviour : MonoBehaviour
 		switch(_currentState)
 		{
 		case PlayerState.DEFAULT:
+			_sprite.Play("stand");
+			break;
+			
 		case PlayerState.BUSY:
+			_sprite.Play("work");
+			break;
+			
 		case PlayerState.MOVING:
 			break;
 			

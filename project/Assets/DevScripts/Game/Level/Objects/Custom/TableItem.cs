@@ -24,18 +24,18 @@ public class TableItem : LevelItem
 	
 	public void onChair(bool left)
 	{
-		if (Level.instance.activeCustomer == null)
-		{
+		//if (Level.instance.activeCustomer == null)
+		//{
 			PlayerBehaviour.instance.moveTo(this);
-		}
-		else 
-		{			
-			int chair = left ? 0 : 1;
-			chairs[chair].isFree = false;
-			
-			Customer cust = Level.instance.activeCustomer;
-			cust.setActive(false);			
-		}
+		//}
+		//else 
+		//{			
+		//	int chair = left ? 0 : 1;
+		//	chairs[chair].isFree = false;
+		//	
+		//	Customer cust = Level.instance.activeCustomer;
+		//	cust.setActive(false);			
+		//}
 	}
 	
 	public override void onAction()

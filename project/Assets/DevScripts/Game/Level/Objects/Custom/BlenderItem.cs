@@ -77,7 +77,12 @@ public class BlenderItem : LevelItem
 				string stuff = Inventory.instance.higherPriority("apple_sources", "orange_sources");
 				Inventory.instance.removeStuff(stuff);
 				
-				string actionName = "work_"+stuff;
+				string actionName;
+				
+				if (stuff == "apple_sources")
+					actionName = "work_apple";
+				else 
+					actionName = "work_orange";
 				
 				doAction(actionName);
 				PlayerBehaviour.instance.setBusy(getAction(actionName).reqTime);

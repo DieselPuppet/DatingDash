@@ -2,6 +2,46 @@ using UnityEngine;
 using System.Collections;
 using System.Xml;
 
+[System.Serializable]
+public class SpawnPoint
+{
+	public Transform point;
+	
+	[System.NonSerialized] 
+	public bool isFree = true;
+}
+
+[System.Serializable]
+public class SpawnArea
+{
+	public SpawnPoint[] spawnPoints;
+	
+	public bool freePointExist()
+	{
+		foreach (SpawnPoint point in spawnPoints)
+		{
+			if (point.isFree)
+				return true;
+		}
+		
+		return false;
+	}
+	
+	public void placeCustomer(GameObject customer)
+	{
+		foreach(SpawnPoint point in spawnPoints)
+		{
+			if (point.isFree)
+			{
+				customer.transform.position = point.point.position;
+				customer.GetComponent<Customer>().placement = point;
+				point.isFree = false;
+				break;
+			}
+		}
+	}
+}
+
 public class Level : MonoBehaviour
 {	
 	private static Level _instance;
@@ -20,28 +60,18 @@ public class Level : MonoBehaviour
 	
 	public TextAsset graphAsset;
 	
-	public Transform spawnPos;
+	public SpawnArea spawnArea;
+	
+	ArrayList seatPositions = new ArrayList();
 	
 	ArrayList _customerQueue = new ArrayList();
 	
 	ArrayList _customerArray = new ArrayList();
+	ArrayList _customersDeleteQueue = new ArrayList();
+	
 	ArrayList _objectsArray = new ArrayList();
 	
 	ArrayList _tasks = new ArrayList();
-	
-	public Customer activeCustomer
-	{
-		get 
-		{
-			foreach (Customer cust in _customerArray)
-			{
-				if (cust.isActive)
-					return cust;
-			}
-			
-			return null;
-		}
-	}
 	
 	bool _isComplete = false;
 	public bool isComplete
@@ -59,6 +89,12 @@ public class Level : MonoBehaviour
 	{		
 		PathGraph.instance.buildGraph(graphAsset);
 		
+		// TODO : remove! Place this in level parsing
+		foreach (ChairItem chair in gameObject.GetComponentsInChildren<ChairItem>())
+		{
+			seatPositions.Add(chair);
+		}
+		
 		_isComplete = false;
 	}
 	
@@ -69,7 +105,17 @@ public class Level : MonoBehaviour
 		{
 			foreach(Customer cust in _customerArray)
 			{
-				cust.think();
+				if (cust.isActive)
+					cust.think();
+			}
+			
+			foreach(Customer c in _customersDeleteQueue)
+			{
+				if (_customerArray.Contains(c))
+				{
+					Destroy(c.gameObject);
+					_customerArray.Remove(c);
+				}
 			}
 			
 			float currentTime = Time.time;
@@ -82,9 +128,13 @@ public class Level : MonoBehaviour
 			if (mode == GameMode.COMPANY && checkTasks())
 			{
 				_isComplete = true;
-				// popup, finish
 			}
 		}
+	}
+	
+	public void removeCustomer(Customer cust)
+	{
+		_customersDeleteQueue.Add(cust);
 	}
 	
 	public void pushLevelObject(LevelItem obj)
@@ -113,19 +163,45 @@ public class Level : MonoBehaviour
 		return false;
 	}
 	
+	public ChairItem getNearestChair(Vector3 pos)
+	{		
+		foreach (ChairItem chair in seatPositions)
+		{			
+			if (pos.x > chair.gameObject.transform.position.x-chair.gameObject.collider.bounds.size.x/2 &&
+				pos.x < chair.gameObject.transform.position.x+chair.gameObject.collider.bounds.size.x/2 &&
+				pos.y > chair.gameObject.transform.position.y-chair.gameObject.collider.bounds.size.y/2 &&
+				pos.y < chair.gameObject.transform.position.y+chair.gameObject.collider.bounds.size.y/2)
+			{
+				return chair;
+			}
+		}
+		
+		return null;
+	}
+	
 	CustomerDesc testDesc;
 	
 	void spawnNpc()
 	{
 		GameObject customerGO = new GameObject();
-		customerGO.transform.position = spawnPos.position;
 		
 		testDesc = new CustomerDesc();
 		
 		Customer customer = customerGO.AddComponent<Customer>();
-		customer.configure(testDesc);
 		
-		_customerArray.Add(customer);
+		if (spawnArea.freePointExist())
+		{
+			spawnArea.placeCustomer(customerGO);
+			
+			_customerArray.Add(customer);
+		
+			customer.configure(testDesc);			
+		}
+		else 
+		{
+			customerGO.SetActive(false);
+			_customerQueue.Add(customer);
+		}
 	}
 	
 	void OnGUI()
