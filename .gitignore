@@ -14,7 +14,6 @@
  Library/guidmapper
  Temp/*
  Build/*
-*.meta
  *.userprefs 
  *.csproj
  *.pidb
@@ -46,3 +45,5 @@ DevExpress*.resources.dll
 obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
+
+*.meta
