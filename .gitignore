@@ -67,3 +67,7 @@ project/Library/assetDatabase3
 *.userprefs
 
 project/Library/assetDatabase3
+
+*.userprefs
+
+project/project.userprefs
