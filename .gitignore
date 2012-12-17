@@ -47,3 +47,13 @@ obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 
+
+project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+
+project/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll.mdb
+
+project/Library/ScriptAssemblies/Assembly-CSharp.dll
+
+project/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+
+project/project.userprefs
