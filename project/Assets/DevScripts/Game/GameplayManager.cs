@@ -82,7 +82,7 @@ public class GameplayManager : MonoBehaviour
 	}
 	
 	void Update()
-	{
+	{		
 		if (_isStarted && !_isPaused)
 		{
 			_currentLevel.process(_currentGameMode);

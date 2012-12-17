@@ -20,8 +20,6 @@ public class HardwareConfig
 	{
 		
 	}
-	
-	
 }
 
 public class Platform : MonoBehaviour 
