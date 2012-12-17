@@ -45,50 +45,13 @@ public class Inventory : MonoBehaviour
 		}
 	}		
 	
-	// tmp (now for inventory)
-	public tk2dSpriteCollectionData spriteCollection;	
-	public tk2dAnimatedSprite sprite1;
-	public tk2dAnimatedSprite sprite2;
-	
-	void updateHud()
-	{
-		/*if (_stuffArray.Count == 2)
-		{
-			sprite1.gameObject.SetActive(true);
-			sprite2.gameObject.SetActive(true);
-			
-			ItemDesc desc = ItemsCollection.instance.getItemDesc((string)_stuffArray[0]);
-			ContentManager.instance.configureObject(sprite1, desc.atlasName, desc.spriteName);
-			
-			desc = ItemsCollection.instance.getItemDesc((string)_stuffArray[1]);
-			ContentManager.instance.configureObject(sprite2, desc.atlasName, desc.spriteName);			
-		}
-		else if (_stuffArray.Count == 1)
-		{
-			ItemDesc desc = ItemsCollection.instance.getItemDesc((string)_stuffArray[0]);
-			ContentManager.instance.configureObject(sprite1, desc.atlasName, desc.spriteName);		
-			
-			sprite1.gameObject.SetActive(true);
-			sprite2.gameObject.SetActive(false);
-		}
-		else 
-		{
-			sprite1.gameObject.SetActive(false);
-			sprite2.gameObject.SetActive(false);			
-		}*/
-	}
-	//
-	
 	private ArrayList _stuffArray = new ArrayList();
 	private ArrayList _ordersArray = new ArrayList();
 	
 	int _capacity;
 	
 	void Awake()
-	{
-		//sprite1.gameObject.SetActive(false);
-		//sprite2.gameObject.SetActive(false);
-		
+	{		
 		// tmp value
 		_capacity = 2;
 	}
@@ -139,7 +102,6 @@ public class Inventory : MonoBehaviour
 		if (_stuffArray.Count < _capacity)
 		{
 			_stuffArray.Add(stuffId);
-			updateHud();
 		}
 		else 
 			Logger.message(LogLevel.LOG_WARNING, "Stuff array is already full!");
@@ -152,7 +114,6 @@ public class Inventory : MonoBehaviour
 		if (_stuffArray.Contains(stuffId))
 		{
 			_stuffArray.Remove(stuffId);
-			updateHud();
 		}
 		else 
 			Logger.message(LogLevel.LOG_ERROR, "StuffArray do not contains "+stuffId);
@@ -161,7 +122,6 @@ public class Inventory : MonoBehaviour
 	public void removeAllStuff()
 	{
 		_stuffArray.Clear();
-		updateHud();
 	}
 	
 	public bool canAddStuff()
