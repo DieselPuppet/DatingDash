@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-// add multi-orders
 public class Order
 {	
 	public Order(string p, Customer o)
