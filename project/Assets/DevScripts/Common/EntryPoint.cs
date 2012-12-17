@@ -16,7 +16,6 @@ public class EntryPoint : MonoBehaviour
 	
 	void OnGUI()
 	{
-		
 		if (GUI.Button(new Rect(0, 0, 200, 100), "Cafe level"))
 		{
 			Application.LoadLevel("Location");
