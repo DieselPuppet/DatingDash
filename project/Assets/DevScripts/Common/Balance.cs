@@ -15,4 +15,18 @@ public enum OrderItem
 
 public class Balance : MonoBehaviour 
 {
+	public static Balance instance;
+	
+	void Awake()
+	{
+		instance = this;
+	}
+	
+	public CustomerDesc[] customers; 
+	
+	// CustomersFactory
+	public CustomerDesc getRandomDesc()
+	{
+		return customers[Random.Range(0, customers.Length)];
+	}
 }

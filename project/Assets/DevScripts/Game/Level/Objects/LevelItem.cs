@@ -10,9 +10,7 @@ public enum BehaviourType
 }
 
 public class LevelItem : MonoBehaviour
-{
-	public bool loadFromDB = true;
-	
+{	
 	public string objectType = "##";
 	public string pointName;
 	
@@ -64,27 +62,23 @@ public class LevelItem : MonoBehaviour
 	
 	void configureFromDB()
 	{		
-		if (loadFromDB)
+		_cachedDesc = ItemsCollection.instance.getItemDesc(objectType);
+	
+		if (gameObject.GetComponent<tk2dAnimatedSprite>() == null && _cachedDesc != null)
 		{
-			_cachedDesc = ItemsCollection.instance.getItemDesc(objectType);
-		
-			if (gameObject.GetComponent<tk2dAnimatedSprite>() == null && _cachedDesc != null)
-			{
-				_sprite = gameObject.AddComponent<tk2dAnimatedSprite>();
-		
-				if (_cachedDesc.groupName == "PROVIDER")
-					_behaviour = BehaviourType.PROVIDER;
-				else if (_cachedDesc.groupName == "INTERACTION")
-					_behaviour = BehaviourType.INTERACTION;
-		
-				ContentManager.instance.configureObject(_sprite, _cachedDesc.atlasName, _cachedDesc.spriteName);
-			}
-			else
-			{
-				_sprite = gameObject.GetComponent<tk2dAnimatedSprite>();
-			}			
+			_sprite = gameObject.AddComponent<tk2dAnimatedSprite>();
+	
+			if (_cachedDesc.groupName == "PROVIDER")
+				_behaviour = BehaviourType.PROVIDER;
+			else if (_cachedDesc.groupName == "INTERACTION")
+				_behaviour = BehaviourType.INTERACTION;
+	
+			ContentManager.instance.configureObject(_sprite, _cachedDesc.atlasName, _cachedDesc.spriteName);
 		}
-
+		else
+		{
+			_sprite = gameObject.GetComponent<tk2dAnimatedSprite>();
+		}			
 		
 		Vector3 position = gameObject.transform.localPosition;
 		position.z = (((position.y-_sprite.GetBounds().size.y/2)*0.01f))+.01f;
@@ -135,7 +129,6 @@ public class LevelItem : MonoBehaviour
 
 		return _actions[name];
 	}
-	
 	
 	protected virtual void onTouch()
 	{

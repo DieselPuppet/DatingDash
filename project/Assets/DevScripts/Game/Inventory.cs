@@ -130,4 +130,17 @@ public class Inventory : MonoBehaviour
 	{
 		return _stuffArray.Contains(stuffId);
 	}	
+	
+	void OnGUI()
+	{
+		if (GUI.Button(new Rect(0, 70, 100, 50), "Dump orders"))
+		{
+			Debug.Log("Dump orders : \n");
+			
+			foreach (Order order in _ordersArray)
+			{
+				Debug.Log(order.productID);
+			}
+		}
+	}
 }

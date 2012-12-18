@@ -22,34 +22,40 @@ public class Interest
 	
 	public int compare(Interest other)
 	{
-		int equalsCount =0;
-		return equalsCount;
+		int equalsLevel =0;
+		return equalsLevel;
 	}
 }
 
-// rename..
+[System.Serializable]
 public class CustomerDesc
 {
+	public string name;
+	
 	public Action[] action;
 	public Interest interests;
 	
-	public int moodPercent = 100;
-	public int moodDownSpeed = 5;
+	public string[] orders;
+	
+	public int moodPercent;
+	public int moodDownSpeed;
 	
 	// for launch rand animation in WaitingMode
 	public int randAnimRangeMin;
 	public int randAnimRangeMax;	
 	
-	public int orderTime = 5;
-	public int meatTime = 5;
+	public int orderTime;
+	public int meatTime;
 	
-	public string spriteGroup = "Customers/Customer1";
-	public string spriteName = "stand_hello001";
+	public string spriteGroup;
+	public string spriteName;
 }
 
 // set LevelItem as base class
 public class Customer : MonoBehaviour 
 {
+	CustomerDesc _cachedDesc;
+	
 	ArrayList _orders = new ArrayList();
 	
 	int moodPercent;
@@ -64,6 +70,9 @@ public class Customer : MonoBehaviour
 	bool seatLeft;
 	
 	public SpawnPoint placement;
+	// TODO
+	//public setPlacement
+	
 	ChairItem seatPosition = null;
 	
 	private bool _isActive = false;
@@ -80,7 +89,7 @@ public class Customer : MonoBehaviour
 	private tk2dAnimatedSprite _sprite;
 	private tk2dAnimatedSprite _cloudSprite;
 	
-	Order[] orders;	
+	string[] orders;	
 
 	private Interest _interests;
 	public Interest interests
@@ -128,6 +137,12 @@ public class Customer : MonoBehaviour
 			
 		case CustomerState.ORDER:
 			_sprite.Play("sit_happy");
+			
+			foreach(string order in orders)
+			{
+				Inventory.instance.addOrder(new Order(order, this));
+			}
+			
 			moodPercent = 100;
 			seatTime = Time.time;
 			break;
@@ -163,6 +178,8 @@ public class Customer : MonoBehaviour
 		
 		orderTime = desc.orderTime;
 		meatTime = desc.meatTime;
+		
+		orders = desc.orders;
 		
 		_sprite = gameObject.AddComponent<tk2dAnimatedSprite>();
 		ContentManager.instance.configureObject(_sprite, desc.spriteGroup, desc.spriteName);

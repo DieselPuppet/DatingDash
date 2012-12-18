@@ -9,10 +9,22 @@ namespace RefactorDraft
 		PRODUCTION
 	}
 	
-	public class LevelObject
+	public class SpriteProxy
 	{
-		string name;
-		Vector2 pos;
+	}
+	
+	public class LevelObject : MonoBehaviour
+	{
+		private Vector2 _pos;
+		public Vector2 pos 
+		{
+			get 
+			{
+				return _pos;
+			}
+		}
+		
+		private SpriteProxy _sprite;
 	}
 	
 	public class LevelManager

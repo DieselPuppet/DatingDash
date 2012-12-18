@@ -33,6 +33,7 @@ public class SpawnArea
 		{
 			if (point.isFree)
 			{
+				// TODO : change to Customer.setPlacement()
 				customer.transform.position = point.point.position;
 				customer.GetComponent<Customer>().placement = point;
 				point.isFree = false;
@@ -179,14 +180,10 @@ public class Level : MonoBehaviour
 		return null;
 	}
 	
-	CustomerDesc testDesc;
-	
 	void spawnNpc()
 	{
 		GameObject customerGO = new GameObject();
-		
-		testDesc = new CustomerDesc();
-		
+				
 		Customer customer = customerGO.AddComponent<Customer>();
 		
 		if (spawnArea.freePointExist())
@@ -195,7 +192,7 @@ public class Level : MonoBehaviour
 			
 			_customerArray.Add(customer);
 		
-			customer.configure(testDesc);			
+			customer.configure(Balance.instance.getRandomDesc());			
 		}
 		else 
 		{

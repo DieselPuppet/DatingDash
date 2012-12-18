@@ -36,6 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
 		}
 	}
 	
+	// navigation stuff
 	PathNavigator _navigator;
 	Dictionary<MoveDirection, string> _animations = new Dictionary<MoveDirection, string>();
 	
