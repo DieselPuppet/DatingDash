@@ -56,8 +56,6 @@ public class Customer : MonoBehaviour
 {
 	CustomerDesc _cachedDesc;
 	
-	ArrayList _orders = new ArrayList();
-	
 	int moodPercent;
 	int moodDownSpeed;
 	
@@ -89,7 +87,14 @@ public class Customer : MonoBehaviour
 	private tk2dAnimatedSprite _sprite;
 	private tk2dAnimatedSprite _cloudSprite;
 	
-	string[] orders;	
+	private ArrayList _orders = new ArrayList();	
+	public ArrayList orders
+	{
+		get 
+		{
+			return _orders;
+		}
+	}
 
 	private Interest _interests;
 	public Interest interests
@@ -138,7 +143,9 @@ public class Customer : MonoBehaviour
 		case CustomerState.ORDER:
 			_sprite.Play("sit_happy");
 			
-			foreach(string order in orders)
+			collider.enabled = false;
+			
+			foreach(string order in _orders)
 			{
 				Inventory.instance.addOrder(new Order(order, this));
 			}
@@ -170,6 +177,8 @@ public class Customer : MonoBehaviour
 	
 	public void configure(CustomerDesc desc)
 	{		
+		_cachedDesc = desc;
+		
 		moodPercent = desc.moodPercent;
 		moodDownSpeed = desc.moodDownSpeed;
 		
@@ -179,7 +188,10 @@ public class Customer : MonoBehaviour
 		orderTime = desc.orderTime;
 		meatTime = desc.meatTime;
 		
-		orders = desc.orders;
+		foreach(string order in desc.orders)
+		{
+			_orders.Add(order);
+		}
 		
 		_sprite = gameObject.AddComponent<tk2dAnimatedSprite>();
 		ContentManager.instance.configureObject(_sprite, desc.spriteGroup, desc.spriteName);
@@ -205,6 +217,15 @@ public class Customer : MonoBehaviour
 	{		
 		if (_currentState == CustomerState.WAITING || _currentState == CustomerState.STAND_ANGRY)
 			_isTouched = true;
+		else if (_currentState == CustomerState.WAIT_FOR_ORDER)
+		{
+			Debug.Log("Customers order :");
+			
+			foreach(string order in _orders)
+			{
+				Debug.Log(order);	
+			}
+		}
 	}		
 	
 	float lastMoodChange;

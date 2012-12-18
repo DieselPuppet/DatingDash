@@ -39,7 +39,6 @@ public class PlayerProfile
 {
 	public PlayerProfile() 
 	{
-		
 	}
 	
 	private int _scores;

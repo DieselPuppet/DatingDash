@@ -60,14 +60,11 @@ public class Inventory : MonoBehaviour
 	}
 	
 	public void finishOrder(string orderId)
-	{
-		bool finishSuccess = false;
-		
+	{		
 		foreach (Order order in _ordersArray)
 		{
 			if (order.productID == orderId)
 			{
-				finishSuccess = true;
 				_ordersArray.Remove(order);	
 			}
 		}	
@@ -105,9 +102,7 @@ public class Inventory : MonoBehaviour
 	}
 	
 	public void removeStuff(string stuffId)
-	{
-		// TODO : check exists orders
-		
+	{		
 		if (_stuffArray.Contains(stuffId))
 		{
 			_stuffArray.Remove(stuffId);
@@ -130,17 +125,4 @@ public class Inventory : MonoBehaviour
 	{
 		return _stuffArray.Contains(stuffId);
 	}	
-	
-	void OnGUI()
-	{
-		if (GUI.Button(new Rect(0, 70, 100, 50), "Dump orders"))
-		{
-			Debug.Log("Dump orders : \n");
-			
-			foreach (Order order in _ordersArray)
-			{
-				Debug.Log(order.productID);
-			}
-		}
-	}
 }

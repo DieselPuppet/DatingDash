@@ -33,7 +33,6 @@ public class SpawnArea
 		{
 			if (point.isFree)
 			{
-				// TODO : change to Customer.setPlacement()
 				customer.transform.position = point.point.position;
 				customer.GetComponent<Customer>().placement = point;
 				point.isFree = false;
