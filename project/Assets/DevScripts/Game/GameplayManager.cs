@@ -75,7 +75,6 @@ public class GameplayManager : MonoBehaviour
 		}
 		else 
 		{
-			
 		}
 		
 		Logger.message(LogLevel.LOG_INFO, "GameplayManager.fihishGame().");

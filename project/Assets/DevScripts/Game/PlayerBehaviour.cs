@@ -111,17 +111,6 @@ public class PlayerBehaviour : MonoBehaviour
 		}
 	}
 	
-	/*void OnGUI()
-	{
-		if (GUI.Button(new Rect(0, 0, 100, 50), "Stack"))
-		{
-			foreach(LevelItem item in _targetsStack)
-			{
-				Debug.Log(item.pointName);
-			}
-		}
-	}*/
-	
 	public void onRouteFinish()
 	{	
 		_activeTarget.onAction();

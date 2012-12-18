@@ -61,8 +61,6 @@ public class ContentManager : MonoBehaviour
 		_spriteCollections.Add(resGroup, resourcesGroup.GetComponent<tk2dSpriteCollection>());
 	}
 	
-	
-	
 	public TextAsset getTextAsset(string filename)
 	{
 		return new UnityEngine.TextAsset();

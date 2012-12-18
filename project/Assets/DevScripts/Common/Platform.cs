@@ -16,10 +16,7 @@ public enum VideoMode
 
 public class HardwareConfig
 {
-	public HardwareConfig()
-	{
-		
-	}
+	public HardwareConfig() {}
 }
 
 public class Platform : MonoBehaviour 

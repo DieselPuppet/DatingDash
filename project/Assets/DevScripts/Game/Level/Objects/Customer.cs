@@ -180,10 +180,7 @@ public class Customer : MonoBehaviour
 		box.size = new Vector3(_sprite.GetBounds().size.x, _sprite.GetBounds().size.y, 1);		
 		
 		ContentManager.instance.precacheAnimation(_sprite, "Customer1Animation");
-		
-		_orders.Add("orange");
-		_orders.Add("fruit_cake");
-		
+				
 		setState(CustomerState.WAITING);
 	}
 	
