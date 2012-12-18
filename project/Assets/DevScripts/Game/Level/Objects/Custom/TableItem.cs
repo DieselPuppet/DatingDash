@@ -23,40 +23,52 @@ public class TableItem : LevelItem
 	{
 		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 		
-		if (!chairs[0].isFree)
-		{
-			if (chairs[0].customer != null && chairs[0].customer.currentState == CustomerState.WAIT_FOR_ORDER)
-			{
-				// Check in inventory or right here?..	
-				
-				foreach(string order in chairs[0].customer.orders)			
-				{
-					if (Inventory.instance.hasStuff(order))
-					{
-						// ?
-						Inventory.instance.finishOrder(order);
-						chairs[0].customer.orders.Remove(order);
-					}					
-				}
+		if (chairs[0].customer != null && 
+			(chairs[0].customer.currentState == CustomerState.WAIT_FOR_ORDER || chairs[0].customer.currentState == CustomerState.SIT_ANGRY))
+		{			
+			foreach(Order order in chairs[0].customer.orders)			
+			{		
+				if (Inventory.instance.canCompleteOrder(order.productID))
+				{	
+					order.complete();
+					Inventory.instance.removeStuff(order.productID);
+				}		
 			}
+						
+			bool orderSuccess = true;
+			
+			foreach(Order order in chairs[0].customer.orders)	
+			{
+				if (!order.isComplete)
+					orderSuccess = false;
+			}
+			
+			if (orderSuccess)
+				chairs[0].customer.setState(CustomerState.EAT);
 		}
-		
-		if (!chairs[1].isFree)
-		{
-			if (chairs[1].customer != null && chairs[1].customer.currentState == CustomerState.WAIT_FOR_ORDER)
-			{
-				// Check in inventory or right here?..
-				
-				foreach(string order in chairs[1].customer.orders)			
-				{
-					if (Inventory.instance.hasStuff(order))
-					{
-						// ?
-						Inventory.instance.finishOrder(order);
-						chairs[1].customer.orders.Remove(order);
-					}					
-				}				
+	
+		if (chairs[1].customer != null && 
+			(chairs[1].customer.currentState == CustomerState.WAIT_FOR_ORDER || chairs[1].customer.currentState == CustomerState.SIT_ANGRY))
+		{			
+			foreach(Order order in chairs[1].customer.orders)			
+			{				
+				if (Inventory.instance.canCompleteOrder(order.productID))
+				{	
+					order.complete();
+					Inventory.instance.removeStuff(order.productID);
+				}					
 			}
+						
+			bool orderSuccess = true;
+			
+			foreach(Order order in chairs[1].customer.orders)	
+			{
+				if (!order.isComplete)
+					orderSuccess = false;
+			}
+			
+			if (orderSuccess)
+				chairs[1].customer.setState(CustomerState.EAT);				
 		}
 	}
 	

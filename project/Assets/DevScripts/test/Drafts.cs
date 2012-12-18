@@ -68,6 +68,7 @@ namespace RefactorDraft
 			StartCoroutine(simulate());
 		}
 		
+		// move to Level class
 		IEnumerator simulate()
 		{
 			// while (isActive) {}

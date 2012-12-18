@@ -19,5 +19,7 @@ public class Config : MonoBehaviour
 	
 	public bool isDevelopmentBuild;
 	
+	// replace TextAsset's to path
 	public TextAsset itemsDB;
+	public TextAsset customersDB;
 }

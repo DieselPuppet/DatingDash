@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
+// TODO : rewrite
 public class Order
 {	
 	public Order(string p, Customer o)
 	{
 		_productID = p;
 		_owner = o;
+		
+		_isComplete = false;
 	}
 	
 	private string _productID;
@@ -25,6 +28,20 @@ public class Order
 		{
 			return _owner;
 		}
+	}
+	
+	private bool _isComplete;
+	public bool isComplete
+	{
+		get 
+		{
+			return _isComplete;
+		}
+	}
+	
+	public void complete()
+	{
+		_isComplete = true;
 	}
 }
 
@@ -51,7 +68,7 @@ public class Inventory : MonoBehaviour
 	
 	void Awake()
 	{		
-		_capacity = 2;
+		_capacity = 3;
 	}
 	
 	public void addOrder(Order order)
@@ -59,7 +76,7 @@ public class Inventory : MonoBehaviour
 		_ordersArray.Add(order);
 	}
 	
-	public void finishOrder(string orderId)
+	/*public void finishOrder(string orderId)
 	{		
 		foreach (Order order in _ordersArray)
 		{
@@ -68,17 +85,25 @@ public class Inventory : MonoBehaviour
 				_ordersArray.Remove(order);	
 			}
 		}	
-	}
+	}*/
 	
-	public bool hasOrder(string orderId)
+	public bool canCompleteOrder(string order)
 	{
-		foreach (Order order in _ordersArray)
-		{
-			if (order.productID == orderId)
-				return true;
+		if (order.Contains("+"))
+		{	
+			bool canComplete = true;
+			
+			string[] orderParts = order.Split('+');
+			foreach (string part in orderParts)
+			{
+				if (!_stuffArray.Contains(part))
+					canComplete = false;
+			}
+			
+			return canComplete;
 		}
 		
-		return false;
+		return _stuffArray.Contains(order);
 	}
 	
 	public string higherPriority(string order1, string order2)
@@ -95,6 +120,7 @@ public class Inventory : MonoBehaviour
 	{		
 		if (_stuffArray.Count < _capacity)
 		{
+			Debug.Log(stuffId);
 			_stuffArray.Add(stuffId);
 		}
 		else 

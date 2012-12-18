@@ -16,14 +16,7 @@ public class ChairItem : LevelItem
 	protected override void onTouch()
 	{		
 		if (table != null)
-		{
-			//Customer cust = Level.instance.activeCustomer;
-			//if (cust !=null)
-			//{
-			//	cust.moveTo(gameObject.transform.position, isLeft);
-			//	cust.setState(CustomerState.ORDER);	
-			//}
-			
+		{		
 			table.onChair(isLeft);
 		}
 		else 

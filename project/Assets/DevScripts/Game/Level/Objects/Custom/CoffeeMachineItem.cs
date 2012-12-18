@@ -37,9 +37,9 @@ public class CoffeeMachineItem : LevelItem
 	{
 		if (_state == CoffeeMachineState.DEFAULT)
 		{
-			if (Inventory.instance.hasStuff("cup_small_sources") && Inventory.instance.hasStuff("cup_big_sources"))
+			if (Inventory.instance.hasStuff("cup_small") && Inventory.instance.hasStuff("cup_big"))
 			{
-				string stuff = Inventory.instance.higherPriority("cup_small_sources", "cup_big_sources");
+				string stuff = Inventory.instance.higherPriority("cup_small", "cup_big");
 				Inventory.instance.removeStuff(stuff);
 				string actionName = "work_"+stuff;
 				
@@ -48,7 +48,7 @@ public class CoffeeMachineItem : LevelItem
 				
 				setState(CoffeeMachineState.WORK_NORMAL);
 			}
-			else if (Inventory.instance.hasStuff("cup_small_sources"))
+			else if (Inventory.instance.hasStuff("cup_small"))
 			{
 				string actionName = "work_cup_small";
 				Inventory.instance.removeStuff("cup_small");
@@ -58,10 +58,10 @@ public class CoffeeMachineItem : LevelItem
 				
 				setState(CoffeeMachineState.WORK_NORMAL);			
 			}
-			else if (Inventory.instance.hasStuff("cup_big_sources"))
+			else if (Inventory.instance.hasStuff("cup_big"))
 			{
-				string actionName = "work_cup_big";
-				Inventory.instance.removeStuff("cup_big_sources");
+				string actionName = "work_cup";
+				Inventory.instance.removeStuff("cup_big");
 				
 				doAction(actionName);
 				PlayerBehaviour.instance.setBusy(getAction(actionName).reqTime);

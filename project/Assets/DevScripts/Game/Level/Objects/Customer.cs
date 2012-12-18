@@ -8,7 +8,8 @@ public enum CustomerState
 	WAIT_FOR_ORDER,
 	BREAK,
 	SIT_ANGRY,
-	STAND_ANGRY
+	STAND_ANGRY,
+	EAT
 }
 
 public class Interest
@@ -25,30 +26,6 @@ public class Interest
 		int equalsLevel =0;
 		return equalsLevel;
 	}
-}
-
-[System.Serializable]
-public class CustomerDesc
-{
-	public string name;
-	
-	public Action[] action;
-	public Interest interests;
-	
-	public string[] orders;
-	
-	public int moodPercent;
-	public int moodDownSpeed;
-	
-	// for launch rand animation in WaitingMode
-	public int randAnimRangeMin;
-	public int randAnimRangeMax;	
-	
-	public int orderTime;
-	public int meatTime;
-	
-	public string spriteGroup;
-	public string spriteName;
 }
 
 // set LevelItem as base class
@@ -117,12 +94,10 @@ public class Customer : MonoBehaviour
 	public void setState(CustomerState state)
 	{
 		Logger.message(LogLevel.LOG_INFO, "Customer state set to "+state.ToString());
-	
-		_currentState = state;
+
+		Debug.Log("SetState - "+state);
 		
-		Debug.Log("SetState - "+_currentState);
-		
-		switch(_currentState)
+		switch(state)
 		{
 		case CustomerState.WAITING:
 			
@@ -136,6 +111,9 @@ public class Customer : MonoBehaviour
 			if (seatPosition)
 				seatPosition.isFree = true;
 			
+			if (_currentState == CustomerState.STAND_ANGRY)
+				placement.isFree = true;
+			
 			_isActive = false;
 			Level.instance.removeCustomer(this);
 			break;
@@ -143,11 +121,12 @@ public class Customer : MonoBehaviour
 		case CustomerState.ORDER:
 			_sprite.Play("sit_happy");
 			
+			placement.isFree = true;
 			collider.enabled = false;
 			
-			foreach(string order in _orders)
+			foreach(Order order in _orders)
 			{
-				Inventory.instance.addOrder(new Order(order, this));
+				Inventory.instance.addOrder(order);
 			}
 			
 			moodPercent = 100;
@@ -156,6 +135,7 @@ public class Customer : MonoBehaviour
 			
 		case CustomerState.WAIT_FOR_ORDER:
 			lastOrderTime = Time.time;
+			
 			_cloudSprite.gameObject.SetActive(true);
 			break;
 			
@@ -168,11 +148,18 @@ public class Customer : MonoBehaviour
 			_sprite.Play("stand_angry");
 			break;
 			
+		case CustomerState.EAT:
+			_cloudSprite.gameObject.SetActive(false);
+			_sprite.Play("sit_eat_drink");
+			break;
+			
 		default:
 			Logger.message(LogLevel.LOG_ERROR, "Unknown customer state - "+_currentState.ToString());
 			
 			break;
 		}
+		
+		_currentState = state;
 	}
 	
 	public void configure(CustomerDesc desc)
@@ -188,9 +175,9 @@ public class Customer : MonoBehaviour
 		orderTime = desc.orderTime;
 		meatTime = desc.meatTime;
 		
-		foreach(string order in desc.orders)
+		foreach(OrderItem order in desc.orders)
 		{
-			_orders.Add(order);
+			_orders.Add(new Order(order.ToString(), this));
 		}
 		
 		_sprite = gameObject.AddComponent<tk2dAnimatedSprite>();
@@ -198,7 +185,7 @@ public class Customer : MonoBehaviour
 		
 		GameObject cloud = new GameObject("cloud");
 		cloud.transform.parent = gameObject.transform;
-		cloud.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10);
+		cloud.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -2);
 		
 		cloud.SetActive(false);
 		
@@ -217,15 +204,6 @@ public class Customer : MonoBehaviour
 	{		
 		if (_currentState == CustomerState.WAITING || _currentState == CustomerState.STAND_ANGRY)
 			_isTouched = true;
-		else if (_currentState == CustomerState.WAIT_FOR_ORDER)
-		{
-			Debug.Log("Customers order :");
-			
-			foreach(string order in _orders)
-			{
-				Debug.Log(order);	
-			}
-		}
 	}		
 	
 	float lastMoodChange;
@@ -293,6 +271,7 @@ public class Customer : MonoBehaviour
 			}			
 			break;			
 			
+		case CustomerState.EAT:	
 		case CustomerState.BREAK:
 			break;
 			
@@ -326,10 +305,12 @@ public class Customer : MonoBehaviour
 						gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
 					}
 					
+					// replace this hell to method
 					gameObject.transform.position = chair.gameObject.transform.position;
 					seatPosition = chair;
 					placement.isFree = true;
 					chair.isFree = false;
+					chair.customer = this;
 					
 					setState(CustomerState.ORDER);
 				}

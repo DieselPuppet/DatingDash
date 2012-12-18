@@ -72,17 +72,12 @@ public class BlenderItem : LevelItem
 	{		
 		if (_state == BlenderState.DEFAULT)
 		{
-			if (Inventory.instance.hasStuff("apple_sources") && Inventory.instance.hasStuff("orange_sources"))
+			if (Inventory.instance.hasStuff("apple") && Inventory.instance.hasStuff("orange"))
 			{
-				string stuff = Inventory.instance.higherPriority("apple_sources", "orange_sources");
+				string stuff = Inventory.instance.higherPriority("apple", "orange");
 				Inventory.instance.removeStuff(stuff);
 				
-				string actionName;
-				
-				if (stuff == "apple_sources")
-					actionName = "work_apple";
-				else 
-					actionName = "work_orange";
+				string actionName = "work_"+stuff;
 				
 				doAction(actionName);
 				PlayerBehaviour.instance.setBusy(getAction(actionName).reqTime);
@@ -90,9 +85,9 @@ public class BlenderItem : LevelItem
 				setState(BlenderState.WORK_NORMAL);
 				setState(BlenderState.DEFAULT, getAction(actionName).time);
 			}
-			else if (Inventory.instance.hasStuff("apple_sources"))
+			else if (Inventory.instance.hasStuff("apple"))
 			{
-				Inventory.instance.removeStuff("apple_sources");
+				Inventory.instance.removeStuff("apple");
 				
 				doAction("work_apple");
 				PlayerBehaviour.instance.setBusy(getAction("work_apple").reqTime);
@@ -100,9 +95,9 @@ public class BlenderItem : LevelItem
 				setState(BlenderState.WORK_NORMAL);
 				setState(BlenderState.DEFAULT, getAction("work_apple").time);
 			}
-			else if (Inventory.instance.hasStuff("orange_sources"))
+			else if (Inventory.instance.hasStuff("orange"))
 			{
-				Inventory.instance.removeStuff("orange_sources");
+				Inventory.instance.removeStuff("orange");
 				
 				doAction("work_orange");
 				PlayerBehaviour.instance.setBusy(getAction("work_orange").reqTime);

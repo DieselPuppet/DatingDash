@@ -16,10 +16,8 @@ public class LevelItem : MonoBehaviour
 	
 	public string objectName;
 	
-	// TODO: private!
-	public BehaviourType _behaviour;
-
 	private ItemDesc _cachedDesc;
+	private BehaviourType _behaviour;
 	
 	protected tk2dAnimatedSprite _sprite;
 	public tk2dAnimatedSprite sprite
@@ -146,7 +144,7 @@ public class LevelItem : MonoBehaviour
 					doAction(objectType + "_work");
 				}
 				
-				Inventory.instance.addStuf(objectType+"_sources");
+				Inventory.instance.addStuf(objectType);
 			}			
 		}
 		

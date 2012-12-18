@@ -4,8 +4,8 @@ using System.Collections;
 // TODO : will be placed in XML
 public enum OrderItem
 {
-	ORANGE,
-	ORANGE_PIPE1,
+	orange,
+	apple,
 	ORANGE_PIPE2,
 	APPLE,
 	APPLE_PIPE1,
@@ -27,6 +27,7 @@ public class Balance : MonoBehaviour
 	// CustomersFactory
 	public CustomerDesc getRandomDesc()
 	{
-		return customers[Random.Range(0, customers.Length)];
+		//return customers[Random.Range(0, customers.Length)];
+		return customers[0];
 	}
 }
