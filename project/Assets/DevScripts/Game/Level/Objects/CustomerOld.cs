@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public enum CustomerState
+// Deprecated
+public enum CustomerStateOld
 {
 	WAITING,
 	ORDER,
@@ -12,32 +13,13 @@ public enum CustomerState
 	EAT
 }
 
-public class Interest
-{	
-	private string[] _interesrs;
-	
-	public Interest(string[] interests)
-	{
-		_interesrs = interests;
-	}
-	
-	public int compare(Interest other)
-	{
-		int equalsLevel =0;
-		return equalsLevel;
-	}
-}
-
 // set LevelItem as base class
 public class Customer : MonoBehaviour 
 {
-	CustomerDesc _cachedDesc;
+	CustomerDescOld _cachedDesc;
 	
 	int moodPercent;
 	int moodDownSpeed;
-	
-	int randAnimRangeMin;
-	int randAnimRangeMax;		
 	
 	int orderTime;
 	int meatTime;	
@@ -72,18 +54,9 @@ public class Customer : MonoBehaviour
 			return _orders;
 		}
 	}
-
-	private Interest _interests;
-	public Interest interests
-	{
-		get 
-		{
-			return _interests;
-		}
-	}
 	
-	private CustomerState _currentState;
-	public CustomerState currentState
+	private CustomerStateOld _currentState;
+	public CustomerStateOld currentState
 	{
 		get
 		{
@@ -91,7 +64,7 @@ public class Customer : MonoBehaviour
 		}
 	}
 	
-	public void setState(CustomerState state)
+	public void setState(CustomerStateOld state)
 	{
 		Logger.message(LogLevel.LOG_INFO, "Customer state set to "+state.ToString());
 
@@ -99,7 +72,7 @@ public class Customer : MonoBehaviour
 		
 		switch(state)
 		{
-		case CustomerState.WAITING:
+		case CustomerStateOld.WAITING:
 			
 			_isActive = true;
 			
@@ -107,18 +80,18 @@ public class Customer : MonoBehaviour
 			lastMoodChange = Time.time;
 			break;
 			
-		case CustomerState.BREAK:
+		case CustomerStateOld.BREAK:
 			if (seatPosition)
 				seatPosition.isFree = true;
 			
-			if (_currentState == CustomerState.STAND_ANGRY)
+			if (_currentState == CustomerStateOld.STAND_ANGRY)
 				placement.isFree = true;
 			
 			_isActive = false;
 			Level.instance.removeCustomer(this);
 			break;
 			
-		case CustomerState.ORDER:
+		case CustomerStateOld.ORDER:
 			_sprite.Play("sit_happy");
 			
 			placement.isFree = true;
@@ -133,22 +106,22 @@ public class Customer : MonoBehaviour
 			seatTime = Time.time;
 			break;
 			
-		case CustomerState.WAIT_FOR_ORDER:
+		case CustomerStateOld.WAIT_FOR_ORDER:
 			lastOrderTime = Time.time;
 			
 			_cloudSprite.gameObject.SetActive(true);
 			break;
 			
-		case CustomerState.SIT_ANGRY:
+		case CustomerStateOld.SIT_ANGRY:
 			_cloudSprite.gameObject.SetActive(false);
 			_sprite.Play("sit_angry");
 			break;
 			
-		case CustomerState.STAND_ANGRY:
+		case CustomerStateOld.STAND_ANGRY:
 			_sprite.Play("stand_angry");
 			break;
 			
-		case CustomerState.EAT:
+		case CustomerStateOld.EAT:
 			_cloudSprite.gameObject.SetActive(false);
 			_sprite.Play("sit_eat_drink");
 			break;
@@ -162,15 +135,12 @@ public class Customer : MonoBehaviour
 		_currentState = state;
 	}
 	
-	public void configure(CustomerDesc desc)
+	public void configure(CustomerDescOld desc)
 	{		
 		_cachedDesc = desc;
 		
 		moodPercent = desc.moodPercent;
 		moodDownSpeed = desc.moodDownSpeed;
-		
-		randAnimRangeMin = desc.randAnimRangeMin;
-		randAnimRangeMax = desc.randAnimRangeMax;
 		
 		orderTime = desc.orderTime;
 		meatTime = desc.meatTime;
@@ -197,12 +167,12 @@ public class Customer : MonoBehaviour
 		
 		ContentManager.instance.precacheAnimation(_sprite, "Customer1Animation");
 				
-		setState(CustomerState.WAITING);
+		setState(CustomerStateOld.WAITING);
 	}
 	
 	public void OnMouseDown()
 	{		
-		if (_currentState == CustomerState.WAITING || _currentState == CustomerState.STAND_ANGRY)
+		if (_currentState == CustomerStateOld.WAITING || _currentState == CustomerStateOld.STAND_ANGRY)
 			_isTouched = true;
 	}		
 	
@@ -216,7 +186,7 @@ public class Customer : MonoBehaviour
 		
 		switch (_currentState)
 		{
-		case CustomerState.WAITING:
+		case CustomerStateOld.WAITING:
 			if ((currentTime - lastMoodChange) >= 1)
 			{
 				moodPercent -= moodDownSpeed;
@@ -225,12 +195,12 @@ public class Customer : MonoBehaviour
 			
 			if (moodPercent < 50)
 			{
-				setState(CustomerState.STAND_ANGRY);
+				setState(CustomerStateOld.STAND_ANGRY);
 			}
 			
 			break;			
 			
-		case CustomerState.WAIT_FOR_ORDER:
+		case CustomerStateOld.WAIT_FOR_ORDER:
 	
 			if ((currentTime - lastOrderTime) >= 1)
 			{
@@ -240,12 +210,12 @@ public class Customer : MonoBehaviour
 			
 			if (moodPercent < 50)
 			{
-				setState(CustomerState.SIT_ANGRY);
+				setState(CustomerStateOld.SIT_ANGRY);
 			}
 			
 			break;
 				
-		case CustomerState.SIT_ANGRY:
+		case CustomerStateOld.SIT_ANGRY:
 			if ((currentTime - lastMoodChange) >= 0.5f)
 			{
 				moodPercent -= moodDownSpeed;
@@ -254,11 +224,11 @@ public class Customer : MonoBehaviour
 			
 			if (moodPercent <= 0)
 			{
-				setState(CustomerState.BREAK);
+				setState(CustomerStateOld.BREAK);
 			}			
 			break;
 			
-		case CustomerState.STAND_ANGRY:
+		case CustomerStateOld.STAND_ANGRY:
 			if ((currentTime - lastMoodChange) >= 0.5f)
 			{
 				moodPercent -= moodDownSpeed;
@@ -267,18 +237,18 @@ public class Customer : MonoBehaviour
 			
 			if (moodPercent <= 0)
 			{
-				setState(CustomerState.BREAK);
+				setState(CustomerStateOld.BREAK);
 			}			
 			break;			
 			
-		case CustomerState.EAT:	
-		case CustomerState.BREAK:
+		case CustomerStateOld.EAT:	
+		case CustomerStateOld.BREAK:
 			break;
 			
-		case CustomerState.ORDER:
+		case CustomerStateOld.ORDER:
 			if ((currentTime - seatTime) >= orderTime)
 			{
-				setState(CustomerState.WAIT_FOR_ORDER);
+				setState(CustomerStateOld.WAIT_FOR_ORDER);
 			}
 			break;
 			
@@ -312,7 +282,7 @@ public class Customer : MonoBehaviour
 					chair.isFree = false;
 					chair.customer = this;
 					
-					setState(CustomerState.ORDER);
+					setState(CustomerStateOld.ORDER);
 				}
 				else 
 				{
