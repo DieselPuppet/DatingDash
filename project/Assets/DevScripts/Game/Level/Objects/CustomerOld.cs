@@ -5,7 +5,9 @@ public enum CustomerState
 {
 	WAITING_STAND,
 	WAITING_STAND_ANGRY,
-	WAITING_SEAT,
+	WAITING_SIT,
+	MAKE_ORDER,
+	WAITING_ORDER,
 	
 	UNKNOWN
 }
@@ -43,8 +45,12 @@ public class Customer : MonoBehaviour
 	
 	// timers
 	float lastMoodChangeTime;
+	float startOrderTime;
 	
 	private bool _isTouched = false;
+	
+	public ChairItem seatPosition = null;
+	public SpawnPoint placement = null;
 	
 	public void configure(CustomerDesc desc)
 	{
@@ -74,15 +80,29 @@ public class Customer : MonoBehaviour
 		if (state == _currentState)
 			return;
 		
-		if (state == CustomerState.WAITING_STAND)
+		switch(state)
 		{
+		case CustomerState.WAITING_STAND:
 			_moodDownSpeedCoeff = 1f;
 			lastMoodChangeTime = Time.time;
-		}
-		else if (state == CustomerState.WAITING_SEAT)
-		{
+			break;
+			
+		case CustomerState.WAITING_SIT:
 			_moodDownSpeedCoeff = 0.5f;		
-			lastMoodChangeTime = Time.time;	
+			lastMoodChangeTime = Time.time;		
+			break;
+				
+		case CustomerState.MAKE_ORDER:
+			_sprite.Play("sit_happy");
+			startOrderTime = Time.time;
+			break;
+		
+		case CustomerState.WAITING_ORDER:
+			break;			
+			
+		default:
+			Logger.message(LogLevel.LOG_ERROR, "Unknown customer state - "+state);
+			break;
 		}
 			
 		_currentState = state;
@@ -98,13 +118,28 @@ public class Customer : MonoBehaviour
 			break;
 			
 		case CustomerState.WAITING_STAND:
-		case CustomerState.WAITING_SEAT:
+		case CustomerState.WAITING_SIT:
 			if ((currentTime-lastMoodChangeTime) >= 1)
 			{
 				_currentMood -= (int)(_moodDownSpeed*_moodDownSpeedCoeff);
 				lastMoodChangeTime = currentTime;
 			}
 			break;		
+			
+		case CustomerState.MAKE_ORDER:
+			if ((currentTime - startOrderTime) > _desc.orderTime)
+			{
+				//foreach (string o in _desc.orders)
+				//{
+				//	Inventory.instance.addOrder(new Order(o, this));
+				//}
+				
+				setState(CustomerState.WAITING_ORDER);
+			}
+			break;
+			
+		case CustomerState.WAITING_ORDER:
+			break;
 			
 		default:
 			Logger.message(LogLevel.LOG_ERROR, "Invalid customer state - "+_currentState);
@@ -127,7 +162,7 @@ public class Customer : MonoBehaviour
 				
 				if (chair != null && chair.isFree)
 				{
-					/*if (!chair.isLeft)
+					if (!chair.isLeft)
 					{
 						gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
 					}
@@ -139,11 +174,11 @@ public class Customer : MonoBehaviour
 					chair.isFree = false;
 					chair.customer = this;
 					
-					setState(CustomerStateOld.ORDER);*/
+					setState(CustomerState.MAKE_ORDER);
 				}
 				else 
 				{
-					//gameObject.transform.position = placement.point.position;
+					gameObject.transform.position = placement.point.position;
 				}
 				
 				_isTouched = false;

@@ -126,4 +126,9 @@ public class ItemsCollection : MonoBehaviour
 		
 		return _itemsDict[typeName];
 	}
+	
+	public TextAsset getCustomDesc(string typeName)
+	{
+		return new UnityEngine.TextAsset();
+	}
 }

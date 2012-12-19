@@ -33,13 +33,27 @@ public class SpawnArea
 		{
 			if (point.isFree)
 			{
-				//customer.transform.position = point.point.position;
-				//customer.GetComponent<CustomerOld>().placement = point;
-				//point.isFree = false;
+				// refactor
+				customer.transform.position = point.point.position;
+				customer.GetComponent<Customer>().placement = point;
+				point.isFree = false;
 				break;
 			}
 		}
 	}
+}
+
+[System.Serializable]
+public class TableArrangement
+{
+	public int count;
+	public GameObject tableTemplate;
+	public TextAsset graph;
+	public Vector2[] positions;
+}
+
+public class Seating
+{
 }
 
 public class Level : MonoBehaviour
@@ -57,12 +71,17 @@ public class Level : MonoBehaviour
 			return _instance;
 		}
 	}		
+		
+	public string name;
 	
-	public TextAsset graphAsset;
+	public Transform interactiveParent;
 	
 	public SpawnArea spawnArea;
 	
-	ArrayList seatPositions = new ArrayList();
+	public TableArrangement[] arragements;	
+	public int activeArarrangement;
+	
+	ArrayList _seatings = new ArrayList();
 	
 	ArrayList _customerQueue = new ArrayList();
 	
@@ -83,14 +102,20 @@ public class Level : MonoBehaviour
 	float _lastSpawnTime;
 	
 	void Awake()
-	{		
-		PathGraph.instance.buildGraph(graphAsset);
-		
-		// TODO : remove! Place this in level parsing
-		foreach (ChairItem chair in gameObject.GetComponentsInChildren<ChairItem>())
+	{					
+		for (int i = 0; i < arragements[activeArarrangement].count; i++)
 		{
-			seatPositions.Add(chair);
+			GameObject table = (GameObject)Instantiate(arragements[activeArarrangement].tableTemplate, arragements[activeArarrangement].positions[i], Quaternion.identity);
+			table.GetComponent<TableItem>().pointName = "table0"+(i+1);
+			table.transform.parent = interactiveParent;
+			
+			foreach (ChairItem chair in table.GetComponent<TableItem>().chairs)
+			{
+				_seatings.Add(chair);
+			}
 		}
+		
+		PathGraph.instance.buildGraph(arragements[activeArarrangement].graph);
 		
 		_isComplete = false;
 	}
@@ -141,9 +166,9 @@ public class Level : MonoBehaviour
 	}
 	
 	public ChairItem getNearestChair(Vector3 pos)
-	{		
-		foreach (ChairItem chair in seatPositions)
-		{			
+	{			
+		foreach (ChairItem chair in _seatings)
+		{				
 			if (pos.x > chair.gameObject.transform.position.x-chair.gameObject.collider.bounds.size.x/2 &&
 				pos.x < chair.gameObject.transform.position.x+chair.gameObject.collider.bounds.size.x/2 &&
 				pos.y > chair.gameObject.transform.position.y-chair.gameObject.collider.bounds.size.y/2 &&
@@ -178,8 +203,8 @@ public class Level : MonoBehaviour
 	{
 		if (GUI.Button(new Rect(0, 0, 100, 50), "SpawnNPC"))
 		{
-			//CustomerDesc testDesc = CustomersCollection.instance.ge
-			//spawnCustomer(
+			CustomerDesc testDesc = CustomersCollection.instance.getDesc(CustomerType.BUSINESS_WOMEN.ToString());
+			spawnCustomer(testDesc);
 		}
 	}	
 }

@@ -5,6 +5,8 @@ public class EntryPoint : MonoBehaviour
 {
 	void Awake()
 	{
+		Debug.Log(GetType().ToString());
+		
 		SaveManager.instance.load();
 		
 		Logger.init(LogLevel.LOG_WARNING);

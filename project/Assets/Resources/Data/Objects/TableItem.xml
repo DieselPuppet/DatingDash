@@ -1,0 +1,50 @@
+<table>
+	<levels>
+		<level num="1" atlas="CafeGeneralStuff" name="customer_table01">
+			<arrangements>	
+				<arrangement count="3" graph="CafeGraph3Table">
+					<table x="" y="">
+					</table>
+					<table x="" y=""/>
+					<table x="" y=""/>
+				</arrangement>
+				<arrangement count="4" graph="CafeGraph4Table">
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+				</arrangement>
+				<arrangement count="5" graph="CafeGraph5Table">
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+				</arrangement>				
+			</arrangements>
+		</level>
+		<level num="2" atlas="CafeGeneralStuff" name="customer_table01">
+			<arrangements>	
+				<arrangement count="3" graph="CafeGraph3Table">
+					<table x="" y="">
+					</table>
+					<table x="" y=""/>
+					<table x="" y=""/>
+				</arrangement>
+				<arrangement count="4" graph="CafeGraph4Table">
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+				</arrangement>
+				<arrangement count="5" graph="CafeGraph5Table">
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+					<table x="" y=""/>
+				</arrangement>				
+			</arrangements>			
+		</level>	
+	</levels>
+</table>

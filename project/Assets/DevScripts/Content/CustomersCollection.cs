@@ -24,11 +24,13 @@ public enum ReactionType
 	MOOD_DOWN_ALL
 }
 
+[System.Serializable]
 public class CustomerDesc
 {
 	#region common params
 	public string[] interests;
-	public string[] orders;
+	
+	public int ordersCount;
 	
 	public int orderTime;
 	public int eatTime;
@@ -68,7 +70,7 @@ public class CustomersCollection : MonoBehaviour
 		}
 	}
 	
-	Dictionary<CustomerType, CustomerDesc> _customersDict;
+	Dictionary<string, CustomerDesc> _customersDict = new Dictionary<string, CustomerDesc>();
 	
 	public void parseDB(string fileName)
 	{		
@@ -81,13 +83,21 @@ public class CustomersCollection : MonoBehaviour
 		foreach(XmlNode customerNode in customers)
 		{
 			CustomerDesc desc = new CustomerDesc();
-
+			
 			string type = customerNode.Attributes["type"].Value;
-			string time = customerNode.Attributes["orderTime"].Value;
+			
+			desc.orderTime = int.Parse(customerNode.Attributes["orderTime"].Value);
+			desc.eatTime = int.Parse(customerNode.Attributes["eatTime"].Value);
+			desc.moodDownTime = float.Parse(customerNode.Attributes["moodDownTime"].Value);
+			desc.spriteAtlas = customerNode.Attributes["spriteAtlas"].Value;
+			desc.spriteName = customerNode.Attributes["spriteName"].Value;
+			desc.animationAtlas = customerNode.Attributes["animationAtlas"].Value;
+			
+			_customersDict.Add(type, desc);
 		}
 	}
 	
-	public CustomerDesc getDesc(CustomerType type)
+	public CustomerDesc getDesc(string type)
 	{
 		if (!_customersDict.ContainsKey(type))
 		{

@@ -409,7 +409,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 	
 	// This is separate to UpdateCollider, as UpdateCollider can only work with BoxColliders, and will NOT create colliders
 	protected void CreateCollider()
-	{		
+	{
 		var sprite = collectionInst.spriteDefinitions[_spriteId];
 		if (sprite.colliderType == tk2dSpriteDefinition.ColliderType.Unset)
 		{

@@ -1,5 +1,5 @@
 <customers>
-	<customer type="customer1" speakTime="2" orderTime="4" eatTime="4" moodDownTime="100" spriteAtlas="" animationAtlas="Customer1Animation" spriteName="">
+	<customer type="BUSINESS_WOMEN" speakTime="2" orderTime="4" eatTime="4" moodDownTime="100" spriteAtlas="Customers/Customer1" animationAtlas="Customer1Animation" spriteName="stand_hello001">
 		<orders>
 			<order productID="orange"/>
 			<order productID="fruit_cake"/>

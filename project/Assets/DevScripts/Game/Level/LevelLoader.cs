@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class LevelLoader : MonoBehaviour
 {
+	Level level;
+	
 	public tk2dSpriteCollection testCollection;
 	
 	private static LevelLoader _instance;
@@ -24,14 +26,13 @@ public class LevelLoader : MonoBehaviour
 	{		
 		Logger.message(LogLevel.LOG_INFO, "Building level - "+levelName);
 		
-		string levelPath = "Levels/"+levelName;
-		if (Config.instance.isDevelopmentBuild)
-			levelPath = "Levels/References/"+levelName+"Reference";
+		string levelPath = "Levels/"+levelName+"/Level";
 		
 		GameObject rootObject = (GameObject)Instantiate(Resources.Load(levelPath), Vector3.zero, Quaternion.identity);
 		rootObject.name = "Level";
 		
-		Level level = rootObject.GetComponent<Level>();
+		level = rootObject.GetComponent<Level>();
+		level.name = levelName;
 		
 		if (mode == GameMode.COMPANY)
 		{
