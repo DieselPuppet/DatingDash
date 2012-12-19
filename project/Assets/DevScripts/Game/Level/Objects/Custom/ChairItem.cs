@@ -11,6 +11,7 @@ public class ChairItem : LevelItem
 	
 	public bool isLeft = true;
 	
+	// remove
 	public Customer customer = null;
 	
 	protected override void onTouch()

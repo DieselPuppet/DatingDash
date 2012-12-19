@@ -23,8 +23,8 @@ public class TableItem : LevelItem
 	{
 		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 		
-		if (chairs[0].customer != null && 
-			(chairs[0].customer.currentState == CustomerState.WAIT_FOR_ORDER || chairs[0].customer.currentState == CustomerState.SIT_ANGRY))
+	/*	if (chairs[0].customer != null && 
+			(chairs[0].customer.currentState == CustomerStateOld.WAIT_FOR_ORDER || chairs[0].customer.currentState == CustomerStateOld.SIT_ANGRY))
 		{			
 			foreach(Order order in chairs[0].customer.orders)			
 			{		
@@ -44,11 +44,11 @@ public class TableItem : LevelItem
 			}
 			
 			if (orderSuccess)
-				chairs[0].customer.setState(CustomerState.EAT);
+				chairs[0].customer.setState(CustomerStateOld.EAT);
 		}
 	
 		if (chairs[1].customer != null && 
-			(chairs[1].customer.currentState == CustomerState.WAIT_FOR_ORDER || chairs[1].customer.currentState == CustomerState.SIT_ANGRY))
+			(chairs[1].customer.currentState == CustomerStateOld.WAIT_FOR_ORDER || chairs[1].customer.currentState == CustomerStateOld.SIT_ANGRY))
 		{			
 			foreach(Order order in chairs[1].customer.orders)			
 			{				
@@ -68,8 +68,8 @@ public class TableItem : LevelItem
 			}
 			
 			if (orderSuccess)
-				chairs[1].customer.setState(CustomerState.EAT);				
-		}
+				chairs[1].customer.setState(CustomerStateOld.EAT);				
+		}*/
 	}
 	
 	protected override void onTouch(){}

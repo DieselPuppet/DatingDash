@@ -62,7 +62,7 @@ public class LevelItem : MonoBehaviour
 	{		
 		_cachedDesc = ItemsCollection.instance.getItemDesc(objectType);
 	
-		if (gameObject.GetComponent<tk2dAnimatedSprite>() == null && _cachedDesc != null)
+		if (gameObject.GetComponent<tk2dAnimatedSprite>() == null)
 		{
 			_sprite = gameObject.AddComponent<tk2dAnimatedSprite>();
 	

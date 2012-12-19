@@ -78,12 +78,12 @@ public class ItemsCollection : MonoBehaviour
 	
 	Dictionary<string, ItemDesc> _itemsDict;
 	
-	public void parseDB(TextAsset sources)
+	public void parseDB(string fileName)
 	{
 		_itemsDict = new Dictionary<string, ItemDesc>();
 		
 		XmlDocument doc = new XmlDocument();
-		doc.LoadXml(sources.text);
+		doc.Load(fileName);
 		
 		XmlNode rootNode = doc.FirstChild;
 		XmlNodeList items = rootNode.SelectNodes("item");

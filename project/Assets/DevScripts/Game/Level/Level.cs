@@ -33,9 +33,9 @@ public class SpawnArea
 		{
 			if (point.isFree)
 			{
-				customer.transform.position = point.point.position;
-				customer.GetComponent<Customer>().placement = point;
-				point.isFree = false;
+				//customer.transform.position = point.point.position;
+				//customer.GetComponent<CustomerOld>().placement = point;
+				//point.isFree = false;
 				break;
 			}
 		}
@@ -65,9 +65,6 @@ public class Level : MonoBehaviour
 	ArrayList seatPositions = new ArrayList();
 	
 	ArrayList _customerQueue = new ArrayList();
-	
-	ArrayList _customerArray = new ArrayList();
-	ArrayList _customersDeleteQueue = new ArrayList();
 	
 	ArrayList _objectsArray = new ArrayList();
 	
@@ -102,22 +99,7 @@ public class Level : MonoBehaviour
 	public void process(GameMode mode)
 	{	
 		if (!_isComplete)
-		{
-			foreach(Customer cust in _customerArray)
-			{
-				if (cust.isActive)
-					cust.think();
-			}
-			
-			foreach(Customer c in _customersDeleteQueue)
-			{
-				if (_customerArray.Contains(c))
-				{
-					Destroy(c.gameObject);
-					_customerArray.Remove(c);
-				}
-			}
-			
+		{			
 			float currentTime = Time.time;
 			if ((currentTime - _lastSpawnTime) > _spawnInterval)
 			{
@@ -130,11 +112,6 @@ public class Level : MonoBehaviour
 				_isComplete = true;
 			}
 		}
-	}
-	
-	public void removeCustomer(Customer cust)
-	{
-		_customersDeleteQueue.Add(cust);
 	}
 	
 	public void pushLevelObject(LevelItem obj)
@@ -179,32 +156,30 @@ public class Level : MonoBehaviour
 		return null;
 	}
 	
-	void spawnNpc()
+	void spawnCustomer(CustomerDesc desc)
 	{
 		GameObject customerGO = new GameObject();
-				
 		Customer customer = customerGO.AddComponent<Customer>();
 		
 		if (spawnArea.freePointExist())
 		{
 			spawnArea.placeCustomer(customerGO);
-			
-			_customerArray.Add(customer);
 		
-			customer.configure(Balance.instance.getRandomDesc());			
+			customer.configure(desc);			
 		}
 		else 
 		{
 			customerGO.SetActive(false);
 			_customerQueue.Add(customer);
-		}
+		}		
 	}
-	
+
 	void OnGUI()
 	{
 		if (GUI.Button(new Rect(0, 0, 100, 50), "SpawnNPC"))
 		{
-			spawnNpc();
+			//CustomerDesc testDesc = CustomersCollection.instance.ge
+			//spawnCustomer(
 		}
 	}	
 }

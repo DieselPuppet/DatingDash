@@ -11,7 +11,11 @@ public class EntryPoint : MonoBehaviour
 		
 		Platform.instance.init();
 		
-		ItemsCollection.instance.parseDB(Config.instance.itemsDB);
+		string customersDBPath = Application.dataPath+Config.instance.dataPath+Config.instance.customersDB;
+		CustomersCollection.instance.parseDB(customersDBPath);
+		
+		string itemsDBPath = Application.dataPath+Config.instance.dataPath+Config.instance.itemsDB;
+		ItemsCollection.instance.parseDB(itemsDBPath);
 	}
 	
 	void OnGUI()

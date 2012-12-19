@@ -1,7 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-// TODO : rewrite
+public enum OrderType
+{
+	orange,
+	apple,
+	ORANGE_PIPE2,
+	APPLE,
+	APPLE_PIPE1,
+	APPLE_PIPE2,
+	FRUIT_CAKE
+}
+
 public class Order
 {	
 	public Order(string p, Customer o)
