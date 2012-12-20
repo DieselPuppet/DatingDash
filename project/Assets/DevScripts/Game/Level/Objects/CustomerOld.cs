@@ -49,7 +49,7 @@ public class Customer : MonoBehaviour
 	
 	private bool _isTouched = false;
 	
-	public ChairItem seatPosition = null;
+	public ChairObject seatPosition = null;
 	public SpawnPoint placement = null;
 	
 	public void configure(CustomerDesc desc)
@@ -158,7 +158,7 @@ public class Customer : MonoBehaviour
 		
 			if (Input.GetMouseButtonUp(0))
 			{		
-				ChairItem chair = Level.instance.getNearestChair(Input.mousePosition);
+				ChairObject chair = Level.instance.getNearestChair(Input.mousePosition);
 				
 				if (chair != null && chair.isFree)
 				{

@@ -106,10 +106,10 @@ public class Level : MonoBehaviour
 		for (int i = 0; i < arragements[activeArarrangement].count; i++)
 		{
 			GameObject table = (GameObject)Instantiate(arragements[activeArarrangement].tableTemplate, arragements[activeArarrangement].positions[i], Quaternion.identity);
-			table.GetComponent<TableItem>().pointName = "table0"+(i+1);
+			table.GetComponent<TableObject>().pointInGraph = "table0"+(i+1);
 			table.transform.parent = interactiveParent;
 			
-			foreach (ChairItem chair in table.GetComponent<TableItem>().chairs)
+			foreach (ChairObject chair in table.GetComponent<TableObject>().chairs)
 			{
 				_seatings.Add(chair);
 			}
@@ -139,18 +139,18 @@ public class Level : MonoBehaviour
 		}
 	}
 	
-	public void pushLevelObject(LevelItem obj)
+	public void pushLevelObject(BaseObject obj)
 	{
 		_objectsArray.Add(obj);
 	}
 	
-	public LevelItem getObject(string obj)
+	public BaseObject getObject(string obj)
 	{
-		foreach(LevelItem item in _objectsArray)
-		{
-			if (item.name == obj)
-				return item;
-		}
+		//foreach(LevelItem item in _objectsArray)
+		//{
+		//	if (item.name == obj)
+		//		return item;
+		//}
 		
 		return null;
 	}
@@ -165,9 +165,9 @@ public class Level : MonoBehaviour
 		return false;
 	}
 	
-	public ChairItem getNearestChair(Vector3 pos)
+	public ChairObject getNearestChair(Vector3 pos)
 	{			
-		foreach (ChairItem chair in _seatings)
+		foreach (ChairObject chair in _seatings)
 		{				
 			if (pos.x > chair.gameObject.transform.position.x-chair.gameObject.collider.bounds.size.x/2 &&
 				pos.x < chair.gameObject.transform.position.x+chair.gameObject.collider.bounds.size.x/2 &&

@@ -1,22 +1,25 @@
 using UnityEngine;
 using System.Collections;
 
-public class TableItem : LevelItem
+public class TableObject : BaseObject
 {
-	public ChairItem[] chairs;
+	public ChairObject[] chairs;
 	
-	void Awake()
-	{
-		base.Awake();
-		foreach(ChairItem chair in chairs)
+	protected override void buildObject(int level)
+	{		
+		base.buildObject(level);
+				
+		foreach(ChairObject chair in chairs)
 		{
 			chair.table = this;
-		}
-	}
+		}		
+		
+		_type = ObjectType.TABLE;
+	}	
 	
 	public void onChair(bool left)
 	{
-		//PlayerBehaviour.instance.moveTo(this);
+		PlayerBehaviour.instance.moveTo(this);
 	}
 	
 	public override void onAction()

@@ -22,14 +22,6 @@
 	
 	<item typeName="chair" groupName="INTERACTION" assets="CafeGeneralStuff" sprite="chair01">
 		<collider_rect x="" y="" w="" h=""/>
-	</item>		
-	 
-	<item typeName="cake1" groupName="INTERACTION" assets="CafeCollection" sprite="cake01_stand001">
-		<collider_rect x="" y="" w="" h=""/>
-	</item>			
-	
-	<item typeName="cake2" groupName="INTERACTION" assets="CafeCollection" sprite="cake02_stand001">
-		<collider_rect x="" y="" w="" h=""/>
 	</item>				
 
 </items>

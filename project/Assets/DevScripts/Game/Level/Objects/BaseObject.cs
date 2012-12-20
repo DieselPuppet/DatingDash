@@ -17,7 +17,9 @@ public enum ObjectType
 	COFFEE_MACHINE,
 	CAKE,
 	CAKE_PLATE1,
-	CAKE_PLATE2
+	CAKE_PLATE2,
+	TABLE,
+	CHAIR
 }
 
 [System.Serializable]
@@ -65,6 +67,8 @@ public abstract class BaseObject : MonoBehaviour
 			action.setOwner(this);			
 			_actions.Add(action.name, action);
 		}
+		
+		Level.instance.pushLevelObject(this);	
 	}
 	
 	protected virtual void buildObject(int level)
@@ -74,7 +78,8 @@ public abstract class BaseObject : MonoBehaviour
 		GraphicsSettings settings = graphicSettings[level];
 		
 		ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, settings.defaultSprite);
-		ContentManager.instance.precacheAnimation(_sprite, settings.animationAtlas);	
+		if (settings.animationAtlas != "")
+			ContentManager.instance.precacheAnimation(_sprite, settings.animationAtlas);	
 		
 		Vector3 position = gameObject.transform.localPosition;
 		position.z = (((position.y-_sprite.GetBounds().size.y/2)*0.01f))+.01f;
@@ -84,7 +89,7 @@ public abstract class BaseObject : MonoBehaviour
 		{
 			BoxCollider box = gameObject.AddComponent<BoxCollider>();
 			box.size = new Vector3(_sprite.GetBounds().size.x, _sprite.GetBounds().size.y, 1);
-		}		
+		}			
 	}
 	
 	protected virtual void onTouch()

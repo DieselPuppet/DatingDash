@@ -5,6 +5,14 @@ public class CakeObject : BaseObject
 {
 	public ObjectType target;
 	
+	enum CakeState
+	{
+		IDLE,
+		WORK
+	}
+	
+	CakeState _state;
+	
 	protected override void buildObject(int level)
 	{		
 		base.buildObject(level);
@@ -14,5 +22,6 @@ public class CakeObject : BaseObject
 	
 	public override void onAction()
 	{
+		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 	}
 }

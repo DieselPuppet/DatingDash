@@ -2,17 +2,25 @@ using UnityEngine;
 using System.Collections;
 
 [System.Serializable]
-public class ChairItem : LevelItem
+public class ChairObject : BaseObject
 {
 	[System.NonSerialized]
 	public bool isFree = true;
-	[System.NonSerializedAttribute]
-	public TableItem table;
+	[System.NonSerialized]
+	public TableObject table;
 	
 	public bool isLeft = true;
 	
 	// remove
+	[System.NonSerialized]
 	public Customer customer = null;
+	
+	protected override void buildObject(int level)
+	{		
+		base.buildObject(level);	
+		
+		_type = ObjectType.CHAIR;
+	}		
 	
 	protected override void onTouch()
 	{		
