@@ -39,11 +39,11 @@ public class PathNavigator : MonoBehaviour
 		_characterTransform.localPosition = pos;
 	}
 	
-	public void startRoute(LevelItem target)
+	public void startRoute(BaseObject target)
 	{
 		Vector2 targetVec = new Vector2(_characterTransform.localPosition.x, _characterTransform.localPosition.y);
 
-		setPath(PathGraph.instance.getPath(targetVec, PathGraph.instance.getPointByName(target.pointName)));		
+		setPath(PathGraph.instance.getPath(targetVec, PathGraph.instance.getPointByName(target.pointInGraph)));		
 	}
 	
 	void setPath(ArrayList pathArray)

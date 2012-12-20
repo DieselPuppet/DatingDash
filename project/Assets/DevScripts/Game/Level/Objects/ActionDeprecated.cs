@@ -28,7 +28,7 @@ public class DependLink
 	}
 }
 
-public class Action
+public class ActionDeprecated
 {
 	//bool isStarted;
 	//bool isDone;
@@ -101,7 +101,7 @@ public class Action
 	
 	ArrayList _depends;
 	
-	public Action(LevelItem owner, float t, float rt)
+	public ActionDeprecated(LevelItem owner, float t, float rt)
 	{				
 		_components = new ArrayList();
 		_depends = new ArrayList();
@@ -131,16 +131,7 @@ public class Action
 		// add Playerbehaviour.setState default if req time == 0
 		// else setBuzy for reqTime
 		
-		foreach(ActionComponent comp in _components)
-		{
-			if (comp.type == ActionComponent.Type.ANIM)
-			{
-				_owner.sprite.Play(comp.asset);
-			}
-			else if (comp.type == ActionComponent.Type.SOUND)
-			{
-			}
-		}
+
 		
 		//foreach(DependLink link in _depends)
 		//{

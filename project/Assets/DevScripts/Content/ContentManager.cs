@@ -33,7 +33,7 @@ public class ContentManager : MonoBehaviour
 	}
 	
 	public void precacheAnimation(tk2dAnimatedSprite sprite, string animations)
-	{
+	{		
 		if (!_spriteAnimations.ContainsKey(animations))
 			loadSpriteAnimation(animations);
 		

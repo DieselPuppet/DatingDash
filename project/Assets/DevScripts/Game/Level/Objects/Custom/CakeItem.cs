@@ -10,7 +10,7 @@ public class CakeItem : LevelItem
 	{
 		base.Awake();
 	
-		Action act = new Action(this, 0, 0);
+		ActionDeprecated act = new ActionDeprecated(this, 0, 0);
 		
 		act.addDepend(dependItem, "work");
 		addAction("work", act);

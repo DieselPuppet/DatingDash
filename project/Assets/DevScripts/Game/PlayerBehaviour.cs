@@ -40,7 +40,8 @@ public class PlayerBehaviour : MonoBehaviour
 	PathNavigator _navigator;
 	Dictionary<MoveDirection, string> _animations = new Dictionary<MoveDirection, string>();
 	
-	LevelItem _activeTarget = null;
+	//LevelItem _activeTarget = null;
+	BaseObject _activeTarget = null;
 	ArrayList _targetsStack  = new ArrayList();
 	
 	void Awake()
@@ -78,11 +79,11 @@ public class PlayerBehaviour : MonoBehaviour
 		}		
 	}
 	
-	public void moveTo(LevelItem target)
+	public void moveTo(BaseObject target)
 	{
 		if (_currentState == PlayerState.DEFAULT)
 		{
-			if (_activeTarget != null && target.pointName == _activeTarget.pointName)
+			if (_activeTarget != null && target.pointInGraph == _activeTarget.pointInGraph)
 			{
 				_activeTarget.onAction();
 			}
@@ -99,11 +100,11 @@ public class PlayerBehaviour : MonoBehaviour
 		{
 			if (_targetsStack.Count > 0)
 			{
-				LevelItem item = (LevelItem)_targetsStack[0];
-				if(item.pointName == target.pointName)
+				BaseObject item = (BaseObject)_targetsStack[0];
+				if(item.pointInGraph == target.pointInGraph)
 					return;				
 			}
-			else if (_activeTarget.pointName == target.pointName)
+			else if (_activeTarget.pointInGraph == target.pointInGraph)
 			{
 				return;
 			}
@@ -118,7 +119,7 @@ public class PlayerBehaviour : MonoBehaviour
 		
 		if (_targetsStack.Count > 0 && _currentState == PlayerState.DEFAULT)
 		{
-			LevelItem nextTarget = (LevelItem)_targetsStack[0];
+			BaseObject nextTarget = (BaseObject)_targetsStack[0];
 			moveTo(nextTarget);
 			_targetsStack.RemoveAt(0);
 		}
@@ -140,7 +141,7 @@ public class PlayerBehaviour : MonoBehaviour
 		
 		if (_targetsStack.Count > 0)
 		{
-			LevelItem nextTarget = (LevelItem)_targetsStack[0];
+			BaseObject nextTarget = (BaseObject)_targetsStack[0];
 			moveTo(nextTarget);
 			_targetsStack.RemoveAt(0);
 		}		

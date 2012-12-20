@@ -16,7 +16,7 @@ public class TableItem : LevelItem
 	
 	public void onChair(bool left)
 	{
-		PlayerBehaviour.instance.moveTo(this);
+		//PlayerBehaviour.instance.moveTo(this);
 	}
 	
 	public override void onAction()

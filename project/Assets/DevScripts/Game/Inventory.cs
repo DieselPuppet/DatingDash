@@ -78,7 +78,7 @@ public class Inventory : MonoBehaviour
 	
 	void Awake()
 	{		
-		_capacity = 3;
+		_capacity = 30;
 	}
 	
 	public void addOrder(Order order)

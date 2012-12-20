@@ -28,7 +28,7 @@ public class LevelItem : MonoBehaviour
 		}
 	}	
 	
-	protected Dictionary<string, Action> _actions = new Dictionary<string, Action>();
+	protected Dictionary<string, ActionDeprecated> _actions = new Dictionary<string, ActionDeprecated>();
 	
 	enum State
 	{
@@ -48,8 +48,8 @@ public class LevelItem : MonoBehaviour
 	
 		if (_behaviour == BehaviourType.PROVIDER)
 		{
-			Action act = new Action(this, 5, 0);
-			act.pushComponent(new Action.ActionComponent(Action.ActionComponent.Type.ANIM, "SimpleAnimations", objectType+"_work"));
+			ActionDeprecated act = new ActionDeprecated(this, 5, 0);
+			act.pushComponent(new ActionDeprecated.ActionComponent(ActionDeprecated.ActionComponent.Type.ANIM, "SimpleAnimations", objectType+"_work"));
 			addAction(objectType+"_work", act);	
 		}
 		
@@ -100,7 +100,7 @@ public class LevelItem : MonoBehaviour
 		onTouch();
 	}		
 	
-	public void addAction(string name, Action action)
+	public void addAction(string name, ActionDeprecated action)
 	{	
 		_actions.Add(name, action);
 	}
@@ -117,12 +117,12 @@ public class LevelItem : MonoBehaviour
 		}
 	}
 	
-	protected Action getAction(string name)
+	protected ActionDeprecated getAction(string name)
 	{
 		if (!_actions.ContainsKey(name))
 		{
 			Logger.message(LogLevel.LOG_ERROR, "Unknown action - "+name);
-			return new Action(this, 0, 0);
+			return new ActionDeprecated(this, 0, 0);
 		}
 
 		return _actions[name];
@@ -130,24 +130,11 @@ public class LevelItem : MonoBehaviour
 	
 	protected virtual void onTouch()
 	{
-		PlayerBehaviour.instance.moveTo(this);
+		//PlayerBehaviour.instance.moveTo(this);
 	}		
 	
 	public virtual void onAction()
 	{
-		if (_behaviour == BehaviourType.PROVIDER)
-		{
-			if (Inventory.instance.canAddStuff())
-			{					
-				if (_curState == State.IDLE)
-				{
-					doAction(objectType + "_work");
-				}
-				
-				Inventory.instance.addStuf(objectType);
-			}			
-		}
-		
-		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
+
 	}	
 }
