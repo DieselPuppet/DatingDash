@@ -30,6 +30,7 @@ public class GraphicsSettings
 	public string spriteAtlas;
 	public string animationAtlas;
 	public string defaultSprite;
+	public Vector2 spriteOffset = Vector2.zero;
 }
 
 public abstract class BaseObject : MonoBehaviour

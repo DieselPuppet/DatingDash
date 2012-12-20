@@ -10,6 +10,8 @@ public class CoffeeMachineObject : BaseObject
 		public string indicatorAtlasName;
 		public string indicatorAnimationAtlasName;
 		
+		public Vector2 indicatorOffset = Vector2.zero;
+		
 		public float speed;
 	}	
 	
@@ -38,6 +40,9 @@ public class CoffeeMachineObject : BaseObject
 		UpgradeSettings settings = upgrades[level];
 		
 		indicator.gameObject.SetActive(false);
+		
+		indicator.gameObject.transform.Translate(settings.indicatorOffset.x, settings.indicatorOffset.y, 0);
+		
 		ContentManager.instance.configureObject(indicator, settings.indicatorAtlasName, "");
 		ContentManager.instance.precacheAnimation(indicator, settings.indicatorAnimationAtlasName);		
 		

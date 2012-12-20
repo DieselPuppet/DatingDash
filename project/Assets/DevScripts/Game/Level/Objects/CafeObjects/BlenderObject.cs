@@ -10,6 +10,8 @@ public class BlenderObject : BaseObject
 		public string indicatorAtlasName;
 		public string indicatorAnimationAtlasName;
 		
+		public Vector2 indicatorOffset = Vector2.zero;
+		
 		public float speed;
 	}
 	
@@ -38,6 +40,8 @@ public class BlenderObject : BaseObject
 		UpgradeSettings settings = upgrades[level];
 		
 		indicator.gameObject.SetActive(false);
+		indicator.gameObject.transform.Translate(settings.indicatorOffset.x, settings.indicatorOffset.y, 0);
+		
 		ContentManager.instance.configureObject(indicator, settings.indicatorAtlasName, "");
 		ContentManager.instance.precacheAnimation(indicator, settings.indicatorAnimationAtlasName);
 		
@@ -54,6 +58,7 @@ public class BlenderObject : BaseObject
 			case BlenderState.IDLE:
 				if (_currentProduct != OrderProducts.UNKNOWN)
 				{
+					_sprite.Stop();
 					Inventory.instance.addStuf(_currentProduct.ToString());
 					_currentProduct = OrderProducts.UNKNOWN;
 				}
