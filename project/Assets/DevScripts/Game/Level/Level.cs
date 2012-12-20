@@ -144,14 +144,14 @@ public class Level : MonoBehaviour
 		_objectsArray.Add(obj);
 	}
 	
-	public BaseObject getObject(string obj)
+	public BaseObject getObject(ObjectType type)
 	{
-		//foreach(LevelItem item in _objectsArray)
-		//{
-		//	if (item.name == obj)
-		//		return item;
-		//}
-		
+		foreach (BaseObject obj in _objectsArray)
+		{
+			if (obj.type == type)
+				return obj;
+		}
+
 		return null;
 	}
 	

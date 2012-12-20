@@ -1,17 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-public enum OrderType
-{
-	orange,
-	apple,
-	ORANGE_PIPE2,
-	APPLE,
-	APPLE_PIPE1,
-	APPLE_PIPE2,
-	FRUIT_CAKE
-}
-
 public class Order
 {	
 	public Order(string p, Customer o)
@@ -130,7 +119,7 @@ public class Inventory : MonoBehaviour
 	{		
 		if (_stuffArray.Count < _capacity)
 		{
-			Debug.Log(stuffId);
+			Debug.Log(stuffId+" added in inventory");
 			_stuffArray.Add(stuffId);
 		}
 		else 

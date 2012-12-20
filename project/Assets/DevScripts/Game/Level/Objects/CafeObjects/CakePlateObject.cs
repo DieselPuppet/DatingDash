@@ -31,6 +31,14 @@ public class CakePlateObject : BaseObject
 		_type = cakeType;
 	}	
 	
+	public void test()
+	{
+		_pieceNum = 4;
+		
+		GraphicsSettings settings = graphicSettings[level];
+		ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, fourPieceSprite);
+	}
+	
 	public override void onAction()
 	{
 		if (_pieceNum > 0)

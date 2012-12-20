@@ -3,7 +3,9 @@ using System.Collections;
 
 public class CakeObject : BaseObject
 {
-	public ObjectType target;
+	public string targetObjectName;
+	
+	CakePlateObject target;
 	
 	enum CakeState
 	{
@@ -17,11 +19,14 @@ public class CakeObject : BaseObject
 	{		
 		base.buildObject(level);
 		
+		target = GameObject.Find(targetObjectName).GetComponent<CakePlateObject>();
+		
 		_type = ObjectType.CAKE;
 	}
 	
 	public override void onAction()
 	{
+		target.test();
 		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 	}
 }
