@@ -2,7 +2,7 @@
 # Store this file at the root of your local repository.
 .DS_Store
 *.DS_Store
-project/Library
+project/[Ll]ibrary
 project/Library/AssetImportState
 project/Library/AssetServerCacheV3
 project/Library/FailedAssetImports.txt
@@ -18,6 +18,7 @@ project/Library/guidmapper
 Library/metadata/*
 Library/metadata/
 project/Temp/*
+project/[Bb]uild
 Build/*
 *.userprefs 
 *.csproj
