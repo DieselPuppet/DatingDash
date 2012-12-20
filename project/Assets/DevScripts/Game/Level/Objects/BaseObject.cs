@@ -19,7 +19,8 @@ public enum ObjectType
 	CAKE_PLATE1,
 	CAKE_PLATE2,
 	TABLE,
-	CHAIR
+	CHAIR,
+	DISCLAVIER
 }
 
 [System.Serializable]
@@ -39,6 +40,8 @@ public abstract class BaseObject : MonoBehaviour
 	
 	public Action[] actions;
 	private Dictionary<string, Action> _actions = new Dictionary<string, Action>();
+	
+	protected int level;
 	
 	protected ObjectType _type;
 	public ObjectType type
@@ -77,6 +80,8 @@ public abstract class BaseObject : MonoBehaviour
 		
 		GraphicsSettings settings = graphicSettings[level];
 		
+		level = level;
+		
 		ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, settings.defaultSprite);
 		if (settings.animationAtlas != "")
 			ContentManager.instance.precacheAnimation(_sprite, settings.animationAtlas);	
@@ -90,6 +95,13 @@ public abstract class BaseObject : MonoBehaviour
 			BoxCollider box = gameObject.AddComponent<BoxCollider>();
 			box.size = new Vector3(_sprite.GetBounds().size.x, _sprite.GetBounds().size.y, 1);
 		}			
+	}
+	
+	protected void resetToDefaults()
+	{
+		GraphicsSettings settings = graphicSettings[level];
+		
+		ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, settings.defaultSprite);
 	}
 	
 	protected virtual void onTouch()

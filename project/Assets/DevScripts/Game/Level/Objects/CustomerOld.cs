@@ -1,6 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
+public enum OrderProducts
+{
+	COFFEE_SMALL,
+	COFFEE_BIG,
+	ORANGE_JUCE,
+	APPLE_JUCE,
+	
+	UNKNOWN
+}
+
 public enum CustomerState
 {
 	WAITING_STAND,
