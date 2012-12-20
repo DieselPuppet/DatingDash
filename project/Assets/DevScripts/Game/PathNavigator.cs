@@ -21,7 +21,7 @@ public class PathNavigator : MonoBehaviour
 	
 	// navigation stuff
 	ArrayList _pathArray;	
-	float speed = 100;
+	public float speed = 100;
 	Vector2 nextWP;	
 	int nextWPIndex = 0;
 	
