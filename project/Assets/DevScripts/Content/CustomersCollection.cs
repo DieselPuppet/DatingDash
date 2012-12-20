@@ -32,8 +32,8 @@ public class CustomerDesc
 	
 	public int ordersCount;
 	
+	public int eatTime;	
 	public int orderTime;
-	public int eatTime;
 	public float moodDownTime;
 	
 	#endregion
