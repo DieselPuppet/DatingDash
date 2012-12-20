@@ -6,12 +6,11 @@ public enum OrderProducts
 	COFFEE_SMALL,
 	COFFEE_BIG,
 	ORANGE_JUCE,
-	ORANGE_JUCE_PIPES1,
-	ORANGE_JUCE_PIPES2,
+	PIPES1,
+	PIPES2,
 	APPLE_JUCE,
-	APPLE_JUCE_PIPES1,
-	APPLE_JUCE_PIPES2,
 	FRUIT_CAKE,
+	CAKE,
 	
 	UNKNOWN
 }
@@ -54,6 +53,8 @@ public class Customer : MonoBehaviour
 	
 	tk2dAnimatedSprite _sprite;
 	
+	public ArrayList orders = new ArrayList();
+	
 	int _currentMood;
 	float _moodDownSpeed;
 	float _moodDownSpeedCoeff;
@@ -77,6 +78,9 @@ public class Customer : MonoBehaviour
 		
 		_currentMood = 100;
 		_moodDownSpeed = 60f/desc.moodDownTime;
+		
+		orders.Add(new Order(OrderProducts.APPLE_JUCE.ToString()+OrderProducts.PIPES1.ToString(), this));
+		orders.Add(new Order(OrderProducts.FRUIT_CAKE.ToString(), this));
 		
 		BoxCollider box = gameObject.AddComponent<BoxCollider>();
 		box.size = new Vector3(_sprite.GetBounds().size.x, _sprite.GetBounds().size.y, 1);		
