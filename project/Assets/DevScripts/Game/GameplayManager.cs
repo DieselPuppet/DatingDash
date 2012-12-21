@@ -46,7 +46,7 @@ public class GameplayManager : MonoBehaviour
 	{
 		_currentGameMode = gmode;
 		
-		_currentLevel = LevelLoader.instance.buildLevel(levelName , GameMode.COMPANY);
+		_currentLevel = LevelBuilder.instance.buildLevel(levelName, GameMode.COMPANY);
 		
 		_isPaused = false;
 		_isStarted = true;
