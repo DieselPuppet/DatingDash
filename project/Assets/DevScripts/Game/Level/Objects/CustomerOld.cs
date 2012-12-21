@@ -54,6 +54,8 @@ public class Customer : MonoBehaviour
 	
 	tk2dAnimatedSprite _sprite;
 	
+	OrderTable _orderTable;
+	
 	public ArrayList orders = new ArrayList();
 	
 	int _currentMood;
@@ -85,8 +87,16 @@ public class Customer : MonoBehaviour
 		orders.Add(new Order(OrderProducts.FRUIT_CAKE.ToString(), this));
 		//
 		
+		GameObject tableGO = (GameObject)Instantiate((GameObject)Resources.Load("Prefabs/OrderTable"), gameObject.transform.position, Quaternion.identity);
+		tableGO.transform.parent = gameObject.transform;
+		tableGO.transform.Translate(0, 0, -2);
+		
+		_orderTable = tableGO.GetComponent<OrderTable>();
+		
 		BoxCollider box = gameObject.AddComponent<BoxCollider>();
 		box.size = new Vector3(_sprite.GetBounds().size.x, _sprite.GetBounds().size.y, 1);		
+		
+		_sprite.Play("hello");
 		
 		setState(CustomerState.WAITING_STAND);
 	}
@@ -123,6 +133,11 @@ public class Customer : MonoBehaviour
 			break;
 		
 		case CustomerState.WAITING_ORDER:
+			
+			_orderTable.show();
+			
+			_moodDownSpeedCoeff = 0.5f;	
+			lastMoodChangeTime = Time.time;	
 			break;			
 			
 		default:
@@ -181,6 +196,20 @@ public class Customer : MonoBehaviour
 		{
 			gameObject.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, gameObject.transform.position.z);
 		
+			if (Level.instance.getNearestChair(Input.mousePosition) != null)
+			{
+				if (!Level.instance.getNearestChair(Input.mousePosition).isLeft)
+					gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+				else 
+					gameObject.transform.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
+				
+				_sprite.Play("sit_happy");
+			}
+			else
+			{
+				_sprite.Play("hello");	
+			}
+			
 			if (Input.GetMouseButtonUp(0))
 			{		
 				ChairObject chair = Level.instance.getNearestChair(Input.mousePosition);

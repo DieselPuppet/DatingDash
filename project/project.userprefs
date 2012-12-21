@@ -1,6 +1,36 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/DevScripts/Game/Level/Objects/CustomerOld.cs">
+    <Files>
+      <File FileName="Assets/DevScripts/Common/Config.cs" Line="17" Column="4" />
+      <File FileName="Assets/DevScripts/Common/EntryPoint.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/test/Drafts.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Level.cs" Line="168" Column="36" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/Action.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/BaseObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/CafeObjects/CoffeeMachineObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/CafeObjects/BlenderObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/CafeObjects/CakeObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/CafeObjects/CakePlateObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/CustomerOld.cs" Line="52" Column="35" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/CafeObjects/ChairObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/ProviderObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/CafeObjects/DisclavierObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/LevelBuilder.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/LevelLoader.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/LevelTask.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/PathGraph.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Common/Balance.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Common/Logger.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Content/ContentManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Content/CustomersCollection.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/PathNavigator.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/Level/Objects/CafeObjects/TableObject.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/GameConsts.cs" Line="1" Column="1" />
+      <File FileName="Assets/DevScripts/Game/PlayerBehaviour.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
