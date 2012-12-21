@@ -101,7 +101,7 @@ public class Level : MonoBehaviour
 		}
 	}
 	
-	float _spawnInterval = 2;
+	float _spawnDelay;
 	float _lastSpawnTime;
 	
 	void Awake()
@@ -128,13 +128,25 @@ public class Level : MonoBehaviour
 		_isComplete = false;
 	}
 	
+	LevelDesc _desc;
+	
+	public void configure(LevelDesc desc)
+	{
+		_desc = desc;
+		
+		CustomerSpawn cs = (CustomerSpawn)_desc.customersQueue[0];
+		Debug.Log("1st customer - "+cs.orders[0]);
+		
+		_lastSpawnTime = Time.time;
+	}
+	
 	// move to courutine?
 	public void process(GameMode mode)
 	{	
 		if (!_isComplete)
 		{			
 			float currentTime = Time.time;
-			if ((currentTime - _lastSpawnTime) > _spawnInterval)
+			if ((currentTime - _lastSpawnTime) > _spawnDelay)
 			{
 				//spawnNpc();
 				_lastSpawnTime = currentTime;
@@ -221,14 +233,5 @@ public class Level : MonoBehaviour
 			customerGO.SetActive(false);
 			_customerQueue.Add(customer);
 		}		
-	}
-
-	void OnGUI()
-	{
-		if (GUI.Button(new Rect(0, 0, 100, 50), "SpawnNPC"))
-		{
-			CustomerDesc testDesc = CustomersCollection.instance.getDesc(CustomerType.BUSINESS_WOMEN);
-			spawnCustomer(testDesc);
-		}
 	}	
 }

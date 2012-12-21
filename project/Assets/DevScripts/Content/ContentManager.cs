@@ -28,7 +28,7 @@ public class ContentManager : MonoBehaviour
 	{
 		if (!_spriteCollections.ContainsKey(resGroup))
 			loadSpriteCollection(resGroup);
-			
+		
 		sprite.SwitchCollectionAndSprite(_spriteCollections[resGroup].spriteCollection, _spriteCollections[resGroup].spriteCollection.GetSpriteIdByName(spriteName));
 	}
 	

@@ -5,14 +5,16 @@ using System.Xml;
 
 public enum CustomerType
 {
-	BUSINESS_WOMEN,
-	BUSINESS_MEN,
-	PRETTY_GIRL,
-	SPORT_GUY,
-	TEACHER_GIRL,
-	BOOKWORM_GUY,
-	HIPSTER_GIRL,
-	HIPSTER_GUY
+	CustomerType1,
+	CustomerType2,
+	CustomerType3,
+	CustomerType4,
+	CustomerType5,
+	CustomerType6,
+	CustomerType7,
+	CustomerType8,
+	CustomerType9,
+	CustomerType10
 }
 
 public enum ReactionType
