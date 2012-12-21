@@ -4,7 +4,9 @@ using System.Collections;
 public enum OrderProducts
 {
 	COFFEE_SMALL,
+	COFFEE_MILK_SMALL,
 	COFFEE_BIG,
+	COFFEE_MILK_BIG,
 	ORANGE_JUCE,
 	PIPES1,
 	PIPES2,
@@ -83,7 +85,7 @@ public class Customer : MonoBehaviour
 		_moodDownSpeed = 60f/desc.moodDownTime;
 		
 		// tmp
-		orders.Add(new Order(OrderProducts.APPLE_JUCE.ToString()+"+"+OrderProducts.PIPES1.ToString(), this));
+		orders.Add(new Order(OrderProducts.APPLE_JUCE.ToString()+OrderProducts.PIPES1.ToString(), this));
 		orders.Add(new Order(OrderProducts.FRUIT_CAKE.ToString(), this));
 		//
 		
