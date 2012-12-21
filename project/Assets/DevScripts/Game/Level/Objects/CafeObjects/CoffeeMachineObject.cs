@@ -12,13 +12,19 @@ public class CoffeeMachineObject : BaseObject
 		
 		public Vector2 indicatorOffset = Vector2.zero;
 		
-		public float speed;
+		public float brockenTime;
+		public string brockenSpriteSmall;
+		public string brockenSpriteBig;
 	}	
 	
 	public UpgradeSettings[] upgrades;
+	UpgradeSettings usettings;
 	
 	public tk2dAnimatedSprite indicator;
 	public string timerGreenAnimation;	
+	public string timerRedAnimation;	
+	
+	bool _hasCoffee = false;
 	
 	OrderProducts _currentProduct = OrderProducts.UNKNOWN;
 	
@@ -37,14 +43,14 @@ public class CoffeeMachineObject : BaseObject
 	{		
 		base.buildObject(level);
 		
-		UpgradeSettings settings = upgrades[level];
+		usettings = upgrades[level];
 		
 		indicator.gameObject.SetActive(false);
 		
-		indicator.gameObject.transform.Translate(settings.indicatorOffset.x, settings.indicatorOffset.y, 0);
+		indicator.gameObject.transform.Translate(usettings.indicatorOffset.x, usettings.indicatorOffset.y, 0);
 		
-		ContentManager.instance.configureObject(indicator, settings.indicatorAtlasName, "");
-		ContentManager.instance.precacheAnimation(indicator, settings.indicatorAnimationAtlasName);		
+		ContentManager.instance.configureObject(indicator, usettings.indicatorAtlasName, "");
+		ContentManager.instance.precacheAnimation(indicator, usettings.indicatorAnimationAtlasName);		
 		
 		_type = ObjectType.COFFEE_MACHINE;
 		_state = CoffeeMachineState.IDLE;
@@ -69,6 +75,17 @@ public class CoffeeMachineObject : BaseObject
 				break;
 			case CoffeeMachineState.WORK_NORMAL:
 				break;
+				
+			case CoffeeMachineState.WORK_DANGER:
+				playTimerAnimation(timerRedAnimation);
+				setState(CoffeeMachineState.BROCKEN, usettings.brockenTime);
+				break;				
+				
+			case CoffeeMachineState.BROCKEN:
+				_sprite.Stop();
+				
+				break;		
+				
 			default:
 				Logger.message(LogLevel.LOG_ERROR, "Unknown coffee machine state - "+state.ToString());
 				break;
@@ -90,70 +107,76 @@ public class CoffeeMachineObject : BaseObject
 	
 	void playTimerAnimation(string animName)
 	{
-		Debug.Log("Play "+animName);
 		indicator.gameObject.SetActive(true);
 		indicator.Play(animName);
 	}	
+	
+	public override void onDoAction(string actionName)
+	{
+		setState(CoffeeMachineState.WORK_DANGER, getAction(actionName).actionTime);
+	}
 	
 	public override void onAction()
 	{
 		if (_state == CoffeeMachineState.IDLE)
 		{
-			if (Inventory.instance.hasStuff("CUP_SMALL") && Inventory.instance.hasStuff("CUP_BIG"))
+			if (_hasCoffee)
 			{
-				string stuff = Inventory.instance.higherPriority("CUP_SMALL", "CUP_BIG");
-				Inventory.instance.removeStuff(stuff);
+				_hasCoffee = false;
 				
-				string actionName = "MAKE_"+stuff;
+				resetToDefaults();
 				
-				doAction(actionName);
-				playTimerAnimation(timerGreenAnimation);
-				
-				if (getAction(actionName).requiredTime > 0)
-					PlayerBehaviour.instance.setBusy(getAction(actionName).requiredTime);
-				
-				if (stuff=="CUP_SMALL")	
-					_currentProduct = OrderProducts.COFFEE_SMALL;
-				else 
-					_currentProduct = OrderProducts.COFFEE_BIG;
-				
-				setState(CoffeeMachineState.WORK_NORMAL);
-				setState(CoffeeMachineState.IDLE, getAction(actionName).actionTime);
+				Inventory.instance.addStuf(_currentProduct.ToString());
 			}
-			else if (Inventory.instance.hasStuff("CUP_SMALL"))
+			else 
 			{
-				Inventory.instance.removeStuff("CUP_SMALL");
-				
-				string actionName = "MAKE_CUP_SMALL";
-				
-				doAction(actionName);
-				playTimerAnimation(timerGreenAnimation);
-				
-				if (getAction(actionName).requiredTime > 0)
-					PlayerBehaviour.instance.setBusy(getAction(actionName).requiredTime);
-			
-				_currentProduct = OrderProducts.COFFEE_SMALL;
-				
-				setState(CoffeeMachineState.WORK_NORMAL);
-				setState(CoffeeMachineState.IDLE, getAction(actionName).actionTime);
+				if (Inventory.instance.hasStuff("CUP_SMALL") || Inventory.instance.hasStuff("CUP_BIG"))
+				{
+					string sources;
+					
+					if (Inventory.instance.hasStuff("CUP_SMALL") && Inventory.instance.hasStuff("CUP_BIG"))
+						sources = Inventory.instance.higherPriority("CUP_SMALL", "CUP_BIG");		
+					else if (Inventory.instance.hasStuff("CUP_SMALL"))
+						sources = "CUP_SMALL";
+					else 
+						sources = "CUP_BIG";
+					
+					Inventory.instance.removeStuff(sources);
+					
+					string actionName = "MAKE_"+sources;
+					
+					doAction(actionName);
+					playTimerAnimation(timerGreenAnimation);
+					
+					if (sources=="CUP_SMALL")	
+						_currentProduct = OrderProducts.COFFEE_SMALL;
+					else 
+						_currentProduct = OrderProducts.COFFEE_BIG;
+					
+					setState(CoffeeMachineState.WORK_NORMAL);
+				}
 			}
-			else if (Inventory.instance.hasStuff("CUP_BIG"))
-			{
-				Inventory.instance.removeStuff("CUP_BIG");
-				
-				string actionName = "MAKE_CUP_BIG";
-				
-				doAction(actionName);
-				playTimerAnimation(timerGreenAnimation);
-				
-				if (getAction(actionName).requiredTime > 0)
-					PlayerBehaviour.instance.setBusy(getAction(actionName).requiredTime);				
-			
-				_currentProduct = OrderProducts.COFFEE_BIG;
-				
-				setState(CoffeeMachineState.WORK_NORMAL);	
-				setState(CoffeeMachineState.IDLE, getAction(actionName).actionTime);
-			}			
 		}
-	}	
+		
+		else if (_state == CoffeeMachineState.WORK_NORMAL)
+		{
+			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
+		}
+		else if (_state == CoffeeMachineState.WORK_DANGER)
+		{
+			setState(CoffeeMachineState.IDLE);
+
+			indicator.Stop();
+			indicator.gameObject.SetActive(false);
+			CancelInvoke();
+			_sprite.Stop();		
+		}
+		else if (_state == CoffeeMachineState.BROCKEN)
+		{
+			PlayerBehaviour.instance.setBusy(2);
+			indicator.gameObject.SetActive(false);
+		}		
+		
+		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
+	}		
 }

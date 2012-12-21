@@ -31,8 +31,12 @@ public class TableObject : BaseObject
 		{			
 			foreach(Order order in chairs[0].customer.orders)			
 			{		
+				Debug.Log("Check order - "+order.productID);
+				
 				if (Inventory.instance.canCompleteOrder(order.productID))
 				{	
+					Debug.Log("true");
+					
 					order.complete();
 					Inventory.instance.removeStuff(order.productID);
 				}		
@@ -46,7 +50,10 @@ public class TableObject : BaseObject
 					orderSuccess = false;
 			}
 			
-			//if (orderSuccess)
+			
+			
+			if (orderSuccess)
+				Debug.Log("orderSuccess");
 			//	chairs[0].customer.setState(CustomerState.);
 		}
 	
@@ -70,7 +77,8 @@ public class TableObject : BaseObject
 					orderSuccess = false;
 			}
 			
-			//if (orderSuccess)
+			if (orderSuccess)
+				Debug.Log("orderSuccess");
 			//	chairs[1].customer.setState(CustomerStateOld.EAT);				
 		}
 	}

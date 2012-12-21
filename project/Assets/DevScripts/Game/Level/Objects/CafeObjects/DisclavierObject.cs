@@ -21,7 +21,7 @@ public class DisclavierObject : BaseObject
 		_state = DicslavierState.CLOSED;
 	}		
 	
-	public override void onAction()
+	protected override void onTouch()
 	{
 		doAction("Play");
 	}

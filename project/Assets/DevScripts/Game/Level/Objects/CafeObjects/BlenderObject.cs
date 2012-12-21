@@ -7,8 +7,18 @@ public class BlenderObject : BaseObject
 	public class UpgradeSettings
 	{
 		public string level;
+		
+		public string potionZeroSprite;
+		public string potionOneAppleSprite;
+		public string potionTwoAppleSprite;
+		public string potionOneOrangeSprite;
+		public string potionTwoOrangeSprite;		
+		
 		public string indicatorAtlasName;
 		public string indicatorAnimationAtlasName;
+		
+		public string brockenOrangeSprite;
+		public string brockenAppleSprite;
 		
 		public Vector2 indicatorOffset = Vector2.zero;
 		
@@ -18,9 +28,13 @@ public class BlenderObject : BaseObject
 	}
 	
 	public UpgradeSettings[] upgrades;
+	UpgradeSettings usettings;
 	
 	public tk2dAnimatedSprite indicator;
 	public string timerGreenAnimation;
+	public string timerRedAnimation;
+	
+	public tk2dAnimatedSprite brockenSprite;
 	
 	OrderProducts _currentProduct = OrderProducts.UNKNOWN;
 	
@@ -43,15 +57,17 @@ public class BlenderObject : BaseObject
 	{		
 		base.buildObject(level);
 		
-		UpgradeSettings settings = upgrades[level];
+		usettings = upgrades[level];
 		
 		indicator.gameObject.SetActive(false);
-		indicator.gameObject.transform.Translate(settings.indicatorOffset.x, settings.indicatorOffset.y, 0);
+		indicator.gameObject.transform.Translate(usettings.indicatorOffset.x, usettings.indicatorOffset.y, 0);
 		
-		ContentManager.instance.configureObject(indicator, settings.indicatorAtlasName, "");
-		ContentManager.instance.precacheAnimation(indicator, settings.indicatorAnimationAtlasName);
+		ContentManager.instance.configureObject(indicator, usettings.indicatorAtlasName, "");
+		ContentManager.instance.precacheAnimation(indicator, usettings.indicatorAnimationAtlasName);
 		
-		_portionCapacity = settings.portionNum;	
+		brockenSprite.gameObject.SetActive(false);
+		
+		_portionCapacity = usettings.portionNum;	
 		_currentPortionNum = 0;	
 		
 		_type = ObjectType.BLENDER;
@@ -79,6 +95,23 @@ public class BlenderObject : BaseObject
 				
 			case BlenderState.WORK_NORMAL:
 				break;
+				
+			case BlenderState.WORK_DANGER:
+				setState(BlenderState.BROCKEN, getAction("MAKE_ORANGE").actionTime);
+				break;
+				
+			case BlenderState.BROCKEN:
+				_sprite.Stop();
+				
+				brockenSprite.gameObject.SetActive(true);
+				
+				if (_currentProduct == OrderProducts.APPLE_JUCE)
+					ContentManager.instance.configureObject(brockenSprite, settings.spriteAtlas, usettings.brockenAppleSprite);
+				else 
+					ContentManager.instance.configureObject(brockenSprite, settings.spriteAtlas, usettings.brockenOrangeSprite);
+				
+				break;
+				
 			default:
 				Logger.message(LogLevel.LOG_ERROR, "Unknown blender state - "+state.ToString());
 				break;
@@ -98,36 +131,66 @@ public class BlenderObject : BaseObject
 		setState(_nextState);
 	}
 	
-	void startJuice()
-	{
-		indicator.gameObject.SetActive(true);
-		indicator.Play(timerGreenAnimation);
-		
-		//Invoke("juceReady", getAction("MAKE_"+_currentProduct.ToString()).actionTime);
-	}
-	
 	public override void onDoAction(string actionName)
-	{
-		Debug.Log("onDoAction "+actionName);
-		
+	{		
 		if (actionName == "MAKE_ORANGE")
 		{
-			Invoke("juiceComplete", getAction("MAKE_ORANGE").actionTime);
+			indicator.gameObject.SetActive(true);
+			indicator.Play(timerGreenAnimation);			
+			
+			Invoke("updateToFull", getAction("MAKE_ORANGE").actionTime);
 		}
 		else if (actionName == "MAKE_APPLE")
-		{
-			Invoke("juiceComplete", getAction("MAKE_APPLE").actionTime);
+		{	
+			indicator.gameObject.SetActive(true);
+			indicator.Play(timerGreenAnimation);			
+			
+			Invoke("updateToFull", getAction("MAKE_APPLE").actionTime);
 		}
 	}
 	
-	void updatePortionNum(int num = 4)
+	void updateToFull()
 	{
+		updatePortionNum(2);
+	}
+	
+	void updatePortionNum(int num)
+	{		
+		if (_state == BlenderState.WORK_NORMAL)
+		{
+			setState(BlenderState.WORK_DANGER);
+			indicator.Play(timerRedAnimation);		
+		}
+		else 
+		{
+			indicator.Stop();
+			indicator.gameObject.SetActive(false);
+			CancelInvoke();
+			_sprite.Stop();
+		}
+		
 		_currentPortionNum = num;
 		_state = BlenderState.IDLE;
-		_sprite.Stop();
 		
-		//if (num == 4)
-		//	ContentManager.instance.configureObject(_sprite, settings.spriteAtlas
+		if (num == 2)
+		{
+			if (_currentProduct == OrderProducts.APPLE_JUCE)
+				ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionTwoAppleSprite);		
+			else 
+				ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionTwoOrangeSprite);	
+		}
+		else if (num == 1)
+		{
+			
+			if (_currentProduct == OrderProducts.APPLE_JUCE)
+				ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionOneAppleSprite);
+			else 
+				ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionOneOrangeSprite);
+		}
+		else if (num == 0)
+		{
+			ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionZeroSprite);
+		}
 	}
 	
 	public override void onAction()
@@ -136,12 +199,12 @@ public class BlenderObject : BaseObject
 		{
 			if (_currentPortionNum > 0)
 			{
-				if (_currentProduct == OrderProducts.APPLE_JUCE)
-					Inventory.instance.addStuf(OrderProducts.APPLE_JUCE.ToString());
-				else if (_currentProduct == OrderProducts.ORANGE_JUCE)
-					Inventory.instance.addStuf(OrderProducts.ORANGE_JUCE.ToString());
-				
+				Inventory.instance.addStuf(_currentProduct.ToString());
 				_currentPortionNum--;
+				
+				updatePortionNum(_currentPortionNum);
+				
+				PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 			}
 			else 
 			{	
@@ -161,6 +224,8 @@ public class BlenderObject : BaseObject
 					else 
 						_currentProduct = OrderProducts.APPLE_JUCE;				
 					
+					Inventory.instance.removeStuff(sources);
+					
 					doAction("PREPARE");
 					
 					string workActionName = "MAKE_"+sources;
@@ -168,17 +233,26 @@ public class BlenderObject : BaseObject
 					
 					setState(BlenderState.WORK_NORMAL);
 				}	
+				else 
+				{
+					PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
+				}
 			}
 		}
 		else if (_state == BlenderState.WORK_NORMAL)
 		{
 			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 		}
+		else if (_state == BlenderState.WORK_DANGER)
+		{
+			setState(BlenderState.IDLE);
+			updateToFull();
+		}
 		else if (_state == BlenderState.BROCKEN)
 		{
-			// TODO : add cleanup work
-			PlayerBehaviour.instance.setBusy(1);
-			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
+			PlayerBehaviour.instance.setBusy(2);
+			brockenSprite.gameObject.SetActive(false);
+			indicator.gameObject.SetActive(false);
 		}
 	}
 }

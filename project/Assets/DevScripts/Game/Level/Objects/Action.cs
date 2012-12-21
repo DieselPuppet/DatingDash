@@ -45,8 +45,6 @@ public class Action
 		
 		if (requiredTime > 0)
 			PlayerBehaviour.instance.setBusy(requiredTime);
-		else 
-			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);		
 		
 		_owner.onDoAction(name);
 	}

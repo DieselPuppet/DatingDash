@@ -19,6 +19,11 @@ public class ChairObject : BaseObject
 	{		
 		base.buildObject(level);	
 		
+		gameObject.transform.parent = null;
+		Vector3 position = gameObject.transform.localPosition;
+		position.z = (((position.y-_sprite.GetBounds().size.y/2)*0.01f))+.01f;
+		gameObject.transform.localPosition = position;		
+		
 		_type = ObjectType.CHAIR;
 	}		
 	

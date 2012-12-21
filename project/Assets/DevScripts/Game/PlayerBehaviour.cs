@@ -160,9 +160,10 @@ public class PlayerBehaviour : MonoBehaviour
 	{
 		Logger.message(LogLevel.LOG_INFO, "Player state sets to "+state.ToString());
 		
-		_currentState = state;
+		if (state == _currentState)
+			return;
 		
-		switch(_currentState)
+		switch(state)
 		{
 		case PlayerState.DEFAULT:
 			_sprite.Play("stand");
@@ -179,5 +180,7 @@ public class PlayerBehaviour : MonoBehaviour
 			Logger.message(LogLevel.LOG_ERROR, "Unknown player state - "+_currentState.ToString());
 			break;
 		}		
+		
+		_currentState = state;
 	}
 }

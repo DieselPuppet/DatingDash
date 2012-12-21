@@ -10,8 +10,11 @@ public enum ObjectType
 	FRUIT_CAKE,
 	CROISSANT,
 	BLENDER,
+	MILK,
 	CUP_BIG,
+	CUP_BIG_MILK,
 	CUP_SMALL,
+	CUP_SMALL_MILK,
 	PIPES1,
 	PIPES2,
 	COFFEE_MACHINE,
@@ -38,6 +41,7 @@ public abstract class BaseObject : MonoBehaviour
 	public GraphicsSettings[] graphicSettings;
 	
 	public string pointInGraph;
+	public bool zSort = true;
 	
 	public Action[] actions;
 	private Dictionary<string, Action> _actions = new Dictionary<string, Action>();
@@ -89,9 +93,12 @@ public abstract class BaseObject : MonoBehaviour
 		if (settings.animationAtlas != "")
 			ContentManager.instance.precacheAnimation(_sprite, settings.animationAtlas);	
 		
-		Vector3 position = gameObject.transform.localPosition;
-		position.z = (((position.y-_sprite.GetBounds().size.y/2)*0.01f))+.01f;
-		gameObject.transform.localPosition = position;				
+		if (zSort)
+		{
+			Vector3 position = gameObject.transform.localPosition;
+			position.z = (((position.y-_sprite.GetBounds().size.y/2)*0.01f))+.01f;
+			gameObject.transform.localPosition = position;				
+		}
 		
 		if (gameObject.GetComponent<BoxCollider>() == null)
 		{
