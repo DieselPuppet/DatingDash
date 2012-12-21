@@ -18,9 +18,4 @@ public class Config : MonoBehaviour
 	}
 	
 	public bool isDevelopmentBuild;
-	
-	public string dataPath;
-	
-	public string itemsDB;
-	public string customersDB;
 }
