@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EntryPoint : MonoBehaviour 
 {
+	public TextAsset levels;
+	
 	void Awake()
 	{		
 		SaveManager.instance.load();
@@ -10,6 +12,8 @@ public class EntryPoint : MonoBehaviour
 		Logger.init(LogLevel.LOG_WARNING);
 		
 		Platform.instance.init();
+		
+		LevelsCollection.instance.parse(levels);
 	}
 	
 	void OnGUI()
