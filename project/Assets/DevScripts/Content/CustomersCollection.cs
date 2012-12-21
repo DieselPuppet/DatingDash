@@ -44,6 +44,8 @@ public class CustomerDesc
 	public string spriteAtlas;
 	public string animationAtlas;
 	public string spriteName;
+	
+	public Vector2 seatOffset;
 	#endregion
 	
 	#region behaviour

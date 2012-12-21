@@ -109,6 +109,7 @@ public class Customer : MonoBehaviour
 			break;
 			
 		case CustomerState.WAITING_SIT:
+			collider.enabled = false;
 			_moodDownSpeedCoeff = 0.5f;		
 			lastMoodChangeTime = Time.time;		
 			break;
@@ -189,7 +190,7 @@ public class Customer : MonoBehaviour
 					}
 					
 					// replace this hell to method
-					gameObject.transform.position = chair.gameObject.transform.position;
+					gameObject.transform.position = new Vector3(chair.gameObject.transform.position.x+_desc.seatOffset.x, chair.gameObject.transform.position.y+_desc.seatOffset.y, -1);
 					seatPosition = chair;
 					placement.isFree = true;
 					chair.isFree = false;
