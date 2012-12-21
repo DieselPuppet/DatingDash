@@ -58,6 +58,12 @@ public class CustomerDesc
 	#endregion
 }
 
+// TMP!
+public class OrdersGraphics
+{
+	private static Dictionary<string, string> _orderSprites = new Dictionary<string, string>();
+}
+
 public class CustomersCollection : MonoBehaviour 
 {
 	private static CustomersCollection _instance;
