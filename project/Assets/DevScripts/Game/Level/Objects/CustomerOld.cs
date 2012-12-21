@@ -22,6 +22,7 @@ public enum CustomerState
 	WAITING_SIT,
 	MAKE_ORDER,
 	WAITING_ORDER,
+	WAITING_ORDER_ANGRY,
 	
 	UNKNOWN
 }
@@ -79,8 +80,10 @@ public class Customer : MonoBehaviour
 		_currentMood = 100;
 		_moodDownSpeed = 60f/desc.moodDownTime;
 		
+		// tmp
 		orders.Add(new Order(OrderProducts.APPLE_JUCE.ToString()+OrderProducts.PIPES1.ToString(), this));
 		orders.Add(new Order(OrderProducts.FRUIT_CAKE.ToString(), this));
+		//
 		
 		BoxCollider box = gameObject.AddComponent<BoxCollider>();
 		box.size = new Vector3(_sprite.GetBounds().size.x, _sprite.GetBounds().size.y, 1);		
@@ -151,10 +154,10 @@ public class Customer : MonoBehaviour
 		case CustomerState.MAKE_ORDER:
 			if ((currentTime - startOrderTime) > _desc.orderTime)
 			{
-				//foreach (string o in _desc.orders)
-				//{
-				//	Inventory.instance.addOrder(new Order(o, this));
-				//}
+				foreach (Order o in orders)
+				{
+					Inventory.instance.addOrder(o);
+				}
 				
 				setState(CustomerState.WAITING_ORDER);
 			}
