@@ -203,7 +203,7 @@ public class Level : MonoBehaviour
 	{
 		if (GUI.Button(new Rect(0, 0, 100, 50), "SpawnNPC"))
 		{
-			CustomerDesc testDesc = CustomersCollection.instance.getDesc(CustomerType.BUSINESS_WOMEN.ToString());
+			CustomerDesc testDesc = CustomersCollection.instance.getDesc(CustomerType.BUSINESS_WOMEN);
 			spawnCustomer(testDesc);
 		}
 	}	

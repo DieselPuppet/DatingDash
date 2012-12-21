@@ -10,12 +10,6 @@ public class EntryPoint : MonoBehaviour
 		Logger.init(LogLevel.LOG_WARNING);
 		
 		Platform.instance.init();
-		
-		string customersDBPath = Application.dataPath+Config.instance.dataPath+Config.instance.customersDB;
-		CustomersCollection.instance.parseDB(customersDBPath);
-		
-		string itemsDBPath = Application.dataPath+Config.instance.dataPath+Config.instance.itemsDB;
-		ItemsCollection.instance.parseDB(itemsDBPath);
 	}
 	
 	void OnGUI()

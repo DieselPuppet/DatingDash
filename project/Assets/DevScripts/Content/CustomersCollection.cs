@@ -27,6 +27,8 @@ public enum ReactionType
 [System.Serializable]
 public class CustomerDesc
 {
+	public CustomerType type;
+	
 	#region common params
 	public string[] interests;
 	
@@ -70,38 +72,23 @@ public class CustomersCollection : MonoBehaviour
 		}
 	}
 	
-	Dictionary<string, CustomerDesc> _customersDict = new Dictionary<string, CustomerDesc>();
+	public CustomerDesc[] descriptions;
+	Dictionary<CustomerType, CustomerDesc> _customersDict = new Dictionary<CustomerType, CustomerDesc>();
 	
-	public void parseDB(string fileName)
-	{		
-		XmlDocument doc = new XmlDocument();
-		doc.Load(fileName);
-		
-		XmlNode rootNode = doc.FirstChild;
-		XmlNodeList customers = rootNode.SelectNodes("customer");		
-		
-		foreach(XmlNode customerNode in customers)
+	void Awake()
+	{
+		foreach(CustomerDesc desc in descriptions)
 		{
-			CustomerDesc desc = new CustomerDesc();
-			
-			string type = customerNode.Attributes["type"].Value;
-			
-			desc.orderTime = int.Parse(customerNode.Attributes["orderTime"].Value);
-			desc.eatTime = int.Parse(customerNode.Attributes["eatTime"].Value);
-			desc.moodDownTime = float.Parse(customerNode.Attributes["moodDownTime"].Value);
-			desc.spriteAtlas = customerNode.Attributes["spriteAtlas"].Value;
-			desc.spriteName = customerNode.Attributes["spriteName"].Value;
-			desc.animationAtlas = customerNode.Attributes["animationAtlas"].Value;
-			
-			_customersDict.Add(type, desc);
+			_customersDict.Add(desc.type, desc);
 		}
 	}
 	
-	public CustomerDesc getDesc(string type)
+	public CustomerDesc getDesc(CustomerType type)
 	{
 		if (!_customersDict.ContainsKey(type))
 		{
 			Logger.message(LogLevel.LOG_ERROR, "Unknown customer type - "+type);
+			return null;
 		}
 		
 		return _customersDict[type];
