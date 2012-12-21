@@ -135,7 +135,7 @@ public class Level : MonoBehaviour
 		_desc = desc;
 		
 		CustomerSpawn cs = (CustomerSpawn)_desc.customersQueue[0];
-		Debug.Log("1st customer - "+cs.orders[0]);
+		_spawnDelay = cs.delay;
 		
 		_lastSpawnTime = Time.time;
 	}
@@ -148,7 +148,17 @@ public class Level : MonoBehaviour
 			float currentTime = Time.time;
 			if ((currentTime - _lastSpawnTime) > _spawnDelay)
 			{
-				//spawnNpc();
+				CustomerSpawn cs = (CustomerSpawn)_desc.customersQueue[0];
+				spawnCustomer(CustomersCollection.instance.getDesc(cs.type));
+				
+				_desc.customersQueue.RemoveAt(0);
+				
+				if (_desc.customersQueue.Count > 0)
+				{
+					cs = (CustomerSpawn)_desc.customersQueue[0];
+					_spawnDelay = cs.delay;
+				}
+				
 				_lastSpawnTime = currentTime;
 			}
 			
@@ -219,6 +229,8 @@ public class Level : MonoBehaviour
 	
 	void spawnCustomer(CustomerDesc desc)
 	{
+		Debug.Log("spawn");
+		
 		GameObject customerGO = new GameObject();
 		Customer customer = customerGO.AddComponent<Customer>();
 		

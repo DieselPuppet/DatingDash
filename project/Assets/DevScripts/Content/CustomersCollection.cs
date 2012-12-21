@@ -83,17 +83,17 @@ public class CustomersCollection : MonoBehaviour
 	}
 	
 	public CustomerDesc[] descriptions;
-	Dictionary<CustomerType, CustomerDesc> _customersDict = new Dictionary<CustomerType, CustomerDesc>();
+	Dictionary<string, CustomerDesc> _customersDict = new Dictionary<string, CustomerDesc>();
 	
 	void Awake()
 	{
 		foreach(CustomerDesc desc in descriptions)
 		{
-			_customersDict.Add(desc.type, desc);
+			_customersDict.Add(desc.type.ToString(), desc);
 		}
 	}
 	
-	public CustomerDesc getDesc(CustomerType type)
+	public CustomerDesc getDesc(string type)
 	{
 		if (!_customersDict.ContainsKey(type))
 		{
