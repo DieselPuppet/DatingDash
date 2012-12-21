@@ -53,13 +53,16 @@
   </TaskType>
   
   <SpawnItem>
-    <CustomerType1 Image="Images\SpawnItem\CustomerType1.png" />
-    <CustomerType2 Image="Images\SpawnItem\CustomerType2.png" />
-    <CustomerType3 Image="Images\SpawnItem\CustomerType3.png" />
-    <CustomerType4 Image="Images\SpawnItem\CustomerType4.png" />
-    <CustomerType5 Image="Images\SpawnItem\CustomerType5.png" />
-    <CustomerType6 Image="Images\SpawnItem\CustomerType6.png" />  
-    <CustomerType7 Image="Images\SpawnItem\CustomerType7.png" />
+    <CustomerType1  Image="Images\SpawnItem\CustomerType1.png" />
+    <CustomerType2  Image="Images\SpawnItem\CustomerType2.png" />
+    <CustomerType3  Image="Images\SpawnItem\CustomerType3.png" />
+    <CustomerType4  Image="Images\SpawnItem\CustomerType4.png" />
+    <CustomerType5  Image="Images\SpawnItem\CustomerType5.png" />
+    <CustomerType6  Image="Images\SpawnItem\CustomerType6.png" />  
+    <CustomerType7  Image="Images\SpawnItem\CustomerType7.png" />
+    <CustomerType8  Image="Images\SpawnItem\CustomerType8.png" />
+    <CustomerType9  Image="Images\SpawnItem\CustomerType9.png" />
+    <CustomerType10 Image="Images\SpawnItem\CustomerType10.png" />
   </SpawnItem>
   
   <SpawnItemAttachment>

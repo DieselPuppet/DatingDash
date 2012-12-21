@@ -1,0 +1,1383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Levels>
+  <Level1 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType1 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType1>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level1>
+  <Level2 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType2 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType2>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level2>
+  <Level3 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType3 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level3>
+  <Level4 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType4 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType4>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level4>
+  <Level5 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType5 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType5>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level5>
+  <Level6 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType6 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType6>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level6>
+  <Level7 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType7 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType7>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level7>
+  <Level8 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType8 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType8>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level8>
+  <Level9 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType9 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType9>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level9>
+  <Level10 Time="120">
+    <LevelItem>
+      <SimpleObjects>
+        <croissant Value="1" />
+        <fruit_cake Value="1" />
+      </SimpleObjects>
+      <Cakes>
+        <cake_01 Value="1" />
+        <cake_01_plate Value="4" />
+        <cake_02 Value="1" />
+        <cake_02_plate Value="4" />
+      </Cakes>
+      <Blenders>
+        <apple Value="1" />
+        <orange Value="1" />
+        <blender_01 Value="1" />
+        <blender_02 Value="1" />
+      </Blenders>
+      <Coffee_machines>
+        <cup_big Value="1" />
+        <cup_small Value="1" />
+        <coffee_01 Value="1" />
+        <coffee_02 Value="1" />
+      </Coffee_machines>
+      <Interior>
+        <carpet Value="1" />
+        <curtain Value="1" />
+        <plants Value="1" />
+        <furniture Value="1" />
+        <pillar Value="1" />
+        <statue Value="1" />
+      </Interior>
+      <Tables>
+        <tables_amount Value="5" />
+      </Tables>
+    </LevelItem>
+    <Task>
+      <Goal>
+        <Earn_score Score="100" Param1="0" Param2="0" Param3="0" />
+      </Goal>
+      <Expert>
+        <Earn_score Score="500" Param1="0" Param2="0" Param3="0" />
+      </Expert>
+      <Bonus>
+        <Make_pairs Score="1" Param1="0" Param2="0" Param3="0" />
+        <Customer_N_with_any Score="1" Param1="1" Param2="0" Param3="0" />
+      </Bonus>
+    </Task>
+    <Lines>
+      <SpawnLine>
+        <CustomerType10 Delay="1">
+          <Order Name="Croissant" />
+          <Wish Name="Wish101" />
+        </CustomerType10>
+        <CustomerType2 Delay="10">
+          <Order Name="FruitCake" />
+          <Wish Name="Wish102" />
+        </CustomerType2>
+        <CustomerType3 Delay="10">
+          <Order Name="Cake01" />
+          <Wish Name="Wish103" />
+        </CustomerType3>
+        <CustomerType4 Delay="10">
+          <Order Name="Cake02" />
+          <Wish Name="Wish201" />
+        </CustomerType4>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffee" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType6 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish203" />
+        </CustomerType6>
+        <CustomerType7 Delay="10">
+          <Order Name="CupSmallCoffee" />
+          <Wish Name="Wish301" />
+        </CustomerType7>
+        <CustomerType8 Delay="10">
+          <Order Name="CupSmallCoffeeMilk" />
+          <Wish Name="Wish302" />
+        </CustomerType8>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceApple" />
+          <Wish Name="Wish303" />
+        </CustomerType9>
+        <CustomerType10 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType10>
+      </SpawnLine>
+      <SpawnLine>
+        <CustomerType10 Delay="3">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish402" />
+        </CustomerType10>
+        <CustomerType9 Delay="10">
+          <Order Name="JuiceOrange" />
+          <Wish Name="Wish403" />
+        </CustomerType9>
+        <CustomerType8 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish501" />
+        </CustomerType8>
+        <CustomerType7 Delay="10">
+          <Order Name="JuiceOrangePipe02" />
+          <Wish Name="Wish502" />
+        </CustomerType7>
+        <CustomerType6 Delay="10">
+          <Order Name="Croissant" />
+          <Wish Name="Wish503" />
+        </CustomerType6>
+        <CustomerType5 Delay="10">
+          <Order Name="CupBigCoffeeMilk" />
+          <Wish Name="Wish202" />
+        </CustomerType5>
+        <CustomerType4 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish502" />
+        </CustomerType4>
+        <CustomerType3 Delay="10">
+          <Order Name="JuiceApplePipe01" />
+          <Wish Name="Wish401" />
+        </CustomerType3>
+        <CustomerType2 Delay="10">
+          <Order Name="JuiceOrangePipe01" />
+          <Wish Name="Wish503" />
+        </CustomerType2>
+        <CustomerType1 Delay="10">
+          <Order Name="JuiceApplePipe02" />
+          <Wish Name="Wish503" />
+        </CustomerType1>
+      </SpawnLine>
+      <SpawnLine />
+      <SpawnLine />
+      <SpawnLine />
+    </Lines>
+  </Level10>
+</Levels>
