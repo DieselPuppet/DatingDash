@@ -8,9 +8,13 @@ public enum OrderProducts
 	COFFEE_BIG,
 	COFFEE_MILK_BIG,
 	ORANGE_JUCE,
+	ORANGE_JUCE_PIPE1,
+	ORANGE_JUCE_PIPE2,
 	PIPES1,
 	PIPES2,
 	APPLE_JUCE,
+	APPLE_JUCE_PIPE1,
+	APPLE_JUCE_PIPE12,
 	FRUIT_CAKE,
 	CAKE,
 	
@@ -25,6 +29,10 @@ public enum CustomerState
 	MAKE_ORDER,
 	WAITING_ORDER,
 	WAITING_ORDER_ANGRY,
+	
+	EAT,
+	
+	HAPPY_OUT,
 	
 	UNKNOWN
 }
@@ -67,6 +75,7 @@ public class Customer : MonoBehaviour
 	// timers
 	float lastMoodChangeTime;
 	float startOrderTime;
+	float startEat;
 	
 	private bool _isTouched = false;
 	
@@ -84,12 +93,7 @@ public class Customer : MonoBehaviour
 		
 		_currentMood = 100;
 		_moodDownSpeed = 60f/desc.moodDownTime;
-		
-		// tmp
-		orders.Add(new Order(OrderProducts.APPLE_JUCE.ToString()+"+"+OrderProducts.PIPES1.ToString(), this));
-		orders.Add(new Order(OrderProducts.FRUIT_CAKE.ToString(), this));
-		//
-		
+
 		GameObject tableGO = (GameObject)Instantiate((GameObject)Resources.Load("Prefabs/OrderTable"), gameObject.transform.position, Quaternion.identity);
 		tableGO.transform.parent = gameObject.transform;
 		tableGO.transform.Translate(0, 0, -2);
@@ -104,13 +108,22 @@ public class Customer : MonoBehaviour
 		setState(CustomerState.WAITING_STAND);
 	}
 	
+	//TMP!!!
+	public void pushOrders(string[] o)
+	{
+		foreach(string order in o)
+		{
+			orders.Add(new Order(order, this));
+		}
+	}
+	
 	public void OnMouseDown()
 	{		
 		if (_currentState == CustomerState.WAITING_STAND || _currentState == CustomerState.WAITING_SIT)
 			_isTouched = true;
 	}		
 	
-	void setState(CustomerState state)
+	public void setState(CustomerState state)
 	{
 		if (state == _currentState)
 			return;
@@ -135,12 +148,25 @@ public class Customer : MonoBehaviour
 			startOrderTime = Time.time;
 			break;
 		
+		case CustomerState.EAT:
+			_orderTable.hide();
+			startEat = Time.time;
+			_sprite.Play("sit_eat_drink");
+			break;
+			
 		case CustomerState.WAITING_ORDER:
 			
 			_orderTable.show();
 			
 			_moodDownSpeedCoeff = 0.5f;	
 			lastMoodChangeTime = Time.time;	
+			break;			
+			
+		case CustomerState.HAPPY_OUT:
+			_sprite.Play("hello");
+
+			seatPosition.isFree = true;
+			Destroy(gameObject, 2);
 			break;			
 			
 		default:
@@ -160,6 +186,16 @@ public class Customer : MonoBehaviour
 		case CustomerState.UNKNOWN:
 			break;
 			
+		case CustomerState.HAPPY_OUT:
+			break;
+			
+		case CustomerState.EAT:
+			if ((currentTime - startEat) >= _desc.eatTime)
+			{
+				setState(CustomerState.HAPPY_OUT);
+			}
+			break;
+			
 		case CustomerState.WAITING_STAND:
 		case CustomerState.WAITING_SIT:
 			if ((currentTime-lastMoodChangeTime) >= 1)
@@ -167,6 +203,17 @@ public class Customer : MonoBehaviour
 				_currentMood -= (int)(_moodDownSpeed*_moodDownSpeedCoeff);
 				lastMoodChangeTime = currentTime;
 			}
+			
+			if (_currentMood <= 0)
+			{
+				if (_currentState == CustomerState.WAITING_STAND)
+					_sprite.Play("stand_angry");
+				else 
+					_sprite.Play("sit_engry");
+				
+				Destroy(gameObject, 1);
+			}
+			
 			break;		
 			
 		case CustomerState.MAKE_ORDER:
@@ -239,7 +286,8 @@ public class Customer : MonoBehaviour
 						gameObject.transform.position = new Vector3(chair.gameObject.transform.position.x+_desc.seatOffset.x, chair.gameObject.transform.position.y+_desc.seatOffset.y, -1);
 						seatPosition = chair;
 						placement.isFree = true;
-						waitSeatPosition.isFree = true;
+						if (waitSeatPosition)
+							waitSeatPosition.isFree = true;
 						chair.isFree = false;
 						chair.customer = this;
 						

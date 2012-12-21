@@ -149,7 +149,7 @@ public class Level : MonoBehaviour
 			if ((currentTime - _lastSpawnTime) > _spawnDelay)
 			{
 				CustomerSpawn cs = (CustomerSpawn)_desc.customersQueue[0];
-				spawnCustomer(CustomersCollection.instance.getDesc(cs.type));
+				spawnCustomer(CustomersCollection.instance.getDesc(cs.type), cs.orders);
 				
 				_desc.customersQueue.RemoveAt(0);
 				
@@ -227,12 +227,11 @@ public class Level : MonoBehaviour
 		return null;		
 	}
 	
-	void spawnCustomer(CustomerDesc desc)
-	{
-		Debug.Log("spawn");
-		
+	void spawnCustomer(CustomerDesc desc, string[] orders)
+	{		
 		GameObject customerGO = new GameObject();
 		Customer customer = customerGO.AddComponent<Customer>();
+		customer.pushOrders(orders);
 		
 		if (spawnArea.freePointExist())
 		{

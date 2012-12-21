@@ -53,8 +53,7 @@ public class TableObject : BaseObject
 			
 			
 			if (orderSuccess)
-				Debug.Log("orderSuccess");
-			//	chairs[0].customer.setState(CustomerState.);
+				chairs[0].customer.setState(CustomerState.EAT);
 		}
 	
 		if (chairs[1].customer != null && 
@@ -78,8 +77,7 @@ public class TableObject : BaseObject
 			}
 			
 			if (orderSuccess)
-				Debug.Log("orderSuccess");
-			//	chairs[1].customer.setState(CustomerStateOld.EAT);				
+				chairs[1].customer.setState(CustomerState.EAT);		
 		}
 	}
 	

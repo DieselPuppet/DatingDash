@@ -51,85 +51,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType1 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType1>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -189,85 +189,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType2 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType2>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -327,85 +327,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType3 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -465,85 +465,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType4 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType4>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -603,85 +603,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType5 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType5>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -741,85 +741,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType6 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType6>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -879,85 +879,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType7 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType7>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -1017,85 +1017,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType8 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType8>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -1155,85 +1155,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType9 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType9>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
@@ -1293,85 +1293,85 @@
     <Lines>
       <SpawnLine>
         <CustomerType10 Delay="1">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType10>
         <CustomerType2 Delay="10">
-          <Order Name="FruitCake" />
+          <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
         <CustomerType3 Delay="10">
-          <Order Name="Cake01" />
+          <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
         <CustomerType4 Delay="10">
-          <Order Name="Cake02" />
+          <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffee" />
+          <Order Name="COFFEE_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType6 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish203" />
         </CustomerType6>
         <CustomerType7 Delay="10">
-          <Order Name="CupSmallCoffee" />
+          <Order Name="COFFEE_SMALL" />
           <Wish Name="Wish301" />
         </CustomerType7>
         <CustomerType8 Delay="10">
-          <Order Name="CupSmallCoffeeMilk" />
+          <Order Name="COFFEE_MILK_SMALL" />
           <Wish Name="Wish302" />
         </CustomerType8>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceApple" />
+          <Order Name="APPLE_JUCE" />
           <Wish Name="Wish303" />
         </CustomerType9>
         <CustomerType10 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType10>
       </SpawnLine>
       <SpawnLine>
         <CustomerType10 Delay="3">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish402" />
         </CustomerType10>
         <CustomerType9 Delay="10">
-          <Order Name="JuiceOrange" />
+          <Order Name="ORANGE_JUCE" />
           <Wish Name="Wish403" />
         </CustomerType9>
         <CustomerType8 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish501" />
         </CustomerType8>
         <CustomerType7 Delay="10">
-          <Order Name="JuiceOrangePipe02" />
+          <Order Name="ORANGE_JUCE+PIPE2" />
           <Wish Name="Wish502" />
         </CustomerType7>
         <CustomerType6 Delay="10">
-          <Order Name="Croissant" />
+          <Order Name="CROISSANT" />
           <Wish Name="Wish503" />
         </CustomerType6>
         <CustomerType5 Delay="10">
-          <Order Name="CupBigCoffeeMilk" />
+          <Order Name="COFFEE_MILK_BIG" />
           <Wish Name="Wish202" />
         </CustomerType5>
         <CustomerType4 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish502" />
         </CustomerType4>
         <CustomerType3 Delay="10">
-          <Order Name="JuiceApplePipe01" />
+          <Order Name="APPLE_JUCE+PIPE1" />
           <Wish Name="Wish401" />
         </CustomerType3>
         <CustomerType2 Delay="10">
-          <Order Name="JuiceOrangePipe01" />
+          <Order Name="ORANGE_JUCE+PIPE1" />
           <Wish Name="Wish503" />
         </CustomerType2>
         <CustomerType1 Delay="10">
-          <Order Name="JuiceApplePipe02" />
+          <Order Name="APPLE_JUCE+PIPE22" />
           <Wish Name="Wish503" />
         </CustomerType1>
       </SpawnLine>
