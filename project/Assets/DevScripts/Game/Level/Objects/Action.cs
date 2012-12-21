@@ -47,5 +47,7 @@ public class Action
 			PlayerBehaviour.instance.setBusy(requiredTime);
 		else 
 			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);		
+		
+		_owner.onDoAction(name);
 	}
 }

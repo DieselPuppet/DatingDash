@@ -52,7 +52,7 @@ public class BlenderObject : BaseObject
 		ContentManager.instance.precacheAnimation(indicator, settings.indicatorAnimationAtlasName);
 		
 		_portionCapacity = settings.portionNum;	
-		_currentPortionNum = settings.portionNum;	
+		_currentPortionNum = 0;	
 		
 		_type = ObjectType.BLENDER;
 		_state = BlenderState.IDLE;
@@ -98,40 +98,77 @@ public class BlenderObject : BaseObject
 		setState(_nextState);
 	}
 	
-	void playTimerAnimation()
+	void startJuice()
 	{
 		indicator.gameObject.SetActive(true);
 		indicator.Play(timerGreenAnimation);
+		
+		//Invoke("juceReady", getAction("MAKE_"+_currentProduct.ToString()).actionTime);
+	}
+	
+	public override void onDoAction(string actionName)
+	{
+		Debug.Log("onDoAction "+actionName);
+		
+		if (actionName == "MAKE_ORANGE")
+		{
+			Invoke("juiceComplete", getAction("MAKE_ORANGE").actionTime);
+		}
+		else if (actionName == "MAKE_APPLE")
+		{
+			Invoke("juiceComplete", getAction("MAKE_APPLE").actionTime);
+		}
+	}
+	
+	void updatePortionNum(int num = 4)
+	{
+		_currentPortionNum = num;
+		_state = BlenderState.IDLE;
+		_sprite.Stop();
+		
+		//if (num == 4)
+		//	ContentManager.instance.configureObject(_sprite, settings.spriteAtlas
 	}
 	
 	public override void onAction()
 	{		
 		if (_state == BlenderState.IDLE)
 		{
-			if (Inventory.instance.hasStuff("ORANGE") || Inventory.instance.hasStuff("APPLE"))
+			if (_currentPortionNum > 0)
 			{
-				string sources;
+				if (_currentProduct == OrderProducts.APPLE_JUCE)
+					Inventory.instance.addStuf(OrderProducts.APPLE_JUCE.ToString());
+				else if (_currentProduct == OrderProducts.ORANGE_JUCE)
+					Inventory.instance.addStuf(OrderProducts.ORANGE_JUCE.ToString());
 				
-				if (Inventory.instance.hasStuff("ORANGE") && Inventory.instance.hasStuff("APPLE"))
-					sources = Inventory.instance.higherPriority("ORANGE", "APPLE");		
-				else if (Inventory.instance.hasStuff("ORANGE"))
-					sources = "ORANGE";
-				else 
-					sources = "APPLE";
-				
-				if (sources == "ORANGE")
-					_currentProduct = OrderProducts.ORANGE_JUCE;
-				else 
-					_currentProduct = OrderProducts.APPLE_JUCE;				
-				
-				doAction("PREPARE");
-				
-				string workActionName = "MAKE_"+sources;
-				doAction(workActionName, getAction("PREPARE").requiredTime);
-				Invoke("playTimerAnimation", getAction("PREPARE").requiredTime);
-				
-				setState(BlenderState.WORK_NORMAL);
-			}	
+				_currentPortionNum--;
+			}
+			else 
+			{	
+				if (Inventory.instance.hasStuff("ORANGE") || Inventory.instance.hasStuff("APPLE"))
+				{
+					string sources;
+					
+					if (Inventory.instance.hasStuff("ORANGE") && Inventory.instance.hasStuff("APPLE"))
+						sources = Inventory.instance.higherPriority("ORANGE", "APPLE");		
+					else if (Inventory.instance.hasStuff("ORANGE"))
+						sources = "ORANGE";
+					else 
+						sources = "APPLE";
+					
+					if (sources == "ORANGE")
+						_currentProduct = OrderProducts.ORANGE_JUCE;
+					else 
+						_currentProduct = OrderProducts.APPLE_JUCE;				
+					
+					doAction("PREPARE");
+					
+					string workActionName = "MAKE_"+sources;
+					doAction(workActionName, getAction("PREPARE").requiredTime);
+					
+					setState(BlenderState.WORK_NORMAL);
+				}	
+			}
 		}
 		else if (_state == BlenderState.WORK_NORMAL)
 		{

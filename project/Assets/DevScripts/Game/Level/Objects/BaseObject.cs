@@ -53,6 +53,8 @@ public abstract class BaseObject : MonoBehaviour
 		}
 	}
 	
+	protected GraphicsSettings settings;
+	
 	protected tk2dAnimatedSprite _sprite;
 	public tk2dAnimatedSprite sprite
 	{
@@ -79,7 +81,7 @@ public abstract class BaseObject : MonoBehaviour
 	{
 		_sprite = gameObject.GetComponent<tk2dAnimatedSprite>();
 		
-		GraphicsSettings settings = graphicSettings[level];
+		settings = graphicSettings[level];
 		
 		level = level;
 		
@@ -116,6 +118,10 @@ public abstract class BaseObject : MonoBehaviour
 	
 	// TODO : add proxies
 	public virtual void setupProxies()
+	{
+	}	
+	
+	public virtual void onDoAction(string actionName)
 	{
 	}	
 	
