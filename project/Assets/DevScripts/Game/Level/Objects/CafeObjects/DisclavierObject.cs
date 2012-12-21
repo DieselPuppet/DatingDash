@@ -24,6 +24,5 @@ public class DisclavierObject : BaseObject
 	public override void onAction()
 	{
 		doAction("Play");
-		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 	}
 }

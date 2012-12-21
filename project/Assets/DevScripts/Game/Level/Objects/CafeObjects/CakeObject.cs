@@ -26,7 +26,10 @@ public class CakeObject : BaseObject
 	
 	public override void onAction()
 	{
-		target.test();
-		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
+		//TMP
+		{
+			target.test();
+			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
+		}
 	}
 }

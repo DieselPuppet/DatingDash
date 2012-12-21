@@ -35,11 +35,17 @@ public class Action
 		{
 			if (comp.type == ComponentType.ANIMATION)
 			{
+				_owner.sprite.Stop();
 				_owner.sprite.Play(comp.assets);
 			}
 			else if (comp.type == ComponentType.SOUND)
 			{
 			}
-		}		
+		}	
+		
+		if (requiredTime > 0)
+			PlayerBehaviour.instance.setBusy(requiredTime);
+		else 
+			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);		
 	}
 }

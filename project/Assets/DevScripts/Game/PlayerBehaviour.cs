@@ -130,6 +130,7 @@ public class PlayerBehaviour : MonoBehaviour
 	{		
 		if (time != 0)
 		{
+			Debug.Log("setBusy - "+time);
 			setState(PlayerState.BUSY);
 			Invoke("unbuzy", time);
 		}

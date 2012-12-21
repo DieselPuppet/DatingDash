@@ -61,7 +61,5 @@ public class CakePlateObject : BaseObject
 					ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, emptySprite);
 			}
 		}
-		
-		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 	}	
 }

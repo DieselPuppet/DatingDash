@@ -22,7 +22,6 @@ public class ProviderObject : BaseObject
 			//}
 			
 			Inventory.instance.addStuf(sourceType.ToString());
-			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 		}			
 	}
 }

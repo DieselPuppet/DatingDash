@@ -153,10 +153,6 @@ public class CoffeeMachineObject : BaseObject
 				
 				setState(CoffeeMachineState.WORK_NORMAL);	
 				setState(CoffeeMachineState.IDLE, getAction(actionName).actionTime);
-			}
-			else 
-			{
-				PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 			}			
 		}
 	}	

@@ -13,6 +13,8 @@ public class BlenderObject : BaseObject
 		public Vector2 indicatorOffset = Vector2.zero;
 		
 		public float speed;
+		
+		public int portionNum;
 	}
 	
 	public UpgradeSettings[] upgrades;
@@ -25,6 +27,7 @@ public class BlenderObject : BaseObject
 	enum BlenderState
 	{
 		IDLE,
+		PREPARE,
 		WORK_NORMAL,
 		WORK_DANGER,
 		BROCKEN
@@ -32,6 +35,9 @@ public class BlenderObject : BaseObject
 	
 	BlenderState _state;
 	BlenderState _nextState;
+	
+	int _portionCapacity;
+	int _currentPortionNum;
 	
 	protected override void buildObject(int level)
 	{		
@@ -44,6 +50,9 @@ public class BlenderObject : BaseObject
 		
 		ContentManager.instance.configureObject(indicator, settings.indicatorAtlasName, "");
 		ContentManager.instance.precacheAnimation(indicator, settings.indicatorAnimationAtlasName);
+		
+		_portionCapacity = settings.portionNum;	
+		_currentPortionNum = settings.portionNum;	
 		
 		_type = ObjectType.BLENDER;
 		_state = BlenderState.IDLE;
@@ -89,75 +98,50 @@ public class BlenderObject : BaseObject
 		setState(_nextState);
 	}
 	
-	void playTimerAnimation(string animName)
+	void playTimerAnimation()
 	{
 		indicator.gameObject.SetActive(true);
-		indicator.Play(animName);
+		indicator.Play(timerGreenAnimation);
 	}
 	
 	public override void onAction()
-	{
+	{		
 		if (_state == BlenderState.IDLE)
 		{
-			if (Inventory.instance.hasStuff("ORANGE") && Inventory.instance.hasStuff("APPLE"))
+			if (Inventory.instance.hasStuff("ORANGE") || Inventory.instance.hasStuff("APPLE"))
 			{
-				string stuff = Inventory.instance.higherPriority("ORANGE", "APPLE");
-				Inventory.instance.removeStuff(stuff);
+				string sources;
 				
-				string actionName = "MAKE_"+stuff;
+				if (Inventory.instance.hasStuff("ORANGE") && Inventory.instance.hasStuff("APPLE"))
+					sources = Inventory.instance.higherPriority("ORANGE", "APPLE");		
+				else if (Inventory.instance.hasStuff("ORANGE"))
+					sources = "ORANGE";
+				else 
+					sources = "APPLE";
 				
-				doAction(actionName);
-				playTimerAnimation(timerGreenAnimation);
-				
-				if (getAction(actionName).requiredTime > 0)
-					PlayerBehaviour.instance.setBusy(getAction(actionName).requiredTime);
-				
-				if (stuff == "ORANGE")
+				if (sources == "ORANGE")
 					_currentProduct = OrderProducts.ORANGE_JUCE;
 				else 
-					_currentProduct = OrderProducts.APPLE_JUCE;
+					_currentProduct = OrderProducts.APPLE_JUCE;				
+				
+				doAction("PREPARE");
+				
+				string workActionName = "MAKE_"+sources;
+				doAction(workActionName, getAction("PREPARE").requiredTime);
+				Invoke("playTimerAnimation", getAction("PREPARE").requiredTime);
 				
 				setState(BlenderState.WORK_NORMAL);
-				setState(BlenderState.IDLE, getAction(actionName).actionTime);
-			}
-			else if (Inventory.instance.hasStuff("APPLE"))
-			{
-				Inventory.instance.removeStuff("APPLE");
-				
-				string actionName = "MAKE_APPLE";
-				
-				doAction(actionName);
-				playTimerAnimation(timerGreenAnimation);
-				
-				if (getAction(actionName).requiredTime > 0)
-					PlayerBehaviour.instance.setBusy(getAction(actionName).requiredTime);
-			
-				_currentProduct = OrderProducts.APPLE_JUCE;
-				
-				setState(BlenderState.WORK_NORMAL);
-				setState(BlenderState.IDLE, getAction("MAKE_APPLE").actionTime);
-			}
-			else if (Inventory.instance.hasStuff("ORANGE"))
-			{
-				Inventory.instance.removeStuff("ORANGE");
-				
-				string actionName = "MAKE_ORANGE";
-				
-				doAction(actionName);
-				playTimerAnimation(timerGreenAnimation);
-				
-				if (getAction(actionName).requiredTime > 0)
-					PlayerBehaviour.instance.setBusy(getAction(actionName).requiredTime);				
-			
-				_currentProduct = OrderProducts.ORANGE_JUCE;
-				
-				setState(BlenderState.WORK_NORMAL);	
-				setState(BlenderState.IDLE, getAction("MAKE_ORANGE").actionTime);
-			}
-			else 
-			{
-				PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
-			}			
+			}	
+		}
+		else if (_state == BlenderState.WORK_NORMAL)
+		{
+			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
+		}
+		else if (_state == BlenderState.BROCKEN)
+		{
+			// TODO : add cleanup work
+			PlayerBehaviour.instance.setBusy(1);
+			PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 		}
 	}
 }

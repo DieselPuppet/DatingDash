@@ -125,16 +125,30 @@ public abstract class BaseObject : MonoBehaviour
 		onTouch();
 	}		
 	
-	protected void doAction(string name)
-	{
+	string delayedActionName;
+	protected void doAction(string name, float delay=-1)
+	{		
 		if (!_actions.ContainsKey(name))
 		{
 			Logger.message(LogLevel.LOG_ERROR, "Unknown action - "+name);
 		}
 		else 
 		{
-			_actions[name].start();
+			if (delay != -1)
+			{
+				delayedActionName = name;
+				Invoke("doActionDelayed", delay);
+			}
+			else 
+			{
+				_actions[name].start();
+			}
 		}
+	}
+	
+	private void doActionDelayed()
+	{
+		doAction(delayedActionName);
 	}
 	
 	protected Action getAction(string name)
