@@ -85,7 +85,7 @@ public class Customer : MonoBehaviour
 		_moodDownSpeed = 60f/desc.moodDownTime;
 		
 		// tmp
-		orders.Add(new Order(OrderProducts.APPLE_JUCE.ToString()+OrderProducts.PIPES1.ToString(), this));
+		orders.Add(new Order(OrderProducts.APPLE_JUCE.ToString()+"+"+OrderProducts.PIPES1.ToString(), this));
 		orders.Add(new Order(OrderProducts.FRUIT_CAKE.ToString(), this));
 		//
 		

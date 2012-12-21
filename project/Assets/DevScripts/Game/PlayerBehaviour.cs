@@ -179,7 +179,7 @@ public class PlayerBehaviour : MonoBehaviour
 		default:
 			Logger.message(LogLevel.LOG_ERROR, "Unknown player state - "+_currentState.ToString());
 			break;
-		}		
+		}	
 		
 		_currentState = state;
 	}
