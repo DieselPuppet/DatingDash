@@ -39,11 +39,14 @@ namespace LevelEditor.Forms
         public const int MaxAttachmentsForType = 3;
 
         public const string AttachmentColNamePrefix = "gcAttachmentName";
+        public const int PixelInSec = 66;
+
         private const int WM_SETREDRAW = 11;
 
+        private const int MaxDropDownRows = 100;
+
         private const int MissingImageIndex = 0;
-        private const int NoneImageIndex = -1;
-        private const int PixelInSec = 10;
+        private const int NoneImageIndex = -1;        
         private const string TaskParamColNameFormat = "gcTaskParam{0}";        
 
         #endregion Consts
@@ -504,6 +507,7 @@ namespace LevelEditor.Forms
         public void PopulateSpawnItemTypes(RepositoryItemImageComboBox cmb, bool isAddEmpty, bool isSmallImages)
         {
             var spawnItemTypes = cmb.Items;
+            cmb.DropDownRows = MaxDropDownRows;
             spawnItemTypes.Clear();
 
             ImageList ilImages = isSmallImages ? ilSpawnItemTypesSmall : ilSpawnItemTypesLarge;
@@ -574,6 +578,7 @@ namespace LevelEditor.Forms
                 {
                     string type = attachType.Key;                    
                     var cmb = new RepositoryItemImageComboBox();
+                    cmb.DropDownRows = MaxDropDownRows;
 
                     PopulateAttachmentNames(cmb, type);
                     AttachmentEditorsByType.Add(type, cmb);

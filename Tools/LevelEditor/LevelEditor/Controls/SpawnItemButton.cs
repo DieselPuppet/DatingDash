@@ -1,5 +1,6 @@
 ﻿using LevelData;
 using LevelData.SpawnItems;
+using LevelEditor.Forms;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -52,7 +53,7 @@ namespace LevelEditor.Controls
             _getAttachImageByFileName = getAttachImageByFileName;
             Item = item;
             FlatStyle = FlatStyle.Flat;
-            Size = new Size(66, 75);
+            Size = new Size(PackForm.PixelInSec, 75);
         }
 
         public override void NotifyDefault(bool value)

@@ -130,10 +130,10 @@ namespace LevelEditor.Forms
 						miPacksRecent.MenuItems.Add(_recentPacks[i], new EventHandler(miPackRecent_Click));
 					}
 				}
-
-                if (_levelTemplatePath.IsNullOrWhiteSpace())
-                    _levelTemplatePath = Path.Combine(_editorDirectory, "template.xml");
 			}
+
+            if (_levelTemplatePath.IsNullOrWhiteSpace())
+                _levelTemplatePath = Path.Combine(_editorDirectory, "template.xml");
 		}
 
 		private void SaveConfig()

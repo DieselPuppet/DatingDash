@@ -12,7 +12,7 @@ namespace LevelData.SpawnItems
 {
 	public class SpawnLine
 	{
-        public const float DefaultDelay = 10;
+        public const float DefaultDelay = 1;
 
         private static readonly string ElementName = typeof(SpawnLine).Name;
 
