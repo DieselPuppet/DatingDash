@@ -81,7 +81,10 @@ public class Level : MonoBehaviour
 	public TableArrangement[] arragements;	
 	public int activeArarrangement;
 	
+	public SeatPlaceObject[] waitSeatingsRef;
+	
 	ArrayList _seatings = new ArrayList();
+	ArrayList _waitSeatings = new ArrayList();
 	
 	ArrayList _customerQueue = new ArrayList();
 	
@@ -112,6 +115,11 @@ public class Level : MonoBehaviour
 			foreach (ChairObject chair in table.GetComponent<TableObject>().chairs)
 			{
 				_seatings.Add(chair);
+			}
+			
+			foreach (SeatPlaceObject place in waitSeatingsRef)
+			{
+				_waitSeatings.Add(place);
 			}
 		}
 		
@@ -179,6 +187,22 @@ public class Level : MonoBehaviour
 		}
 		
 		return null;
+	}
+
+	public SeatPlaceObject getNearestSeating(Vector3 pos)
+	{
+		foreach (SeatPlaceObject seat in _waitSeatings)
+		{				
+			if (pos.x > seat.gameObject.transform.position.x-seat.gameObject.collider.bounds.size.x/2 &&
+				pos.x < seat.gameObject.transform.position.x+seat.gameObject.collider.bounds.size.x/2 &&
+				pos.y > seat.gameObject.transform.position.y-seat.gameObject.collider.bounds.size.y/2 &&
+				pos.y < seat.gameObject.transform.position.y+seat.gameObject.collider.bounds.size.y/2)
+			{
+				return seat;
+			}
+		}
+		
+		return null;		
 	}
 	
 	void spawnCustomer(CustomerDesc desc)

@@ -71,6 +71,7 @@ public class Customer : MonoBehaviour
 	private bool _isTouched = false;
 	
 	public ChairObject seatPosition = null;
+	public SeatPlaceObject waitSeatPosition = null;
 	public SpawnPoint placement = null;
 	
 	public void configure(CustomerDesc desc)
@@ -105,7 +106,7 @@ public class Customer : MonoBehaviour
 	
 	public void OnMouseDown()
 	{		
-		if (_currentState == CustomerState.WAITING_STAND)
+		if (_currentState == CustomerState.WAITING_STAND || _currentState == CustomerState.WAITING_SIT)
 			_isTouched = true;
 	}		
 	
@@ -124,12 +125,12 @@ public class Customer : MonoBehaviour
 			break;
 			
 		case CustomerState.WAITING_SIT:
-			collider.enabled = false;
 			_moodDownSpeedCoeff = 0.5f;		
 			lastMoodChangeTime = Time.time;		
 			break;
 				
 		case CustomerState.MAKE_ORDER:
+			collider.enabled = false;
 			_sprite.Play("sit_happy");
 			startOrderTime = Time.time;
 			break;
@@ -207,6 +208,15 @@ public class Customer : MonoBehaviour
 				
 				_sprite.Play("sit_happy");
 			}
+			else if(Level.instance.getNearestSeating(Input.mousePosition) != null)
+			{
+				if (!Level.instance.getNearestSeating(Input.mousePosition).isLeft)
+					gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+				else 
+					gameObject.transform.rotation = Quaternion.AngleAxis(0, new Vector3(0, 1, 0));
+				
+				_sprite.Play("sit_happy");				
+			}
 			else
 			{
 				_sprite.Play("hello");	
@@ -214,23 +224,48 @@ public class Customer : MonoBehaviour
 			
 			if (Input.GetMouseButtonUp(0))
 			{		
-				ChairObject chair = Level.instance.getNearestChair(Input.mousePosition);
-				
-				if (chair != null && chair.isFree)
+				if (Level.instance.getNearestChair(Input.mousePosition) != null)
 				{
-					if (!chair.isLeft)
-					{
-						gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+					ChairObject chair = Level.instance.getNearestChair(Input.mousePosition);
+					
+					if (chair.isFree)
+					{	
+						if (!chair.isLeft)
+						{
+							gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+						}
+						
+						// replace this hell to method
+						gameObject.transform.position = new Vector3(chair.gameObject.transform.position.x+_desc.seatOffset.x, chair.gameObject.transform.position.y+_desc.seatOffset.y, -1);
+						seatPosition = chair;
+						placement.isFree = true;
+						waitSeatPosition.isFree = true;
+						chair.isFree = false;
+						chair.customer = this;
+						
+						setState(CustomerState.MAKE_ORDER);
 					}
+				}
+				else if (Level.instance.getNearestSeating(Input.mousePosition) != null)
+				{
+					SeatPlaceObject seat = Level.instance.getNearestSeating(Input.mousePosition);
 					
-					// replace this hell to method
-					gameObject.transform.position = new Vector3(chair.gameObject.transform.position.x+_desc.seatOffset.x, chair.gameObject.transform.position.y+_desc.seatOffset.y, -1);
-					seatPosition = chair;
-					placement.isFree = true;
-					chair.isFree = false;
-					chair.customer = this;
-					
-					setState(CustomerState.MAKE_ORDER);
+					if (seat.isFree)
+					{
+						if (!seat.isLeft)
+						{
+							gameObject.transform.rotation = Quaternion.AngleAxis(180, new Vector3(0, 1, 0));
+						}
+						
+						// replace this hell to method
+						gameObject.transform.position = new Vector3(seat.gameObject.transform.position.x+_desc.seatOffset.x, seat.gameObject.transform.position.y+_desc.seatOffset.y, -1);
+						waitSeatPosition = seat;
+						placement.isFree = true;
+						seat.isFree = false;
+						seat.customer = this;
+						
+						setState(CustomerState.WAITING_SIT);					
+					}
 				}
 				else 
 				{

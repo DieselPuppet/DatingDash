@@ -19,8 +19,10 @@ public enum ObjectType
 	CAKE,
 	CAKE1,
 	CAKE2,
+	
 	TABLE,
 	CHAIR,
+	SEAT_PLACE,
 	DISCLAVIER
 }
 
