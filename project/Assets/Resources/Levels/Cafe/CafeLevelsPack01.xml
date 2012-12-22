@@ -54,15 +54,15 @@
           <Order Name="CROISSANT" />
           <Wish Name="Wish101" />
         </CustomerType1>
-        <CustomerType2 Delay="10">
+        <CustomerType2 Delay="1">
           <Order Name="FRUIT_CAKE" />
           <Wish Name="Wish102" />
         </CustomerType2>
-        <CustomerType3 Delay="10">
+        <CustomerType3 Delay="1">
           <Order Name="CAKE1" />
           <Wish Name="Wish103" />
         </CustomerType3>
-        <CustomerType4 Delay="10">
+        <CustomerType4 Delay="1">
           <Order Name="CAKE2" />
           <Wish Name="Wish201" />
         </CustomerType4>
