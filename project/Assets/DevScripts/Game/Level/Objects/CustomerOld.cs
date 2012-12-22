@@ -127,8 +127,6 @@ public class Customer : MonoBehaviour
 	{
 		if (state == _currentState)
 			return;
-	
-		Debug.Log("Set customer state - "+state);
 		
 		switch(state)
 		{
