@@ -26,7 +26,7 @@ public class LevelBuilder : MonoBehaviour
 		GameObject rootObject = (GameObject)Instantiate(Resources.Load(levelPath), Vector3.zero, Quaternion.identity);
 		rootObject.name = "Level";
 		
-		LevelDesc desc = LevelsCollection.instance.getDesc("Level1");
+		LevelDesc desc = LevelsCollection.instance.getDesc(levelName);
 		
 		Level level = rootObject.GetComponent<Level>();
 		level.configure(desc);

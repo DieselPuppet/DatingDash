@@ -114,6 +114,7 @@ public class Customer : MonoBehaviour
 			break;
 			
 		case CustomerState.WAITING_SIT:
+			placement.isFree = true;
 			_moodDownSpeedCoeff = 0.5f;		
 			lastMoodChangeTime = Time.time;		
 			break;

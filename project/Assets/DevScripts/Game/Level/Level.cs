@@ -162,6 +162,15 @@ public class Level : MonoBehaviour
 				_lastSpawnTime = currentTime;
 			}
 			
+			if (_customerQueue.Count > 0 && spawnArea.freePointExist())
+			{
+				Customer customer = (Customer)_customerQueue[0];
+				customer.gameObject.SetActive(true);
+				spawnArea.placeCustomer(customer.gameObject);	
+				
+				_customerQueue.RemoveAt(0);
+			}
+			
 			if (mode == GameMode.COMPANY && checkTasks())
 			{
 				_isComplete = true;
@@ -232,12 +241,11 @@ public class Level : MonoBehaviour
 		GameObject customerGO = new GameObject();
 		Customer customer = customerGO.AddComponent<Customer>();
 		customer.pushOrders(orders);
+		customer.configure(desc);	
 		
 		if (spawnArea.freePointExist())
-		{
-			spawnArea.placeCustomer(customerGO);
-		
-			customer.configure(desc);			
+		{	
+			spawnArea.placeCustomer(customerGO);	
 		}
 		else 
 		{
