@@ -12,33 +12,33 @@ public class MilkObject : BaseObject
 	
 	public override void onAction ()
 	{
-		if (Inventory.instance.hasStuff(OrderTypes.COFFEE_BIG.ToString()) && Inventory.instance.hasStuff(OrderTypes.COFFEE_SMALL.ToString()))
+		if (Inventory.instance.hasStuff(ItemTypes.CUP_BIG_COFFEE.ToString()) && Inventory.instance.hasStuff(ItemTypes.CUP_SMALL_COFFEE.ToString()))
 		{
-			string stuff = Inventory.instance.higherPriority(OrderTypes.COFFEE_BIG.ToString(), OrderTypes.COFFEE_SMALL.ToString());
-			if (stuff == OrderTypes.COFFEE_BIG.ToString())
+			string stuff = Inventory.instance.higherPriority(ItemTypes.CUP_BIG_COFFEE.ToString(), ItemTypes.CUP_SMALL_COFFEE.ToString());
+			if (stuff == ItemTypes.CUP_BIG_COFFEE.ToString())
 			{
-				Inventory.instance.removeStuff(OrderTypes.COFFEE_BIG.ToString());
-				Inventory.instance.addStuf(OrderTypes.COFFEE_MILK_BIG.ToString());
+				Inventory.instance.removeStuff(ItemTypes.CUP_BIG_COFFEE.ToString());
+				Inventory.instance.addStuf(ItemTypes.CUP_BIG_COFFEE_MILK.ToString());
 			}
-			else if (stuff == OrderTypes.COFFEE_SMALL.ToString())
+			else if (stuff == ItemTypes.CUP_SMALL_COFFEE.ToString())
 			{
-				Inventory.instance.removeStuff(OrderTypes.COFFEE_SMALL.ToString());
-				Inventory.instance.addStuf(OrderTypes.COFFEE_MILK_SMALL.ToString());
+				Inventory.instance.removeStuff(ItemTypes.CUP_SMALL_COFFEE.ToString());
+				Inventory.instance.addStuf(ItemTypes.CUP_SMALL_COFFEE_MILK.ToString());
 			}
 			
 			doAction("MILK_WORK");
 		}
-		else if (Inventory.instance.hasStuff(OrderTypes.COFFEE_BIG.ToString()))
+		else if (Inventory.instance.hasStuff(ItemTypes.CUP_BIG_COFFEE.ToString()))
 		{
-			Inventory.instance.removeStuff(OrderTypes.COFFEE_BIG.ToString());
-			Inventory.instance.addStuf(OrderTypes.COFFEE_MILK_BIG.ToString());
+			Inventory.instance.removeStuff(ItemTypes.CUP_BIG_COFFEE.ToString());
+			Inventory.instance.addStuf(ItemTypes.CUP_BIG_COFFEE_MILK.ToString());
 			
 			doAction("MILK_WORK");
 		}
-		else if (Inventory.instance.hasStuff(OrderTypes.COFFEE_SMALL.ToString()))
+		else if (Inventory.instance.hasStuff(ItemTypes.CUP_SMALL_COFFEE.ToString()))
 		{
-			Inventory.instance.removeStuff(OrderTypes.COFFEE_SMALL.ToString());
-			Inventory.instance.addStuf(OrderTypes.COFFEE_MILK_SMALL.ToString());
+			Inventory.instance.removeStuff(ItemTypes.CUP_SMALL_COFFEE.ToString());
+			Inventory.instance.addStuf(ItemTypes.CUP_SMALL_COFFEE_MILK.ToString());
 			
 			doAction("MILK_WORK");
 		}
