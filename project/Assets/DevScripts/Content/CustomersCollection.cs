@@ -3,63 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-public enum CustomerType
-{
-	CustomerType1,
-	CustomerType2,
-	CustomerType3,
-	CustomerType4,
-	CustomerType5,
-	CustomerType6,
-	CustomerType7,
-	CustomerType8,
-	CustomerType9,
-	CustomerType10
-}
-
-public enum ReactionType
-{
-	NONE, 
-	MOOD_UP,
-	MOOD_UP_ALL,
-	MOOD_DOWN,
-	MOOD_DOWN_ALL
-}
-
-[System.Serializable]
-public class CustomerDesc
-{
-	public CustomerType type;
-	
-	#region common params
-	public string[] interests;
-	
-	public int ordersCount;
-	
-	public int eatTime;	
-	public int orderTime;
-	public float moodDownTime;
-	
-	#endregion
-	
-	#region graphics
-	public string spriteAtlas;
-	public string animationAtlas;
-	public string spriteName;
-	
-	public Vector2 seatOffset;
-	#endregion
-	
-	#region behaviour
-	public ReactionType pairAttempt;
-	public ReactionType pairFail;
-	public ReactionType pairSuccess;	
-	#endregion	
-	
-	#region events
-	#endregion
-}
-
 // TMP!
 public class OrdersGraphics
 {

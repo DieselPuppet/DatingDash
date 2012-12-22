@@ -13,7 +13,7 @@ public class ChairObject : BaseObject
 	
 	// remove
 	[System.NonSerialized]
-	public Customer customer = null;
+	public CustomerDeprecated customer = null;
 	
 	protected override void buildObject(int level)
 	{		

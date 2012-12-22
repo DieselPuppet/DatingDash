@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public enum CustomerState
+public enum CustomerStateDeprecated
 {
 	WAITING_STAND,
 	WAITING_STAND_ANGRY,
@@ -32,8 +32,8 @@ public class CustomerDeprecated : MonoBehaviour
 	#endregion
 	
 	#region CustomerState
-	private CustomerState _currentState = CustomerState.UNKNOWN;
-	public CustomerState currentState
+	private CustomerStateDeprecated _currentState = CustomerStateDeprecated.UNKNOWN;
+	public CustomerStateDeprecated currentState
 	{
 		get 
 		{
@@ -83,7 +83,7 @@ public class CustomerDeprecated : MonoBehaviour
 		
 		_sprite.Play("hello");
 		
-		setState(CustomerState.WAITING_STAND);
+		setState(CustomerStateDeprecated.WAITING_STAND);
 	}
 	
 	//TMP!!!
@@ -97,41 +97,41 @@ public class CustomerDeprecated : MonoBehaviour
 	
 	public void OnMouseDown()
 	{		
-		if (_currentState == CustomerState.WAITING_STAND || _currentState == CustomerState.WAITING_SIT)
+		if (_currentState == CustomerStateDeprecated.WAITING_STAND || _currentState == CustomerStateDeprecated.WAITING_SIT)
 			_isTouched = true;
 	}		
 	
-	public void setState(CustomerState state)
+	public void setState(CustomerStateDeprecated state)
 	{
 		if (state == _currentState)
 			return;
 		
 		switch(state)
 		{
-		case CustomerState.WAITING_STAND:
+		case CustomerStateDeprecated.WAITING_STAND:
 			_moodDownSpeedCoeff = 1f;
 			lastMoodChangeTime = Time.time;
 			break;
 			
-		case CustomerState.WAITING_SIT:
+		case CustomerStateDeprecated.WAITING_SIT:
 			placement.isFree = true;
 			_moodDownSpeedCoeff = 0.5f;		
 			lastMoodChangeTime = Time.time;		
 			break;
 				
-		case CustomerState.MAKE_ORDER:
+		case CustomerStateDeprecated.MAKE_ORDER:
 			collider.enabled = false;
 			_sprite.Play("sit_happy");
 			startOrderTime = Time.time;
 			break;
 		
-		case CustomerState.EAT:
+		case CustomerStateDeprecated.EAT:
 			_orderTable.hide();
 			startEat = Time.time;
 			_sprite.Play("sit_eat_drink");
 			break;
 			
-		case CustomerState.WAITING_ORDER:
+		case CustomerStateDeprecated.WAITING_ORDER:
 			
 			// HACK
 			_orderTable.gameObject.transform.position = gameObject.transform.position;
@@ -144,7 +144,7 @@ public class CustomerDeprecated : MonoBehaviour
 			lastMoodChangeTime = Time.time;	
 			break;			
 			
-		case CustomerState.HAPPY_OUT:
+		case CustomerStateDeprecated.HAPPY_OUT:
 			_sprite.Play("hello");
 
 			seatPosition.isFree = true;
@@ -165,21 +165,21 @@ public class CustomerDeprecated : MonoBehaviour
 		
 		switch(_currentState)
 		{
-		case CustomerState.UNKNOWN:
+		case CustomerStateDeprecated.UNKNOWN:
 			break;
 			
-		case CustomerState.HAPPY_OUT:
+		case CustomerStateDeprecated.HAPPY_OUT:
 			break;
 			
-		case CustomerState.EAT:
+		case CustomerStateDeprecated.EAT:
 			if ((currentTime - startEat) >= _desc.eatTime)
 			{
-				setState(CustomerState.HAPPY_OUT);
+				setState(CustomerStateDeprecated.HAPPY_OUT);
 			}
 			break;
 			
-		case CustomerState.WAITING_STAND:
-		case CustomerState.WAITING_SIT:
+		case CustomerStateDeprecated.WAITING_STAND:
+		case CustomerStateDeprecated.WAITING_SIT:
 			if ((currentTime-lastMoodChangeTime) >= 1)
 			{
 				_currentMood -= (int)(_moodDownSpeed*_moodDownSpeedCoeff);
@@ -188,7 +188,7 @@ public class CustomerDeprecated : MonoBehaviour
 			
 			if (_currentMood <= 0)
 			{
-				if (_currentState == CustomerState.WAITING_STAND)
+				if (_currentState == CustomerStateDeprecated.WAITING_STAND)
 					_sprite.Play("stand_angry");
 				else 
 					_sprite.Play("sit_engry");
@@ -198,7 +198,7 @@ public class CustomerDeprecated : MonoBehaviour
 			
 			break;		
 			
-		case CustomerState.MAKE_ORDER:
+		case CustomerStateDeprecated.MAKE_ORDER:
 			if ((currentTime - startOrderTime) > _desc.orderTime)
 			{
 				foreach (Order o in orders)
@@ -206,11 +206,11 @@ public class CustomerDeprecated : MonoBehaviour
 					Inventory.instance.addOrder(o);
 				}
 				
-				setState(CustomerState.WAITING_ORDER);
+				setState(CustomerStateDeprecated.WAITING_ORDER);
 			}
 			break;
 			
-		case CustomerState.WAITING_ORDER:
+		case CustomerStateDeprecated.WAITING_ORDER:
 			break;
 			
 		default:
@@ -273,7 +273,7 @@ public class CustomerDeprecated : MonoBehaviour
 						chair.isFree = false;
 						chair.customer = this;
 						
-						setState(CustomerState.MAKE_ORDER);
+						setState(CustomerStateDeprecated.MAKE_ORDER);
 					}
 				}
 				else if (Level.instance.getNearestSeating(Input.mousePosition) != null)
@@ -294,7 +294,7 @@ public class CustomerDeprecated : MonoBehaviour
 						seat.isFree = false;
 						seat.customer = this;
 						
-						setState(CustomerState.WAITING_SIT);					
+						setState(CustomerStateDeprecated.WAITING_SIT);					
 					}
 				}
 				else 

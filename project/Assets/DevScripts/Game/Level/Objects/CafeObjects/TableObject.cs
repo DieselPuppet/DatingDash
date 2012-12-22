@@ -27,7 +27,7 @@ public class TableObject : BaseObject
 		PlayerBehaviour.instance.setState(PlayerState.DEFAULT);
 		
 		if (chairs[0].customer != null && 
-			(chairs[0].customer.currentState == CustomerState.WAITING_ORDER))
+			(chairs[0].customer.currentState == CustomerStateDeprecated.WAITING_ORDER))
 		{			
 			foreach(Order order in chairs[0].customer.orders)			
 			{		
@@ -53,11 +53,11 @@ public class TableObject : BaseObject
 			
 			
 			if (orderSuccess)
-				chairs[0].customer.setState(CustomerState.EAT);
+				chairs[0].customer.setState(CustomerStateDeprecated.EAT);
 		}
 	
 		if (chairs[1].customer != null && 
-			(chairs[1].customer.currentState == CustomerState.WAITING_ORDER))
+			(chairs[1].customer.currentState == CustomerStateDeprecated.WAITING_ORDER))
 		{			
 			foreach(Order order in chairs[1].customer.orders)			
 			{				
@@ -77,7 +77,7 @@ public class TableObject : BaseObject
 			}
 			
 			if (orderSuccess)
-				chairs[1].customer.setState(CustomerState.EAT);		
+				chairs[1].customer.setState(CustomerStateDeprecated.EAT);		
 		}
 	}
 	
