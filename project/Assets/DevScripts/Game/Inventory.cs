@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Order
 {	
-	public Order(string p, Customer o)
+	public Order(string p, CustomerDeprecated o)
 	{
 		_productID = p;
 		_owner = o;
@@ -20,8 +20,8 @@ public class Order
 		}
 	}
 	
-	private Customer _owner;
-	public Customer owner
+	private CustomerDeprecated _owner;
+	public CustomerDeprecated owner
 	{
 		get 
 		{

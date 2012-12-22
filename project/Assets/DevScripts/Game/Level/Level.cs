@@ -35,7 +35,7 @@ public class SpawnArea
 			{
 				// refactor
 				customer.transform.position = point.point.position;
-				customer.GetComponent<Customer>().placement = point;
+				customer.GetComponent<CustomerDeprecated>().placement = point;
 				point.isFree = false;
 				break;
 			}
@@ -164,7 +164,7 @@ public class Level : MonoBehaviour
 			
 			if (_customerQueue.Count > 0 && spawnArea.freePointExist())
 			{
-				Customer customer = (Customer)_customerQueue[0];
+				CustomerDeprecated customer = (CustomerDeprecated)_customerQueue[0];
 				customer.gameObject.SetActive(true);
 				spawnArea.placeCustomer(customer.gameObject);	
 				
@@ -239,7 +239,7 @@ public class Level : MonoBehaviour
 	void spawnCustomer(CustomerDesc desc, string[] orders)
 	{		
 		GameObject customerGO = new GameObject();
-		Customer customer = customerGO.AddComponent<Customer>();
+		CustomerDeprecated customer = customerGO.AddComponent<CustomerDeprecated>();
 		customer.pushOrders(orders);
 		customer.configure(desc);	
 		

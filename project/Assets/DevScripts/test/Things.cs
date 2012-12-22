@@ -8,7 +8,7 @@ namespace tmp
 	{
 	}
 	
-	public class CustomersPair : Customer
+	public class CustomersPair : CustomerDeprecated
 	{
 	}
 	

@@ -7,7 +7,7 @@ public class SeatPlaceObject : BaseObject
 	[System.NonSerialized]
 	public bool isFree = true;	
 	[System.NonSerialized]
-	public Customer customer = null;
+	public CustomerDeprecated customer = null;
 	
 	protected override void buildObject(int level)
 	{				

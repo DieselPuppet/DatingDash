@@ -18,7 +18,7 @@ public enum CustomerState
 }
 
 // TODO : add Proxies (see Drafts.cs)
-public class Customer : MonoBehaviour
+public class CustomerDeprecated : MonoBehaviour
 {
 	#region CustomerDesc
 	private CustomerDesc _desc;
