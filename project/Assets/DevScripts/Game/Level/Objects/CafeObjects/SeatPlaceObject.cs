@@ -10,9 +10,9 @@ public class SeatPlaceObject : BaseObject
 	public Customer customer = null;
 	
 	protected override void buildObject(int level)
-	{		
+	{				
 		base.buildObject(level);	
-				
+		
 		_type = ObjectType.SEAT_PLACE;
 	}		
 	

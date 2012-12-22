@@ -1,26 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-public enum OrderProducts
-{
-	COFFEE_SMALL,
-	COFFEE_MILK_SMALL,
-	COFFEE_BIG,
-	COFFEE_MILK_BIG,
-	ORANGE_JUCE,
-	ORANGE_JUCE_PIPE1,
-	ORANGE_JUCE_PIPE2,
-	PIPES1,
-	PIPES2,
-	APPLE_JUCE,
-	APPLE_JUCE_PIPE1,
-	APPLE_JUCE_PIPE12,
-	FRUIT_CAKE,
-	CAKE,
-	
-	UNKNOWN
-}
-
 public enum CustomerState
 {
 	WAITING_STAND,
@@ -94,9 +74,7 @@ public class Customer : MonoBehaviour
 		_currentMood = 100;
 		_moodDownSpeed = 60f/desc.moodDownTime;
 
-		GameObject tableGO = (GameObject)Instantiate((GameObject)Resources.Load("Prefabs/OrderTable"), gameObject.transform.position, Quaternion.identity);
-		tableGO.transform.parent = gameObject.transform;
-		tableGO.transform.Translate(0, 0, -2);
+		GameObject tableGO = (GameObject)Instantiate((GameObject)Resources.Load("Prefabs/OrderTable"), Vector3.zero, Quaternion.identity);
 		
 		_orderTable = tableGO.GetComponent<OrderTable>();
 		
@@ -154,7 +132,12 @@ public class Customer : MonoBehaviour
 			
 		case CustomerState.WAITING_ORDER:
 			
-			_orderTable.show();
+			// HACK
+			_orderTable.gameObject.transform.position = gameObject.transform.position;
+			_orderTable.gameObject.transform.Translate(0, 0, -2);
+			
+			Order ord = (Order)orders[0];
+			_orderTable.show(ord.productID);
 			
 			_moodDownSpeedCoeff = 0.5f;	
 			lastMoodChangeTime = Time.time;	

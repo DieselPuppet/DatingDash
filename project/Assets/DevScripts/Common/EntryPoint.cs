@@ -14,6 +14,7 @@ public class EntryPoint : MonoBehaviour
 		Platform.instance.init();
 		
 		LevelsCollection.instance.parse(levels);
+		ResourcesDictionaty.instance.initData();
 	}
 	
 	void OnGUI()

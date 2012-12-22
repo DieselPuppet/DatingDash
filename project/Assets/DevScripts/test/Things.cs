@@ -1,22 +1,23 @@
 using UnityEngine;
 using System.Collections;
 
-public class Entity
+namespace tmp
 {
-}
-
-public class EntitySys
-{
-	public Entity createByType(string typeName)
+	
+	public class Customer
 	{
-		// parse xml
-		// if node !contains logicLink (C# script), add component EntityBase
-		
-		return new Entity();
 	}
-}
-
-public class Things : MonoBehaviour 
-{
-
+	
+	public class CustomersPair : Customer
+	{
+	}
+	
+	public class IconsCollection
+	{
+	}
+	
+	public class OrdersHolder
+	{
+	}
+	
 }

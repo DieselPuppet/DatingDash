@@ -36,7 +36,7 @@ public class BlenderObject : BaseObject
 	
 	public tk2dAnimatedSprite brockenSprite;
 	
-	OrderProducts _currentProduct = OrderProducts.UNKNOWN;
+	OrderTypes _currentProduct = OrderTypes.UNKNOWN;
 	
 	enum BlenderState
 	{
@@ -81,11 +81,11 @@ public class BlenderObject : BaseObject
 			switch(state)
 			{
 			case BlenderState.IDLE:
-				if (_currentProduct != OrderProducts.UNKNOWN)
+				if (_currentProduct != OrderTypes.UNKNOWN)
 				{
 					_sprite.Stop();
 					Inventory.instance.addStuf(_currentProduct.ToString());
-					_currentProduct = OrderProducts.UNKNOWN;
+					_currentProduct = OrderTypes.UNKNOWN;
 				}
 				
 				resetToDefaults();
@@ -105,7 +105,7 @@ public class BlenderObject : BaseObject
 				
 				brockenSprite.gameObject.SetActive(true);
 				
-				if (_currentProduct == OrderProducts.APPLE_JUCE)
+				if (_currentProduct == OrderTypes.APPLE_JUCE)
 					ContentManager.instance.configureObject(brockenSprite, settings.spriteAtlas, usettings.brockenAppleSprite);
 				else 
 					ContentManager.instance.configureObject(brockenSprite, settings.spriteAtlas, usettings.brockenOrangeSprite);
@@ -174,7 +174,7 @@ public class BlenderObject : BaseObject
 		
 		if (num == 2)
 		{
-			if (_currentProduct == OrderProducts.APPLE_JUCE)
+			if (_currentProduct == OrderTypes.APPLE_JUCE)
 				ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionTwoAppleSprite);		
 			else 
 				ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionTwoOrangeSprite);	
@@ -182,7 +182,7 @@ public class BlenderObject : BaseObject
 		else if (num == 1)
 		{
 			
-			if (_currentProduct == OrderProducts.APPLE_JUCE)
+			if (_currentProduct == OrderTypes.APPLE_JUCE)
 				ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionOneAppleSprite);
 			else 
 				ContentManager.instance.configureObject(_sprite, settings.spriteAtlas, usettings.potionOneOrangeSprite);
@@ -220,9 +220,9 @@ public class BlenderObject : BaseObject
 						sources = "APPLE";
 					
 					if (sources == "ORANGE")
-						_currentProduct = OrderProducts.ORANGE_JUCE;
+						_currentProduct = OrderTypes.ORANGE_JUCE;
 					else 
-						_currentProduct = OrderProducts.APPLE_JUCE;				
+						_currentProduct = OrderTypes.APPLE_JUCE;				
 					
 					Inventory.instance.removeStuff(sources);
 					

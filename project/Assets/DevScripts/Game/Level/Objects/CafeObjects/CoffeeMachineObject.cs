@@ -23,7 +23,7 @@ public class CoffeeMachineObject : BaseObject
 	public string timerRedAnimation;	
 	bool _hasCoffee = false;
 
-	OrderProducts _currentProduct = OrderProducts.UNKNOWN;
+	OrderTypes _currentProduct = OrderTypes.UNKNOWN;
 
 	enum CoffeeMachineState
 	{
@@ -60,10 +60,10 @@ public class CoffeeMachineObject : BaseObject
 			switch(state)
 			{
 			case CoffeeMachineState.IDLE:
-				if (_currentProduct != OrderProducts.UNKNOWN)
+				if (_currentProduct != OrderTypes.UNKNOWN)
 				{
 					Inventory.instance.addStuf(_currentProduct.ToString());
-					_currentProduct = OrderProducts.UNKNOWN;
+					_currentProduct = OrderTypes.UNKNOWN;
 				}
 
 				indicator.Stop();
@@ -146,9 +146,9 @@ public class CoffeeMachineObject : BaseObject
 					playTimerAnimation(timerGreenAnimation);
 
 					if (sources=="CUP_SMALL")	
-						_currentProduct = OrderProducts.COFFEE_SMALL;
+						_currentProduct = OrderTypes.COFFEE_SMALL;
 					else 
-						_currentProduct = OrderProducts.COFFEE_BIG;
+						_currentProduct = OrderTypes.COFFEE_BIG;
 
 					setState(CoffeeMachineState.WORK_NORMAL);
 				}

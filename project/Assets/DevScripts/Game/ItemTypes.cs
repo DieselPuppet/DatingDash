@@ -1,0 +1,33 @@
+using UnityEngine;
+using System.Collections;
+
+public enum ItemTypes 
+{
+	// Cafe
+	APPLE,
+	ORANGE,
+	
+	APPLE_JUCE,
+	APPLE_JUCE_PIPE1,
+	APPLE_JUCE_PIPE2,	
+	
+	ORANGE_JUCE,
+	ORANGE_JUCE_PIPE1,
+	ORANGE_JUCE_PIPE2,	
+	
+	CUP_SMALL,
+	CUP_SMALL_COFFEE,
+	CUP_SMALL_COFFEE_MILK,
+	
+	CUP_BIG,
+	CUP_BIG_COFFEE,
+	CUP_BIG_COFFEE_MILK,
+
+	FRUIT_CAKE,
+	CAKE1, 
+	CAKE2,
+	
+	CROISSANT,
+	
+	UNKNOWN
+}

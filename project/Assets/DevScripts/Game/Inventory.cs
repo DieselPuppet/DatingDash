@@ -75,16 +75,11 @@ public class Inventory : MonoBehaviour
 		_ordersArray.Add(order);
 	}
 	
-	/*public void finishOrder(string orderId)
-	{		
-		foreach (Order order in _ordersArray)
-		{
-			if (order.productID == orderId)
-			{
-				_ordersArray.Remove(order);	
-			}
-		}	
-	}*/
+	public void removeOrder(Order order)
+	{
+		if (_ordersArray.Contains(order))
+			_ordersArray.Remove(order);
+	}
 	
 	public bool canCompleteOrder(string order)
 	{
