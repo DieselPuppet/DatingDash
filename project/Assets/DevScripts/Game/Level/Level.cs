@@ -240,8 +240,10 @@ public class Level : MonoBehaviour
 	{		
 		GameObject customerGO = new GameObject();
 		CustomerDeprecated customer = customerGO.AddComponent<CustomerDeprecated>();
-		customer.pushOrders(orders);
-		customer.configure(desc);	
+		//customer.pushOrders(orders);
+		//customer.configure(desc);	
+		//Customer customer = customerGO.AddComponent<Customer>();
+		customer.configure(desc);
 		
 		if (spawnArea.freePointExist())
 		{	

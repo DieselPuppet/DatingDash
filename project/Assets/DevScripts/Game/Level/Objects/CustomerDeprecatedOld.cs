@@ -70,6 +70,7 @@ public class CustomerDeprecated : MonoBehaviour
 		_sprite = gameObject.AddComponent<tk2dAnimatedSprite>();
 		ContentManager.instance.configureObject(_sprite, _desc.spriteAtlas, _desc.spriteName);
 		ContentManager.instance.precacheAnimation(_sprite, _desc.animationAtlas);
+		Debug.Log("Old animation atlas - "+_desc.animationAtlas);
 		
 		_currentMood = 100;
 		_moodDownSpeed = 60f/desc.moodDownTime;
