@@ -39,6 +39,23 @@ public class Customer : MonoBehaviour
 		}
 	}
 	
+	SpawnPoint _placement;
+	public SpawnPoint placement
+	{
+		get 
+		{
+			return _placement;
+		}
+	}
+	
+	public void place(SpawnPoint p)
+	{
+		gameObject.transform.position = p.transform.position;
+		p.isFree = false;		
+		
+		_placement = p;
+	}
+	
 	int _currentMood;
 	float _moodDownSpeed;
 
@@ -80,7 +97,8 @@ public class Customer : MonoBehaviour
 		
 		if (_statesMap[state].animName != "")
 		{
-			playAnim(_statesMap[state].animName);
+			_sprite.Play(_statesMap[state].animName);
+			//playAnim(_statesMap[state].animName);
 		}
 		
 		switch(state)

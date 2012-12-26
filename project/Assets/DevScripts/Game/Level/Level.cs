@@ -5,7 +5,7 @@ using System.Xml;
 [System.Serializable]
 public class SpawnPoint
 {
-	public Transform point;
+	public Transform transform;
 	
 	[System.NonSerialized] 
 	public bool isFree = true;
@@ -27,16 +27,13 @@ public class SpawnArea
 		return false;
 	}
 	
-	public void placeCustomer(GameObject customer)
+	public void placeCustomer(Customer customer)
 	{
 		foreach(SpawnPoint point in spawnPoints)
 		{
 			if (point.isFree)
 			{
-				// refactor
-				customer.transform.position = point.point.position;
-				customer.GetComponent<CustomerDeprecated>().placement = point;
-				point.isFree = false;
+				customer.place(point);
 				break;
 			}
 		}
@@ -164,9 +161,9 @@ public class Level : MonoBehaviour
 			
 			if (_customerQueue.Count > 0 && spawnArea.freePointExist())
 			{
-				CustomerDeprecated customer = (CustomerDeprecated)_customerQueue[0];
+				Customer customer = (Customer)_customerQueue[0];
 				customer.gameObject.SetActive(true);
-				spawnArea.placeCustomer(customer.gameObject);	
+				spawnArea.placeCustomer(customer);	
 				
 				_customerQueue.RemoveAt(0);
 			}
@@ -239,15 +236,15 @@ public class Level : MonoBehaviour
 	void spawnCustomer(CustomerDesc desc, string[] orders)
 	{		
 		GameObject customerGO = new GameObject();
-		CustomerDeprecated customer = customerGO.AddComponent<CustomerDeprecated>();
+		//CustomerDeprecated customer = customerGO.AddComponent<CustomerDeprecated>();
 		//customer.pushOrders(orders);
 		//customer.configure(desc);	
-		//Customer customer = customerGO.AddComponent<Customer>();
+		Customer customer = customerGO.AddComponent<Customer>();
 		customer.configure(desc);
 		
 		if (spawnArea.freePointExist())
 		{	
-			spawnArea.placeCustomer(customerGO);	
+			spawnArea.placeCustomer(customer);	
 		}
 		else 
 		{
